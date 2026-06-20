@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Comic Sans MS;
+}
+
+button {
+  font-family: Comic Sans MS, Consolas;
+}
+
+@font-face {
+  font-family: "Comic Sans MS";
+  src: url(./varela.ttf) format("truetype");
+}
+
+/* HEADER */
+.header {
+  background: #005b61ef;
+  padding: 0.6rem;
+}
+
+.header .header-title {
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.365), 0 0 10px rgba(0, 255, 255, 0.414), 0 0 18px rgba(0, 255, 255, 0.448), 0 0 40px rgba(0, 255, 255, 0.651);
+  text-align: center;
+}
