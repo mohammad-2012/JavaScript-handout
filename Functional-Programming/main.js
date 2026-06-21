@@ -124,20 +124,36 @@ function handleInput(e) {
 function toggleConsole() {
   isConsoleOpen = !isConsoleOpen;
   consolePanel.classList.toggle("closed", !isConsoleOpen);
-  document.getElementById("toggle-console-btn").textContent = isConsoleOpen
-    ? "▶"
-    : "◀";
+
+  const toggleBtn = document.getElementById("console-toggle-btn");
+  const headerBtn = document.getElementById("toggle-console-btn");
+
+  toggleBtn.classList.toggle("closed", !isConsoleOpen);
+
+  if (isConsoleOpen) {
+    toggleBtn.textContent = "◀";
+    toggleBtn.style.left = "340px";
+    headerBtn.textContent = "◀";
+  } else {
+    toggleBtn.textContent = "▶";
+    toggleBtn.style.left = "0";
+    headerBtn.textContent = "▶";
+  }
 }
 
 function toggleSidebar() {
   isSidebarOpen = !isSidebarOpen;
   sidebar.classList.toggle("closed", !isSidebarOpen);
-  document
-    .getElementById("sidebar-toggle")
-    .classList.toggle("closed", !isSidebarOpen);
-  document.getElementById("sidebar-toggle").textContent = isSidebarOpen
-    ? "◀ بستن"
-    : "▶ باز";
+  const toggleBtn = document.getElementById("sidebar-toggle");
+  toggleBtn.classList.toggle("closed", !isSidebarOpen);
+
+  if (isSidebarOpen) {
+    toggleBtn.textContent = "◀";
+    toggleBtn.style.right = "280px";
+  } else {
+    toggleBtn.textContent = "▶";
+    toggleBtn.style.right = "0";
+  }
 }
 
 function toggleTheme() {

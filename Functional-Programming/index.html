@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- Sidebar Toggle Button (سمت راست) -->
+<button id="sidebar-toggle" onclick="toggleSidebar()">◀</button>
+
 <!-- Sidebar (سمت راست) -->
 <div id="sidebar">
   <div id="sidebar-header">
@@ -16,9 +19,6 @@
   </div>
   <div id="topic-list"></div>
 </div>
-
-<!-- Sidebar Toggle Button (سمت راست) -->
-<button id="sidebar-toggle" onclick="toggleSidebar()">◀</button>
 
 <!-- Main -->
 <div id="main">
@@ -50,7 +50,6 @@
       <div id="con-hdr">
         <span><span class="con-dot"></span>Console</span>
         <button id="clear-btn" onclick="clearCon()">پاک</button>
-        <button id="toggle-console-btn" onclick="toggleConsole()">▶</button>
       </div>
       <div id="con-out">
         <div class="cempty">
@@ -65,6 +64,9 @@
     </div>
   </div>
 </div>
+
+<!-- Console Toggle Button (سمت چپ - بیرون از کنسول) -->
+<button id="console-toggle-btn" onclick="toggleConsole()">▶</button>
 
 <!-- Telegram Badge -->
 <a id="tg-badge" href="https://t.me/mohammad_dev_2012" target="_blank">
