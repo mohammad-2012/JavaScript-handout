@@ -4,7 +4,6 @@
 // ============================================================
 
 const topics = [
-
   // ============================================================
   // 📦 بخش ۱: مقدمات و مفاهیم پایه
   // ============================================================
@@ -47,7 +46,7 @@ console.log(name, age, isStudent);
 function sayHello(name) {
   return "سلام " + name + "!";
 }
-console.log(sayHello("رضا"));`
+console.log(sayHello("رضا"));`,
   },
 
   // --- ۱.۲ متغیرها ---
@@ -151,7 +150,7 @@ function testScope() {
   // console.log(l); // ❌ ReferenceError
   // console.log(c); // ❌ ReferenceError
 }
-testScope();`
+testScope();`,
   },
 
   // --- ۱.۳ انواع داده ---
@@ -248,7 +247,7 @@ console.log('!!"":', !!"");       // false
 console.log("!!null:", !!null);   // false
 console.log("!!undefined:", !!undefined); // false
 console.log("!!NaN:", !!NaN);     // false
-console.log("!!'hello':", !!'hello'); // true`
+console.log("!!'hello':", !!'hello'); // true`,
   },
 
   // --- ۱.۴ عملگرها ---
@@ -350,7 +349,7 @@ console.log("profile?.address?.city:", profile?.address?.city); // undefined
 // Ternary Operator
 let age = 20;
 let status = age >= 18 ? "بزرگسال" : "نوجوان";
-console.log("status:", status);`
+console.log("status:", status);`,
   },
 
   // --- ۱.۵ isNaN ---
@@ -423,7 +422,7 @@ function validateNumber(input) {
 
 console.log(validateNumber("25"));   // ✅
 console.log(validateNumber("abc"));  // ❌
-console.log(validateNumber(""));     // ❌`
+console.log(validateNumber(""));     // ❌`,
   },
 
   // --- ۱.۶ concat ---
@@ -500,7 +499,7 @@ let age = 25;
 console.log("سلام " + name + " شما " + age + " ساله هستید");
 
 // روش مدرن با template literal (توصیه شده)
-console.log(\`سلام \${name} شما \${age} ساله هستید\`);`
+console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
   },
 
   // --- ۱.۷ عملگرهای ریاضی (Math) ---
@@ -596,7 +595,7 @@ console.log("تاس:", dice);
 function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log("randInt(10, 20):", randInt(10, 20));`
+console.log("randInt(10, 20):", randInt(10, 20));`,
   },
 
   // ============================================================
@@ -674,7 +673,7 @@ console.log(display);
 // ============================================
 let theme = null;
 theme ??= "dark";
-console.log(theme); // dark`
+console.log(theme); // dark`,
   },
 
   // --- ۲.۲ حلقه‌ها ---
@@ -759,7 +758,7 @@ for (let i = 0; i < 10; i++) {
   if (i === 3) continue;
   if (i === 7) break;
   console.log(i);
-}`
+}`,
   },
 
   // --- ۲.۳ do-while ---
@@ -819,7 +818,7 @@ let y = 10;
 do {
   console.log("do-while یک بار اجرا شد");
   y++;
-} while (y < 10);`
+} while (y < 10);`,
   },
 
   // ============================================================
@@ -894,7 +893,7 @@ console.log("indexOf(20):", nums.indexOf(20));
 console.log("lastIndexOf(20):", nums.lastIndexOf(20));
 console.log("includes(30):", nums.includes(30));
 console.log("find(n => n > 25):", nums.find(n => n > 25));
-console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`
+console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`,
   },
 
   // --- ۳.۲ متدهای پیشرفته آرایه ---
@@ -971,7 +970,7 @@ console.log("flat(2):", nested.flat(2));
 const nums = [30, 2, 80, 20, 14];
 console.log("sorted:", [...nums].sort((a, b) => a - b));
 console.log("toSorted:", nums.toSorted((a, b) => a - b));
-console.log("original:", nums);`
+console.log("original:", nums);`,
   },
 
   // --- ۳.۳ splice و toSpliced ---
@@ -1026,7 +1025,7 @@ console.log("آرایه بعد از حذف:", colors);
 // ============================================
 let letters = ["a", "b", "c"];
 letters.splice(1, 0, "x", "y");
-console.log("بعد از اضافه:", letters);`
+console.log("بعد از اضافه:", letters);`,
   },
 
   // --- ۳.۴ slice و concat ---
@@ -1065,7 +1064,7 @@ let arr1 = ["a", "b", "c"];
 let arr2 = [1, 2, 3];
 let arr3 = ["x", "y", "z"];
 let merged = arr1.concat(arr2, arr3);
-console.log("concat:", merged);`
+console.log("concat:", merged);`,
   },
 
   // --- ۳.۵ join و split ---
@@ -1108,7 +1107,7 @@ let sentence = "javascript is awesome";
 let words = sentence.split(" ");
 console.log("کلمات:", words);
 console.log("برعکس:", words.reverse().join(" "));
-console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`
+console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`,
   },
 
   // ============================================================
@@ -1180,7 +1179,7 @@ console.log("freeze:", config.debug);
 
 const settings = Object.seal({ theme: "dark", lang: "fa" });
 settings.theme = "light";
-console.log("seal:", settings);`
+console.log("seal:", settings);`,
   },
 
   // ============================================================
@@ -1245,7 +1244,7 @@ console.log("ram, storage:", ram, storage);
 function show({ name, price, color = "نامشخص" }) {
   console.log(\`\${name} - \${price} - \${color}\`);
 }
-show(product);`
+show(product);`,
   },
 
   // --- ۵.۲ Spread و Rest ---
@@ -1306,7 +1305,7 @@ console.log("a, b, others:", a, b, others);
 
 const { name: n, ...otherProps } = { name: "رضا", age: 25, city: "شیراز" };
 console.log("name:", n);
-console.log("otherProps:", otherProps);`
+console.log("otherProps:", otherProps);`,
   },
 
   // ============================================================
@@ -1349,7 +1348,7 @@ console.log("at(-2):", text.at(-2)); // "p"
 // ============================================
 console.log('text[-1]:', text[-1]); // undefined
 console.log('text.at(-1):', text.at(-1)); // "t"
-console.log('text.charAt(-1):', text.charAt(-1)); // ""`
+console.log('text.charAt(-1):', text.charAt(-1)); // ""`,
   },
 
   // --- ۶.۲ indexOf و lastIndexOf ---
@@ -1391,7 +1390,7 @@ console.log('includes("python"):', text.includes("python")); // false
 // startsWith و endsWith
 // ============================================
 console.log('startsWith("java"):', text.startsWith("java")); // true
-console.log('endsWith("script"):', text.endsWith("script")); // true`
+console.log('endsWith("script"):', text.endsWith("script")); // true`,
   },
 
   // --- ۶.۳ trim ---
@@ -1432,7 +1431,7 @@ console.log("ایمیل تمیز:", cleanEmail);
 // trim با فاصله‌های داخلی
 // ============================================
 let multiSpace = "  hello   world  ";
-console.log("trim():", multiSpace.trim());`
+console.log("trim():", multiSpace.trim());`,
   },
 
   // --- ۶.۴ toUpperCase و toLowerCase ---
@@ -1472,7 +1471,7 @@ function compareIgnoreCase(str1, str2) {
   return str1.toLowerCase() === str2.toLowerCase();
 }
 console.log(compareIgnoreCase("Hello", "hello")); // true
-console.log(compareIgnoreCase("Hello", "world")); // false`
+console.log(compareIgnoreCase("Hello", "world")); // false`,
   },
 
   // --- ۶.۵ slice و substring ---
@@ -1510,7 +1509,7 @@ console.log("substring(-7):", text.substring(-7)); // کل رشته
 // ============================================
 let card = "6219861953066601";
 let masked = card.slice(-4).padStart(card.length, "*");
-console.log("مخفی:", masked);`
+console.log("مخفی:", masked);`,
   },
 
   // --- ۶.۶ replace و replaceAll ---
@@ -1550,7 +1549,7 @@ console.log('replace(/دنیا/g, "جهان"):', msg.replace(/دنیا/g, "جه�
 // کاربرد: حذف فاصله‌های اضافی
 // ============================================
 let multiSpace = "hello   world    javascript";
-console.log(multiSpace.replace(/\\s+/g, " "));`
+console.log(multiSpace.replace(/\\s+/g, " "));`,
   },
 
   // --- ۶.۷ padStart و padEnd ---
@@ -1593,7 +1592,8 @@ console.log(masked); // "************6601"
 // ایجاد شماره سفارش
 // ============================================
 let orderNumber = 42;
-console.log(orderNumber.toString().padStart(6, "0")); // "000042"`
+console.log(orderNumber.toString().padStart(6, "0")); // "000042"`,
+  },
 
   // --- ۶.۸ toLocaleString ---
   {
@@ -1651,7 +1651,7 @@ let ratio = 0.75;
 console.log(ratio.toLocaleString("fa-IR", {
   style: "percent",
   minimumFractionDigits: 0
-})); // ۷۵٪`
+})); // ۷۵٪`,
   },
 
   // ============================================================
@@ -1741,7 +1741,7 @@ console.log(power(2, 8)); // 256
 function sum(...numbers) {
   return numbers.reduce((total, n) => total + n, 0);
 }
-console.log(sum(1, 2, 3, 4, 5)); // 15`
+console.log(sum(1, 2, 3, 4, 5)); // 15`,
   },
 
   // --- ۷.۲ this و call/apply/bind ---
@@ -1796,7 +1796,7 @@ introduce.apply(user, [25, "اصفهان"]);
 
 // bind
 const bound = introduce.bind(user, 30);
-bound("مشهد");`
+bound("مشهد");`,
   },
 
   // ============================================================
@@ -1857,7 +1857,7 @@ class Car {
 const myCar = new Car("پژو ۴۰۵");
 myCar.startEngine();
 myCar.accelerate(60);
-console.log(myCar.getInfo());`
+console.log(myCar.getInfo());`,
   },
 
   // --- ۸.۲ Inheritance و Static ---
@@ -1937,7 +1937,7 @@ const dog = new Dog("رکس", "ژرمن");
 dog.makeSound();
 dog.learn("بشین");
 console.log(dog.info);
-console.log(dog.status);`
+console.log(dog.status);`,
   },
 
   // ============================================================
@@ -2015,7 +2015,7 @@ const fakeDOM = {
 };
 const div = fakeDOM.create("div", "سلام", "card");
 div.style.color = "red";
-console.log("المان:", div.tag, div.content);`
+console.log("المان:", div.tag, div.content);`,
   },
 
   // ============================================================
@@ -2100,7 +2100,7 @@ class MouseSimulator {
 
 const sim = new MouseSimulator();
 sim.addEventListener("click", () => console.log("کلیک شبیه‌سازی شد!"));
-sim.trigger("click");`
+sim.trigger("click");`,
   },
 
   // --- ۱۰.۲ رویدادهای کیبورد ---
@@ -2187,7 +2187,7 @@ const kbSim = new KeyboardSimulator();
 kbSim.addEventListener("keydown", (e) => {
   console.log("⌨️ کلید:", e.key, "Ctrl:", e.ctrlKey);
 });
-kbSim.trigger("keydown", { key: "s", ctrlKey: true });`
+kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
   },
 
   // --- ۱۰.۳ رویدادهای ورودی ---
@@ -2271,7 +2271,7 @@ const inputSim = new InputSimulator();
 inputSim.addEventListener("input", (e) => console.log("input:", e.target.value));
 inputSim.addEventListener("change", (e) => console.log("change:", e.target.value));
 inputSim.setValue("hello");
-inputSim.blur();`
+inputSim.blur();`,
   },
 
   // --- ۱۰.۴ رویدادهای فرم ---
@@ -2344,7 +2344,7 @@ class FormSimulator {
 
 const formSim = new FormSimulator();
 formSim.addEventListener("submit", () => console.log("✅ فرم ارسال شد"));
-formSim.submit();`
+formSim.submit();`,
   },
 
   // ============================================================
@@ -2413,7 +2413,7 @@ function countdown(from) {
     }
   }, 300);
 }
-countdown(3);`
+countdown(3);`,
   },
 
   // --- ۱۱.۲ Promise ---
@@ -2481,7 +2481,7 @@ Promise.all([fetchData(1), fetchData(2), fetchData(3)])
 // Promise.race
 // ============================================
 Promise.race([fetchData(3), fetchData(1), fetchData(2)])
-  .then(first => console.log("اولین:", first.data));`
+  .then(first => console.log("اولین:", first.data));`,
   },
 
   // --- ۱۱.۳ Async/Await ---
@@ -2563,7 +2563,7 @@ async function parallel() {
   console.timeEnd("par");
 }
 sequential();
-parallel();`
+parallel();`,
   },
 
   // ============================================================
@@ -2630,7 +2630,7 @@ class Storage {
 
 const store = new Storage();
 store.set("config", { theme: "dark" });
-console.log(store.get("config"));`
+console.log(store.get("config"));`,
   },
 
   // --- ۱۲.۲ JSON ---
@@ -2692,7 +2692,7 @@ try {
   JSON.parse("{ invalid }");
 } catch (err) {
   console.error("❌ JSON نامعتبر:", err.message);
-}`
+}`,
   },
 
   // ============================================================
@@ -2762,7 +2762,7 @@ function createPerson(name, age) {
 
 const ali = createPerson("علی", 24);
 ali.birthday();
-console.log(ali.getAge());`
+console.log(ali.getAge());`,
   },
 
   // ============================================================
@@ -2821,7 +2821,7 @@ fetch("https://jsonplaceholder.typicode.com/posts/100", {
   method: "DELETE"
 })
   .then(res => console.log("✅ حذف شد"))
-  .catch(err => console.error("❌", err));`
+  .catch(err => console.error("❌", err));`,
   },
 
   // --- ۱۴.۲ Axios ---
@@ -2887,7 +2887,7 @@ const axiosSim = {
     return Promise.resolve({ data: { id: 1, name: "علی" } });
   }
 };
-axiosSim.get("/users").then(res => console.log("✅", res.data));`
+axiosSim.get("/users").then(res => console.log("✅", res.data));`,
   },
 
   // ============================================================
@@ -2942,12 +2942,13 @@ console.log("pathname:", location.pathname);
 // ============================================
 console.log("userAgent:", navigator.userAgent);
 console.log("language:", navigator.language);
-console.log("online:", navigator.onLine);`
+console.log("online:", navigator.onLine);`,
   },
-
 ];
 
-// صادر کردن topics
-if (typeof module !== 'undefined' && module.exports) {
+// ============================================================
+// صادر کردن topics برای استفاده در main.js
+// ============================================================
+if (typeof module !== "undefined" && module.exports) {
   module.exports = topics;
 }

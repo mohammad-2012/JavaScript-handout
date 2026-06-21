@@ -125,8 +125,8 @@ function toggleConsole() {
   isConsoleOpen = !isConsoleOpen;
   consolePanel.classList.toggle("closed", !isConsoleOpen);
   document.getElementById("toggle-console-btn").textContent = isConsoleOpen
-    ? "◀"
-    : "▶";
+    ? "▶"
+    : "◀";
 }
 
 function toggleSidebar() {
@@ -136,8 +136,8 @@ function toggleSidebar() {
     .getElementById("sidebar-toggle")
     .classList.toggle("closed", !isSidebarOpen);
   document.getElementById("sidebar-toggle").textContent = isSidebarOpen
-    ? "➤ بستن"
-    : "➤ باز";
+    ? "◀ بستن"
+    : "▶ باز";
 }
 
 function toggleTheme() {
