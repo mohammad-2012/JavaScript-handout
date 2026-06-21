@@ -1,534 +1,197 @@
-/* #link-tag{
-    background-color: rgba(0, 155, 160, 0.534);
-    color: rgb(0, 0, 0);
-    padding: 2px 5px;
-    border-radius: 8px;
-    border: 1px solid black;
-} */
-
-/*lomp*/
-/* .wrapper {
-  display: grid;
-  place-items: center;
-}
-
-.wrapper .lamp-img {
-  width: 270px;
-}
-
-.wrapper .lamp-buttons-wrapper {
-  display: flex;
-  gap: 0.5rem;
-} */
-
-/*end of lomp*/
-
-
-/* //کار با کلاس لیست بخش اول*/
-/* #box{
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  background-color: rgb(99, 99, 99);
-  opacity: 0;
-}
-#box.show-box{
-  opacity: 1;
-} */
-/* //کار با کلاس لیست   end */
-
-
-
-
-/* //کار با کلاس لیست بخش دوم */
-/* .box{
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  background-color: rgb(99, 99, 99);
-}
-
-.circle{
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: brown;
-  transition: all 0.3s ease  ;
-} */
-/* کار با کلاس لیست بخش دوم   end */
-
-/* .dark{
-  background: #444;
-  color:aliceblue
-} */
-
-
-/* insertAdjacentElement */
-/* .image{
-  width:200px;
-   display: block;
-   margin: 0 auto;
-   
-} */
-/*end of  insertAdjacentElement */
-
-
-/* //پروژه یا تمرین کوچیک برا یپیمایش المنت ها */
-/* .container{
-  background-color: rgb(164, 206, 122);
-  border-radius: 9px;
-  padding: 9px;
-  margin-bottom: 4px} 
-.container:first-child {
-background-color: rgb(176, 93, 93);
-}
-.container:nth-child(2){
-  background-color: rgb(116, 201, 201);
-}
-.btn{
-  padding: 4px;
-  background-color: rgb(149, 149, 149);
-  color: rgb(0, 0, 0);
-  border-radius: 9px;
-  cursor: pointer;
-  transition: background-color 0.9s ease , transform 0.3s ease;
-  border: 2px solid black;
-}
-.btn:hover{
-background-color: #000407;
-color: beige;
-transform: scale(1.05);
-} */
-
-
-
-/* 📘 Input Events */
-/* .input{
-  padding: 5px 3px;
-  border-radius: 5px;
-  border: 1px solid #a5a5a5;
-  outline: none;
-} */
-
-
-
-/* <!--📗 chang --> */
-/* form{
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-.input{
-  background-color: rgb(153, 176, 176);
-  padding: 8px;
-  border-radius: 7px;
-  margin: auto 0;
-}
-.btn {
-  background-color: rgb(153, 176, 176);
-  color: rgb(11, 13, 13);
-  padding: 2px;
-  border-radius: 6px;
-  transition: all 0.5s ease;
-}
-
-.btn:hover {
-  background-color: rgb(70, 228, 228); /* تغییر رنگ پس‌زمینه */
-  /* color: black; /* تغییر رنگ متن */
-/* } */
-
-/* h3{
-  padding: 5px; 
-  border-radius: 8px;
-  background-color: rgb(153, 176, 176);
-}
-
-.focus-input{
-  border-color:rgb(0, 255, 255) ;
-}
-p{
-  color: rgb(52, 75, 75);
-}  */
-/* <!--end   📗 chang    end--> */
-
-
-
-
-/* <!-- 📒باتن سابمیت روی فرم ها 📘--> */
-/* body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #dbd7d7;
-background: linear-gradient(90deg, rgba(219, 215, 215, 1) 0%, rgba(110, 29, 181, 0.87) 41%, rgba(0, 212, 255, 0.85) 100%);
-}
-#form{
-border: 1px solid  black;
-padding: 13px;
-border-radius: 8px;
-box-shadow: 1px 2px 6px black;
-width: 260px;
-height: 260px;
-padding-right: 24px;
-box-sizing: border-box;
-margin: 40px 0;
-background: radial-gradient(circle,rgba(143, 162, 255, 1) 0%, rgba(133, 133, 133, 1) 100%);
-
-}
-.input-group{
-  margin-top: 10px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-#text{
-  color: black;
-  font-size: 18px;
-  font-family: bahnschrift;
-  display: block;
-  padding-bottom:5px ;
-}
-input{
-  width: 100%;
-  padding: 5px;
-  border-radius: 7px;
-}
-.btn{
-  padding: 10px;
-  border-radius: 7px;
-  font-weight: bold;
-  display: block;
-  margin: 45px auto;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-.btn:hover{
-  background-color: rgb(179, 231, 214);
-} */
-/* end   📒باتن سابمیت روی فرم ها 📘    end */
-
-
-
-/* 💢💥spotPropagation💢💥   start */
-/* *{
-  color: black;
-  font-size: 18px;
-  font-family: bahnschrift;
-}
-.parent{
-  background-color: rgb(54, 224, 224);
-  color: black;
-  padding: 45px;
-  border-radius: 10px;
-  text-align: center;
-}
-.child{
-  background-color: rgb(187, 255, 238);
-  color: black;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-} */
-
-
-/* ❗❗modal❕❕    start */
-/* body{
-  font-size: 18px;
-  font-family: bahnschrift;
-} */
-/* .overlay{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0 ,0.6);
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.modal{
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-} */
-/* ❗❗modal❕❕    end */
-/* 💢💥spotPropagation💢💥    end */
-
-
-
-/* 📗برقراری روسداد های همگانی روی چندین المنت  */
-/* .box{
-  margin: 15px;
-  padding:7px;
-  border-radius: 7px;
-  border: 1px solid black;
-  background-color: rgb(197, 197, 197);
-} */
-/* 📗برقراری روسداد های همگانی روی چندین المنت       end */
-
-
-
-/* 📒 Event Delegation */
- body{
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  background: #dbd7d7;
-background: linear-gradient(90deg, rgba(219, 215, 215, 1) 0%, rgba(201, 165, 232, 0.87) 41%, rgba(186, 231, 240, 0.85) 100%);
-}
-
-/* .productList{
-   list-style: none; 
-    background-color: rgb(230, 230, 230);
-    padding: 15px;
-    border-radius: 10px;
-}
-.product{
-  display: flex;
-  padding: 12px;
-  justify-content: center;
-  transition: all 1s ease-out;
-}
-.product:hover{
-  background-color: #abd6d6;
-  border-radius: 7px;
-}
-.product-name{
-    font-size: 18px;
-  font-family: bahnschrift;
-  padding-right: 8px;
-  padding-top: 6px;
-}
-.editBtn{
-  padding: 6px;
-    font-family: bahnschrift;
-      box-shadow:
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 40px #00aaff;
-    transition: all 1s ease;
-}
-.editBtn:hover{
-  transform: translateY(-5px);
-}
-.deleteBtn{
-   padding: 5px;
-    font-family: bahnschrift;
-    border-radius: 7px;
-      box-shadow:
-    0 0 5px #84f2f2,
-    0 0 10px #9effff,
-    0 0 20px #a3f4f4,
-    0 0 40px #00aaff;
-     transition: all 1s ease;
-}
-.deleteBtn:hover{
-  transform: translateY(-5px);
-    transition: all 1s ease;
-} */
-/* 📒 Event Delegation    end */
-
-
-/* //click & focus */
-/* .wrapper{
-margin: auto;
-}
-#inputBox{
-  padding: 5px;
-  border-radius: 8px;
-  border: none;
-        box-shadow:
-    0 0 5px #95bbbb,
-    0 0 10px #7ca1a1,
-    0 0 20px #6a8c8c,
-    0 0 40px #00aaff;
-}
-.focusBtn{
-    padding: 5px;
-    font-family: bahnschrift;
-    border-radius: 7px;
-      box-shadow:
-    0 0 5px #95bbbb,
-    0 0 10px #7ca1a1,
-    0 0 20px #6a8c8c,
-    0 0 40px #00aaff;
-     transition: all 1s ease;
-     border: none;
-}
-.focusBtn:hover{
-  transform: translateY(-5px);
-    transition: all 1s ease;
-}
-.clickBtn{
-      padding: 5px;
-    font-family: bahnschrift;
-    border-radius: 7px;
-      box-shadow:
-    0 0 5px #95bbbb,
-    0 0 10px #7ca1a1,
-    0 0 20px #6a8c8c,
-    0 0 40px #00aaff;
-     transition: all 1s ease;
-     border: none;
-     margin-right: 9px;
-}
-.clickBtn:hover{
-  transform: translateY(-5px);
-    transition: all 1s ease;
-} */
-
-
-
-/* 📒 setTimeout < مثال بعدی  */
-/* .welcome-title{
-  display: none;
-}
-.welcome-title.show{
-  display: block; */
-/* } */
-
-
- /* <!-- //🎃🎃animation && transition --> */
-/* #box{
-  background-color: cornflowerblue;
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  transition: transform 0.5s ease , background-color 0.5s ease;
-}
-
-#box.moved{
-  transform: translateY(200px);
-  background-color: tomato;
-} 
-
-/* //مثال بعدی */
-/* .shake{
-  animation: shake 0.4s ease;
-}
-
-@keyframes shake{
-  0%{
-    transform: translate(0);
-  }
-  25%{
-    transform: translate(-5px);
-  }
-   50%{
-    transform: translate(5px);
-  }
-   75%{
-    transform: translate(-5px);
-  }
-   100%{
-    transform: translate(0);
-  }
-}   */
-
-
-
-
-/*  */
-/* //📕پروژه ذخیره نام در مرورگر📘 */
-/* @import url("https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap"); */
-
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: "Vazirmatn", sans-serif;
-  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  background: #f0f4f8;
+  color: #1e293b;
+  padding: 20px;
   min-height: 100vh;
-  margin: 0;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* دکمه‌های موضوع */
+.topic-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.topic-btn {
+  background: #e2e8f0;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1e293b;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.topic-btn:hover {
+  background: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.topic-btn.active {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* بخش اصلی */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.topic-description {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.topic-description h2 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.topic-description p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #334155;
+  margin-bottom: 15px;
+}
+
+.code-block {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+  border-left: 5px solid #3b82f6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* بخش کنسول */
+.console-output {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.console-output h3 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  direction: rtl;
+  gap: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #94a3b8;
 }
 
-input,
-button {
-  font-family: "Vazirmatn", sans-serif;
+.console-output h3 i {
+  color: #38bdf8;
 }
 
-.container {
-  background: #fff;
-  padding: 30px 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-}
-
-.hi-text {
-  margin-bottom: 16px;
-  color: #4a0072;
-}
-
-.placeholder {
-  margin-bottom: 16px;
-}
-
-#nameInput {
-  padding: 12px;
-  width: 80%;
-  margin-bottom: 15px;
-  border: 2px solid #ddd;
+#consoleLogs {
+  background: #0f172a;
+  padding: 15px;
   border-radius: 10px;
-  font-size: 16px;
-  outline: none;
-  transition: 0.3s;
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
-#nameInput:focus {
-  border-color: #8e24aa;
+#consoleLogs .log-item {
+  border-bottom: 1px solid #334155;
+  padding: 6px 0;
 }
 
-.save-btn {
-  background-color: #8e24aa;
+#consoleLogs .log-item:last-child {
+  border-bottom: none;
+}
+
+.clear-btn {
+  margin-top: 12px;
+  background: #ef4444;
   color: white;
   border: none;
-  width: 100%;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 10px;
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-.save-btn:hover {
-  background-color: #6a1b9a;
+.clear-btn:hover {
+  background: #dc2626;
+  transform: scale(1.02);
 }
 
-#welcome {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 15px;
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+  }
+  header h1 {
+    font-size: 1.6rem;
+  }
+  .topic-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  .topic-description h2 {
+    font-size: 1.4rem;
+  }
+  .code-block {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
 }
-
-.logout-btn {
-  margin-top: 20px;
-  background: #ffc8c4;
-  width: 80%;
-  padding: 10px;
-  border: none;
-  border-radius: 9px;
-  transition: all 1s linear;
-  color: black;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.logout-btn:hover {
-  background: #d32f2f;
-} */
-

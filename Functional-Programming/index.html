@@ -1,321 +1,2302 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>جزوه برداری فصل ❕اول❕ دوره جاوااسکریپت😎🤞</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body class="dark">
-    <!-- <button onclick="clickkk()">clickk</button> -->
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>جزوه کامل JavaScript</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --sidebar: #1a1d27;
+      --card: #1e2130;
+      --border: #2a2d3e;
+      --accent: #7c6aff;
+      --accent2: #ff6a9e;
+      --accent3: #00d4aa;
+      --accent4: #ffa940;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --code: #141620;
+      --err: #ff6b6b;
+      --warn: #ffa940;
+    }
+    .light {
+      --bg: #f5f5f0;
+      --sidebar: #ffffff;
+      --card: #f0f0eb;
+      --border: #ddd;
+      --text: #1a1a2e;
+      --muted: #666;
+      --code: #e8e8e0;
+      --accent: #5a4fcf;
+      --accent3: #00a080;
+      --accent4: #d4880a;
+      --err: #cc3333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      font-size: 14px;
+      transition: background 0.3s, color 0.3s;
+    }
 
-    <!-- <button  onclick="this.style.background='blue'">click</button>-->
-    <!-- or -->
-    <!-- <button  onclick="changeColor(this)">click</button> -->
+    /* ── Sidebar ── */
+    #sidebar {
+      width: 280px; min-width: 280px;
+      background: var(--sidebar);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    #sidebar-header {
+      padding: 14px 12px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    #sidebar-header h1 {
+      font-size: 14px; font-weight: 700;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    #search-box {
+      width: 100%; padding: 7px 10px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-size: 12px; outline: none;
+      transition: border-color 0.2s, background 0.3s;
+    }
+    #search-box:focus { border-color: var(--accent); }
+    #search-box::placeholder { color: var(--muted); }
+    #topic-list { flex:1; overflow-y:auto; padding: 6px; }
+    #topic-list::-webkit-scrollbar { width: 3px; }
+    #topic-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .cat-title {
+      font-size: 10px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      padding: 10px 8px 4px;
+    }
+    .topic-item {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 10px; border-radius: 7px;
+      cursor: pointer; transition: all 0.15s;
+      margin-bottom: 1px; font-size: 12px;
+      color: var(--muted);
+    }
+    .topic-item:hover { background: var(--card); color: var(--text); }
+    .topic-item.active {
+      background: rgba(124,106,255,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(124,106,255,0.25);
+    }
+    .topic-badge {
+      margin-right: auto; font-size: 9px;
+      padding: 1px 5px; border-radius: 8px;
+      background: var(--border); color: var(--muted);
+    }
 
-    <!-- <button onclick="console.log(this)">v</button> -->
+    /* ── Main ── */
+    #main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+    #top-bar {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--sidebar);
+      display: flex; align-items: center; gap: 10px;
+      transition: background 0.3s;
+    }
+    #content-title { font-size: 15px; font-weight: 700; flex: 1; }
+    #content-sub { font-size: 11px; color: var(--muted); }
+    .top-btn {
+      padding: 6px 14px; border: none; border-radius: 7px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+    #run-btn {
+      background: linear-gradient(135deg, var(--accent), #9b6aff);
+      color: #fff;
+    }
+    #run-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(124,106,255,0.4); }
+    #theme-btn {
+      background: var(--card); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    #theme-btn:hover { background: var(--border); }
 
-    <!--////////////////////////////////////////////////////////////////////-->
-    <!-- <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolores!</p> -->
-    <!-- <p class="text">Lorem ipsum dolor sit amet cons<strong>vmmvmv</strong> adipisicing elit. Doloremque, dolores!</p> -->
-    <!-- <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolores!</p>
+    #body-area { flex:1; display:flex; overflow:hidden; }
 
-     <h3 id="text2"></h3> -->
+    /* ── Lesson ── */
+    #lesson { flex:1; overflow-y:auto; padding: 20px; }
+    #lesson::-webkit-scrollbar { width: 3px; }
+    #lesson::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .ls h2 { font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 10px; display:flex; align-items:center; gap:8px; }
+    .ls h3 { font-size: 13px; font-weight: 600; color: var(--accent3); margin: 14px 0 6px; }
+    .ls p { color: var(--muted); line-height: 1.8; margin-bottom: 8px; font-size: 13px; }
+    .ls ul { padding-right: 18px; color: var(--muted); line-height: 2; font-size: 13px; }
+    .hl { color: var(--accent4); font-weight: 600; }
+    .tip { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 12px; color: var(--accent3); }
+    .warn { background: rgba(255,169,64,0.08); border: 1px solid rgba(255,169,64,0.2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 12px; color: var(--warn); }
+    .err-box { background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 12px; color: var(--err); }
+    .compare-table { width:100%; border-collapse:collapse; margin: 10px 0; font-size: 12px; }
+    .compare-table th { background: rgba(124,106,255,0.15); color: var(--accent); padding: 8px; text-align: right; border: 1px solid var(--border); }
+    .compare-table td { padding: 7px 8px; border: 1px solid var(--border); color: var(--muted); }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.03); }
 
-    <!--setattribute and get attribute-->
-    <!-- <h2 id="title">hello , how are you today</h2>
-     <img src="./image.png" alt="danger" date="wednesday"/>-->
-    <!-- <a class="link">link</a>   -->
-    <!--end of get a.. set a..-->
+    /* ── Code Block ── */
+    .code-block { background: var(--code); border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; overflow: hidden; transition: background 0.3s; }
+    .code-hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 12px; background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border); font-size: 11px; color: var(--muted);
+    }
+    .dots { display:flex; gap:4px; }
+    .dots span { width:9px; height:9px; border-radius:50%; }
+    .d-r{background:#ff5f57;} .d-y{background:#febc2e;} .d-g{background:#28c840;}
+    .code-run { padding: 2px 8px; background: rgba(124,106,255,0.2); border: 1px solid rgba(124,106,255,0.3); border-radius: 5px; color: var(--accent); font-size: 10px; cursor: pointer; transition: all 0.15s; }
+    .code-run:hover { background: rgba(124,106,255,0.4); }
+    .code-block pre {
+      padding: 14px; overflow-x: auto;
+      font-family: "Cascadia Code","Fira Code",monospace;
+      font-size: 12px; line-height: 1.7;
+      color: #abb2bf;
+      direction: ltr; text-align: left;
+    }
 
-    <!--lomp-->
-    <!-- <div class="wrapper">  -->
-    <!-- <img src="./assets/off-lamp.png" alt="lamp image" class="lamp-image"> -->
-    <!-- buttons -->
-    <!-- <div class="lamp-buttons-wrapper">  
-      <button  onclick="turnOnLamp()">Turn On</button>
-      <button onclick="turnOfLamp()">Turn Of</button>  -->
-    <!-- end of buttons -->
-    <!-- </div>
-     </div>  -->
-    <!--end of lomp-->
+    /* ── Console ── */
+    #console-panel {
+      width: 300px; min-width: 240px;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      background: var(--card);
+      transition: background 0.3s;
+    }
+    #con-hdr {
+      padding: 9px 12px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; font-weight: 600;
+    }
+    .con-dot { width:7px; height:7px; border-radius:50%; background: var(--accent3); animation: pulse 2s infinite; display:inline-block; margin-left:6px; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    #clear-btn { padding: 3px 8px; background: transparent; border: 1px solid var(--border); border-radius: 5px; color: var(--muted); font-size: 10px; cursor: pointer; }
+    #clear-btn:hover { border-color: var(--err); color: var(--err); }
+    #con-out { flex:1; overflow-y:auto; padding: 8px; font-family: "Cascadia Code",monospace; font-size: 11px; direction: ltr; }
+    #con-out::-webkit-scrollbar { width: 2px; }
+    #con-out::-webkit-scrollbar-thumb { background: var(--border); }
+    .cline {
+      display: flex; align-items: flex-start; gap: 6px;
+      padding: 5px 7px; border-radius: 5px; margin-bottom: 3px;
+      border-right: 2px solid transparent;
+      animation: sli 0.2s ease; word-break: break-all;
+      font-size: 11px;
+    }
+    @keyframes sli { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:translateX(0)} }
+    .cline.log { color: var(--text); border-right-color: var(--border); background: rgba(255,255,255,0.02); }
+    .cline.error { color: var(--err); border-right-color: var(--err); background: rgba(255,107,107,0.05); }
+    .cline.warn { color: var(--warn); border-right-color: var(--warn); background: rgba(255,169,64,0.05); }
+    .cline.info { color: var(--accent3); border-right-color: var(--accent3); background: rgba(0,212,170,0.05); }
+    .cempty { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; color:var(--muted); font-size:12px; gap:6px; }
+    #con-input-area { border-top: 1px solid var(--border); display:flex; align-items:center; padding: 6px 10px; gap:6px; }
+    #con-input-area span { color: var(--accent3); font-family:monospace; font-size:13px; }
+    #con-input { flex:1; background:transparent; border:none; outline:none; color:var(--text); font-family:"Cascadia Code",monospace; font-size:11px; direction:ltr; }
+    #con-input::placeholder { color:var(--muted); }
 
-    <!-- chang style of element -->
-    <!-- <button id="btn">button✌</button> -->
-    <!-- end   chang style of element -->
+    /* ── Footer TG ── */
+    #tg-badge {
+      position: fixed; bottom: 12px; left: 12px;
+      background: linear-gradient(135deg, #0088cc, #006aaa);
+      color: #fff; font-size: 11px; font-weight: 600;
+      padding: 6px 12px; border-radius: 20px;
+      text-decoration: none; z-index: 999;
+      display: flex; align-items: center; gap: 5px;
+      box-shadow: 0 4px 16px rgba(0,136,204,0.4);
+      transition: all 0.2s;
+    }
+    #tg-badge:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,136,204,0.6); }
 
-    <!-- کار با کلاس لیست  بخش اول-->
-    <!-- <div id="box"></div> 
-    <button onclick="showBox()">show box😎🤞</button> 
-      <button onclick="hideBox()">hide box😎🤞</button>
-      <button onclick="taggleBox()">toggle box😎🤞</button> -->
-    <!--کار با کلاس لیست  end-->
+    /* ── Welcome ── */
+    #welcome {
+      flex:1; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding: 40px; text-align:center;
+    }
+    #welcome .ic { font-size: 56px; margin-bottom: 16px; }
+    #welcome h2 {
+      font-size: 24px; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    #welcome p { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 420px; margin-bottom: 24px; }
+    .scards { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .sc { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; text-align:center; }
+    .sc .n { font-size: 24px; font-weight: 800; color: var(--accent); }
+    .sc .l { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
-    <!-- کار با کلاس لیست بخش دوم -->
-    <!-- <div class="box"></div>
-      <button onclick="changeShape()">chang shape</button> -->
-    <!-- کار با کلاس لیست بخش دوم  end -->
+    @media(max-width:860px){
+      #sidebar{width:220px;min-width:220px;}
+      #console-panel{width:240px;}
+    }
+    @media(max-width:600px){
+      body{flex-direction:column;height:auto;overflow:auto;}
+      #sidebar{width:100%;min-width:unset;height:180px;}
+      #console-panel{width:100%;border-right:none;border-top:1px solid var(--border);height:200px;}
+      #body-area{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
 
-    <!-- <h2>this is title</h2>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, officiis.</p>
-       <button onclick="togglethems()">Toggle Thems</button> -->
+<!-- Sidebar -->
+<div id="sidebar">
+  <div id="sidebar-header">
+    <h1>⚡ جزوه JavaScript</h1>
+    <input id="search-box" type="text" placeholder="🔍 جستجو..." oninput="filterTopics(this.value)" />
+  </div>
+  <div id="topic-list"></div>
+</div>
 
-    <!-- insertBefore -->
-    <!-- <ul id="laptop-list">
-          <li>microsoft</li>
-          <li>Surface</li>
-          <li>Asuse</li>
-        </ul> -->
-    <!--end of insertBefore-->
-    <!-- insertAdjacentElement -->
+<!-- Main -->
+<div id="main">
+  <div id="top-bar">
+    <div style="flex:1">
+      <div id="content-title">خوش اومدی 👋</div>
+      <div id="content-sub">یه موضوع انتخاب کن</div>
+    </div>
+    <button class="top-btn" id="theme-btn" onclick="toggleTheme()">🌙 دارک</button>
+    <button class="top-btn" id="run-btn" onclick="runCode()">▶ اجرا</button>
+  </div>
 
-    <!-- //berforebegin -->
-    <!-- <div class="container"> -->
-    <!-- //afterbegin -->
-    <!-- <img src="2.webp" alt="image" class="image"> -->
-    <!-- //beforeend -->
-    <!-- </div> -->
-    <!-- //afterend -->
-
-    <!-- end of insertAdjacentElement -->
-
-    <!-- remove & RemoveChild & replacechild -->
-    <!-- <ul class="list">
-          <li>microsoft</li>
-          <li>Surface</li>
-          <li>Asuse</li>
-        </ul> -->
-    <!-- <button onclick="removeList()">remove list </button> -->
-    <!-- <button onclick="replacelistchild()">remove list </button> -->
-
-    <!-- dom traversal -->
-    <!-- <div class="container"> -->
-    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
-    <!-- <button class="btn">button</button> -->
-    <!-- <h3>this is last child </h3> -->
-    <!-- </div> -->
-
-    <!-- //پروژه یا تمرین کوچیک برا یپیمایش المنت ها -->
-    <!-- <div class="container">
-          <h3>this is first box </h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button onclick="removeParent(this)">remove</button>
-         </div>
-         <div class="container">
-          <h3>this is second box</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button onclick="removeParent(this)" >remove</button>
-         </div>
-         <div class="container">
-          <h3>this is third box</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button onclick="removeParent(this)" >remove</button>
-         </div> -->
-
-    <!--start***************** رویداد های موس یا همون روشی که به جای انکلیک یاد می گیریم     📕mouse event📕*****************start-->
-    <!-- <button class="btn">click me</button> -->
-    <!--end***************** رویداد های موس یا همون روشی که به جای انکلیک یاد می گیریم    📕 mouse event📕*****************end-->
-
-    <!-- 📒keayboard event📒 -->
-    <!-- <h2 id="type"></h2> -->
-    <!--end    📒keayboard event📒   end -->
-
-    <!-- 📘 Input Events -->
- <!-- <input type="text" class="input"> 
-           <h3 id="message"></h3>
-           <button class="btn" disabled>login</button>  -->
-    <!--end   📘 Input Events  end-->
-
-    <!--📗 chang -->
-    <!-- <input type="text" class="input"> -->
-
-    <!-- //قسمت بعدی -->
-    <!-- <form action="#">
-              <input type="file" name="profile" class="input">
-              <h3>name:       <span class="name-element"></span></h3>
-              <h3>size:       <span class="size-element"></span></h3>
-              <h3>type:       <span class="type-element"></span></h3>
-              <button type="submit" disabled class="btn">login</button>
-            </form>  -->
-
-    <!-- //1 ادامه ی این قسمت با مبحث جدیدی -->
-    <!-- <form action="#">
-              <select name="city" class="select">
-                 <option value="" disabled selected>Select City</option>
-                 <option value="tabriz" >Tabriz</option>
-                 <option value="shiraz" >Shiraz</option>
-                 <option value="kerman" >Kerman</option>
-                 <option value="ardabil" >Ardabil</option>
-                 <option value="kish" >Kish</option>
-              </select>
-              <button type="submit">login</button>
-             </form>  -->
-
-    <!-- //ادامه ی این قسمت با مبحث جدیدی 2 -->
-    <!-- <form action="#">
-                <input type="checkbox" id="checkbox">
-              </form>  -->
-
-    <!-- قسمت سوم -->
-    <!-- <form action="">
-               <input type="text" class="input">
-               <p class="massage"></p>
-               <button type="submit" class="btn">Login</button>
-               </form> -->
-    <!--end   📗 chang    end-->
-
-    <!-- 📒باتن سابمیت روی فرم ها 📘-->
-    <!-- submit event in forms -->
-    <!-- <form action="#" id="form">
-
-              <div class="input-group">
-              <label for="fullname" id="text">Full Name:</label>
-              <input type="text" id="full-name">
-              </div>
-
-              <div class="input-group">
-              <label for="password" id="text">Password:</label>
-              <input type="password" name="password" id="password" class="password" autocomplete="off">
-              </div>
-
-              <button type="submit" class="btn">Login</button>
-            </form> -->
-    <!-- end   📒باتن سابمیت روی فرم ها 📘    end-->
-
-    <!-- 📘 target  vs  currenttarget -->
-    <!-- <button class="btn">Like <i class="fa fa-heart"></i></button> -->
-    <!-- 📘 target  vs  currenttarget    end -->
-
-    <!-- 💢💥spotPropagation💢💥   start -->
-    <!-- <div class="parent">
-                this is parent 
-                <div class="child">this is child</div>
-              </div> -->
-
-    <!-- ❗❗modal❕❕    start -->
-    <!-- <div class="overlay" id="overlay">
-                <div class="modal" id="modal">
-                  <h2>Modal Title</h2>
-                  <p>this is modal title and Lorem ipsum dolor sit amet. </p>
-                  <button>Click Inside</button>
-                </div>
-               </div> -->
-    <!-- ❗❗modal❕❕    end -->
-    <!-- 💢💥spotPropagation💢💥    end -->
-
-    <!-- //📗برقراری روسداد های همگانی روی چندین المنت -->
-    <!-- <div class="box">
-                <h2>this is box 1</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quisquam?</p>
-                <button type="button" class="btn">remove</button>
-               </div>
-
-                <div class="box">
-                <h2>this is box 2</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quisquam?</p>
-                <button type="button" class="btn">remove</button>
-               </div>
-
-                <div class="box">
-                <h2>this is box 3</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quisquam?</p>
-                <button type="button" class="btn">remove</button>
-               </div> -->
-    <!-- //📗برقراری روسداد های همگانی روی چندین المنت       end-->
-
-    <!-- 📒 Event Delegation -->
-    <!-- <ul class="productList">
-                <li class="product">
-                  <span class="product-name">Product 1</span>
-                  <div>
-                    <button class="editBtn">Edit</button>
-                    <button class="deleteBtn">Delete</button>
-                  </div>
-                </li>
-
-                 <li class="product">
-                  <span class="product-name">Product 2</span>
-                  <div>
-                    <button class="editBtn">Edit</button>
-                    <button class="deleteBtn">Delete</button>
-                  </div>
-                </li>
-
-                 <li class="product">
-                  <span class="product-name">Product 3</span>
-                  <div>
-                    <button class="editBtn">Edit</button>
-                    <button class="deleteBtn">Delete</button>
-                  </div>
-                </li>
-               </ul> 
-    📒 Event Delegation    end
-
-    <!-- //click & focus -->
-    <!-- <div class="wrapper">
-                <input type="text" id="inputBox" placeholder="Type .. . .." >
-                <button class="clickBtn">click btn</button>
-                <button class="focusBtn">focus btn</button>
-               </div> -->
-
-    <!-- 📗  custom attribute -->
-    <!-- <ul class="list">
-                  <li class="item" data-background-color="orange">item 1</li>
-                  <li class="item" data-background-color="purple">item 2</li>
-                  <li class="item" data-background-color="yellow">item 3</li>
-                  <li class="item" data-background-color="blue">item 4</li>
-                </ul> -->
-
-    <!-- setTimeoutپروژه کوچیک با  -->
-    <div class="wrapper">
-                  <button class="increment-btn">+</button>
-                  <h3 class="counter">0</h3>
-                 </div>
-
-    <!-- مثال بعدی -->
-    <!-- <h2 class="welcome-title">welcome to our site🤞</h2>   -->
-    <!-- 📙setinterval  -->
-    <!-- <h3 class="counter">0</h3>  
-      <button class="stopBtn">stop</button> -->
-
-    <!-- //🎃🎃animation && transition🎃🎃 -->
-    <div id="box"></div>
-
-    <!-- 🏆bom -->
-    <!-- <button class="back-btn">back</button>
-     <button class="forward-btn">forward</button> -->
-
-    <!--  -->
-
-    <!-- //📕پروژه ذخیره نام در مرورگر📘 -->
-    <!-- <div class="container">
-      <div id="form-section">
-        <h2 class="hi-text">سلام رفیق! 👋</h2>
-        <p class="placeholder">لطفاً اسمت رو وارد کن تا بهت خوش‌آمد بگم</p>
-        <input type="text" id="nameInput" placeholder="مثلاً صوفی" />
-        <button class="save-btn">تایید</button>
+  <div id="body-area">
+    <div id="lesson">
+      <div id="welcome">
+        <div class="ic">⚡</div>
+        <h2>جزوه کامل JavaScript</h2>
+        <p>از متغیر تا OOP، از DOM تا Async — همه چیز اینجاست. موضوع انتخاب کن، توضیح بخون، کد اجرا کن!</p>
+        <div class="scards">
+          <div class="sc"><div class="n">۵۰+</div><div class="l">موضوع</div></div>
+          <div class="sc"><div class="n">۲۰۰+</div><div class="l">مثال کد</div></div>
+          <div class="sc"><div class="n">OOP</div><div class="l">کامل</div></div>
+        </div>
       </div>
+    </div>
 
-      <div id="welcome" style="display: none"></div>
-      <button class="logout-btn" style="display: none">خروج</button>
-    </div> -->
+    <!-- Console -->
+    <div id="console-panel">
+      <div id="con-hdr">
+        <span><span class="con-dot"></span>Console</span>
+        <button id="clear-btn" onclick="clearCon()">پاک</button>
+      </div>
+      <div id="con-out">
+        <div class="cempty">
+          <span style="font-size:28px;opacity:0.3">🖥️</span>
+          <span>کنسول خالیه</span>
+        </div>
+      </div>
+      <div id="con-input-area">
+        <span>›</span>
+        <input id="con-input" type="text" placeholder="کد بنویس → Enter" onkeydown="handleInput(event)" dir="ltr" />
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- 📘 Error Handeling -->
-    <!-- <h3 class="error-message"></h3> -->
+<!-- Telegram Badge -->
+<a id="tg-badge" href="https://t.me/mohammad_dev_2012" target="_blank">
+  ✈️ @mohammad_dev_2012
+</a>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
-      integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./main.js"></script>
-  </body>
+<script>
+// ══════════════════════════════════════════
+//              داده‌های موضوعات
+// ══════════════════════════════════════════
+const topics = [
+
+  // ─── مقدمات ───
+  { cat:"مقدمات", id:"vars", icon:"📦", title:"متغیرها", badge:"پایه",
+    content:`<div class="ls">
+      <h2>📦 متغیرها (Variables)</h2>
+      <p>متغیر مثل یه جعبه‌ست که مقدار داخلش نگه می‌داری. سه روش برای ساخت داریم:</p>
+      <h3>🔷 var — قدیمی (استفاده نکن!)</h3>
+      <p><span class="hl">function-scoped</span> هست — یعنی فقط داخل تابع محدود می‌شه نه block. <span class="hl">Hoisting</span> هم داره — قبل از تعریف undefined می‌ده نه error. این رفتارها باعث باگ می‌شن.</p>
+      <h3>🔷 let — برای مقادیر قابل تغییر ✅</h3>
+      <p><span class="hl">block-scoped</span> هست. داخل if، for، و هر {} محدود می‌مونه. می‌شه مقدارش رو عوض کرد.</p>
+      <h3>🔷 const — برای ثابت‌ها ✅</h3>
+      <p>مثل let ولی مقدارش قابل reassign نیست. ولی اگه آرایه یا آبجکت باشه، محتواشون قابل تغییره!</p>
+      <div class="tip">💡 قانون: همیشه اول const بزن. اگه خواستی تغییر بدی، let. هیچ‌وقت var!</div>
+      <table class="compare-table">
+        <tr><th>ویژگی</th><th>var</th><th>let</th><th>const</th></tr>
+        <tr><td>Scope</td><td>function</td><td>block</td><td>block</td></tr>
+        <tr><td>Hoisting</td><td>✅ (undefined)</td><td>❌</td><td>❌</td></tr>
+        <tr><td>Reassign</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Re-declare</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      </table>
+    </div>`,
+    code:`// var - قدیمی، مشکل‌دار
+var x = 10;
+var x = 20; // دوباره declare - نه error!
+console.log(x); // 20
+
+// Hoisting با var
+console.log(hoisted); // undefined (نه error!)
+var hoisted = "hello";
+
+// let - پیشنهادی برای متغیر
+let age = 20;
+age = 21; // تغییر مجاز
+console.log("سن:", age);
+
+// const - برای مقادیر ثابت
+const PI = 3.14159;
+// PI = 3; // ❌ TypeError
+
+// ولی محتوای آرایه/آبجکت قابل تغییره
+const arr = [1, 2, 3];
+arr.push(4); // ✅ مجاز
+console.log(arr);
+
+const obj = { name: "علی" };
+obj.age = 25; // ✅ مجاز
+console.log(obj);
+
+// Block Scope
+{
+  let blockVar = "فقط اینجام";
+  const blockConst = "منم";
+  console.log(blockVar);
+}
+// console.log(blockVar); // ❌ ReferenceError`
+  },
+
+  { cat:"مقدمات", id:"types", icon:"🔢", title:"انواع داده", badge:"پایه",
+    content:`<div class="ls">
+      <h2>🔢 انواع داده (Data Types)</h2>
+      <p>جاوااسکریپت ۸ نوع داده داره. ۷ تا <span class="hl">Primitive</span> (مقداری) و یکی <span class="hl">Object</span> (مرجعی).</p>
+      <h3>Primitive Types — مقدار مستقیم ذخیره می‌شه:</h3>
+      <ul>
+        <li><span class="hl">String</span> — متن: "hello", 'world', \`template\`</li>
+        <li><span class="hl">Number</span> — عدد: 42, 3.14, -5, Infinity, NaN</li>
+        <li><span class="hl">Boolean</span> — true یا false</li>
+        <li><span class="hl">undefined</span> — متغیر تعریف شده ولی مقدار نداره</li>
+        <li><span class="hl">null</span> — عمداً خالی گذاشتیم (نوعش object ←باگ JS!)</li>
+        <li><span class="hl">BigInt</span> — اعداد بزرگ: 9007199254740991n</li>
+        <li><span class="hl">Symbol</span> — مقدار منحصربه‌فرد</li>
+      </ul>
+      <h3>Reference Type — آدرس ذخیره می‌شه:</h3>
+      <ul>
+        <li><span class="hl">Object</span> — آرایه، آبجکت، تابع، Map، Set، ...</li>
+      </ul>
+      <h3>Falsy Values — مقادیری که false حساب می‌شن:</h3>
+      <p><span class="hl">0</span>, <span class="hl">""</span>, <span class="hl">null</span>, <span class="hl">undefined</span>, <span class="hl">NaN</span>, <span class="hl">false</span>, <span class="hl">0n</span></p>
+      <div class="warn">⚠️ typeof null → "object" — این یه باگ تاریخی جاوااسکریپته که برای همیشه موند!</div>
+      <div class="tip">💡 با typeof می‌تونی نوع داده رو چک کنی. برای null باید === null بزنی.</div>
+    </div>`,
+    code:`// String
+let name = "محمد";
+let singleQ = 'علی';
+let template = \`سلام \${name}!\`; // Template Literal
+console.log(template);
+
+// Number
+console.log(42);
+console.log(3.14);
+console.log(Infinity);
+console.log(NaN); // Not a Number
+console.log(isNaN("hello")); // true
+console.log(isNaN(42));      // false
+
+// Boolean
+let isLoggedIn = true;
+console.log(typeof isLoggedIn); // "boolean"
+
+// undefined vs null
+let notDefined;
+let emptyOnPurpose = null;
+console.log(typeof notDefined);      // "undefined"
+console.log(typeof emptyOnPurpose);  // "object" ← باگ!
+console.log(emptyOnPurpose === null); // true ← اینجوری چک کن
+
+// Type Conversion
+console.log(Number("42"));    // 42
+console.log(Number(true));    // 1
+console.log(Number(false));   // 0
+console.log(Number(null));    // 0
+console.log(Number("hello")); // NaN
+
+console.log(String(42));    // "42"
+console.log(String(true));  // "true"
+
+console.log(Boolean(0));    // false
+console.log(Boolean(""));   // false
+console.log(Boolean(null)); // false
+console.log(Boolean(1));    // true
+console.log(Boolean("hi")); // true`
+  },
+
+  { cat:"مقدمات", id:"operators", icon:"➕", title:"عملگرها", badge:"پایه",
+    content:`<div class="ls">
+      <h2>➕ عملگرها (Operators)</h2>
+      <h3>عملگرهای ریاضی:</h3>
+      <ul>
+        <li><span class="hl">+</span> جمع | <span class="hl">-</span> تفریق | <span class="hl">*</span> ضرب | <span class="hl">/</span> تقسیم</li>
+        <li><span class="hl">%</span> باقیمانده | <span class="hl">**</span> توان</li>
+        <li><span class="hl">++</span> یک واحد افزایش | <span class="hl">--</span> یک واحد کاهش</li>
+      </ul>
+      <h3>عملگرهای انتساب:</h3>
+      <p><span class="hl">= += -= *= /= %= **=</span></p>
+      <h3>عملگرهای مقایسه‌ای:</h3>
+      <ul>
+        <li><span class="hl">==</span> برابری بدون چک نوع (اجتناب کن!)</li>
+        <li><span class="hl">===</span> برابری دقیق با چک نوع ✅</li>
+        <li><span class="hl">!= / !==</span> نابرابری</li>
+        <li><span class="hl">&lt; &gt; &lt;= &gt;=</span> مقایسه عددی</li>
+      </ul>
+      <h3>عملگرهای منطقی:</h3>
+      <ul>
+        <li><span class="hl">&&</span> AND — هر دو باید true باشن</li>
+        <li><span class="hl">||</span> OR — یکی کافیه</li>
+        <li><span class="hl">!</span> NOT — برعکس می‌کنه</li>
+        <li><span class="hl">??</span> Nullish — اگه null یا undefined بود، جایگزین بده</li>
+        <li><span class="hl">?.</span> Optional Chaining — اگه وجود نداشت، undefined (نه error)</li>
+      </ul>
+      <div class="warn">⚠️ همیشه از === استفاده کن نه ==. مثلاً: 0 == false → true ولی 0 === false → false</div>
+    </div>`,
+    code:`// ریاضی
+console.log(10 + 3);   // 13
+console.log(10 % 3);   // 1 (باقیمانده)
+console.log(2 ** 10);  // 1024
+
+let x = 5;
+x++;
+console.log(x); // 6
+x--;
+console.log(x); // 5
+
+// انتساب
+let n = 10;
+n += 5;  console.log(n); // 15
+n -= 2;  console.log(n); // 13
+n *= 2;  console.log(n); // 26
+n **= 2; console.log(n); // 676
+
+// مقایسه - فرق == و ===
+console.log(5 == "5");   // true  ← خطرناک!
+console.log(5 === "5");  // false ← درست
+console.log(null == undefined);   // true
+console.log(null === undefined);  // false
+
+// منطقی
+console.log(true && false);  // false
+console.log(true || false);  // true
+console.log(!true);          // false
+
+// Nullish Coalescing (??)
+let user = null;
+console.log(user ?? "مهمان");  // مهمان
+// تفاوت با ||:
+let zero = 0;
+console.log(zero || "پیش‌فرض");  // پیش‌فرض (چون 0 falsy)
+console.log(zero ?? "پیش‌فرض");  // 0 (چون 0 نه null نه undefined)
+
+// Optional Chaining (?.)
+let profile = { user: { name: "علی" } };
+console.log(profile?.user?.name);    // علی
+console.log(profile?.address?.city); // undefined (نه error!)`
+  },
+
+  // ─── کنترل جریان ───
+  { cat:"کنترل جریان", id:"conditions", icon:"🔀", title:"شرط‌ها", badge:"پایه",
+    content:`<div class="ls">
+      <h2>🔀 شرط‌ها (Conditionals)</h2>
+      <h3>if / else if / else</h3>
+      <p>ساده‌ترین روشه. شرط‌ها رو یکی یکی چک می‌کنه. اولی که درست باشه اجرا می‌کنه، بقیه رد می‌شه.</p>
+      <h3>Ternary Operator (عملگر سه‌تایی)</h3>
+      <p>نسخه فشرده if/else: <span class="hl">شرط ? مقدارTrue : مقدارFalse</span></p>
+      <p>فقط برای حالت‌های ساده استفاده کن. برای منطق پیچیده if استفاده کن.</p>
+      <h3>switch / case</h3>
+      <p>وقتی یه متغیر رو با چند مقدار مشخص مقایسه می‌کنیم. از <span class="hl">===</span> استفاده می‌کنه.</p>
+      <div class="warn">⚠️ فراموش نکن break بزاری! بدون break، همه case‌های بعدی هم اجرا می‌شن (fall-through).</div>
+      <h3>Short-circuit Evaluation</h3>
+      <p>جاوااسکریپت به محض یافتن جواب، ادامه رو ارزیابی نمی‌کنه. این برای کدهای کوتاه کاربرده.</p>
+    </div>`,
+    code:`// if / else if / else
+let score = 78;
+if (score >= 90) {
+  console.log("A - عالی!");
+} else if (score >= 80) {
+  console.log("B - خوب");
+} else if (score >= 70) {
+  console.log("C - قابل قبول");
+} else {
+  console.log("مردود");
+}
+
+// Ternary
+let age = 20;
+let msg = age >= 18 ? "بزرگسال" : "نوجوان";
+console.log(msg);
+
+// تودرتو ternary (با احتیاط!)
+let grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
+console.log(grade);
+
+// switch/case
+let day = "monday";
+switch (day) {
+  case "saturday":
+  case "friday":
+    console.log("تعطیل!");
+    break;
+  case "monday":
+    console.log("اول هفته...");
+    break;
+  default:
+    console.log("روز عادی");
+}
+
+// Short-circuit
+let isLoggedIn = false;
+isLoggedIn && console.log("به داشبورد خوش اومدی"); // اجرا نمی‌شه
+
+let username = "";
+let display = username || "مهمان";
+console.log(display); // مهمان
+
+// ??= (Nullish Assignment)
+let theme = null;
+theme ??= "dark";
+console.log(theme); // dark`
+  },
+
+  { cat:"کنترل جریان", id:"loops", icon:"🔄", title:"حلقه‌ها", badge:"پایه",
+    content:`<div class="ls">
+      <h2>🔄 حلقه‌ها (Loops)</h2>
+      <h3>for — وقتی تعداد تکرار معلومه</h3>
+      <p>سه بخش داره: <span class="hl">مقداردهی اولیه ; شرط ; به‌روزرسانی</span></p>
+      <h3>while — تا وقتی شرط برقراره</h3>
+      <p>اول شرط رو چک می‌کنه. اگه از اول false باشه، اصلاً اجرا نمی‌شه.</p>
+      <h3>do...while — حداقل یه بار</h3>
+      <p>اول اجرا می‌کنه، بعد شرط رو چک می‌کنه. حتی اگه شرط false باشه، یه بار اجرا می‌شه.</p>
+      <h3>for...of — پیمایش روی آرایه و string ✅</h3>
+      <h3>for...in — پیمایش روی کلیدهای آبجکت ✅</h3>
+      <h3>break و continue</h3>
+      <ul>
+        <li><span class="hl">break</span> — از حلقه خارج می‌شه</li>
+        <li><span class="hl">continue</span> — این iteration رو رد می‌کنه، ادامه می‌ده</li>
+      </ul>
+      <div class="warn">⚠️ مراقب infinite loop! مطمئن شو شرط یه روزی false می‌شه.</div>
+    </div>`,
+    code:`// for loop
+for (let i = 1; i <= 5; i++) {
+  process.stdout ? null : console.log("شماره: " + i);
+}
+// ساده‌تر:
+for (let i = 1; i <= 5; i++) console.log("i =", i);
+
+// اعداد زوج با for
+let evens = [];
+for (let i = 0; i <= 10; i += 2) evens.push(i);
+console.log("زوج‌ها:", evens);
+
+// while
+let count = 3;
+while (count > 0) {
+  console.log("شمارش: " + count);
+  count--;
+}
+
+// do...while
+let num = 100;
+do {
+  console.log("یه بار اجرا شد حتی با شرط نادرست: " + num);
+  num--;
+} while (num > 100); // false از اول
+
+// for...of روی آرایه
+let fruits = ["سیب", "موز", "انگور"];
+for (let fruit of fruits) {
+  console.log("🍎", fruit);
+}
+
+// for...of روی string
+for (let char of "hello") process.stdout ? null : null;
+console.log([..."hello"]); // تبدیل به آرایه
+
+// for...in روی آبجکت
+let person = { name: "علی", age: 25 };
+for (let key in person) {
+  console.log(key + ":", person[key]);
+}
+
+// break & continue
+for (let i = 0; i < 10; i++) {
+  if (i === 3) continue; // 3 رو رد کن
+  if (i === 7) break;    // از 7 خارج شو
+  console.log(i);
+}`
+  },
+
+  // ─── توابع ───
+  { cat:"توابع", id:"functions", icon:"⚙️", title:"توابع", badge:"مهم",
+    content:`<div class="ls">
+      <h2>⚙️ توابع (Functions)</h2>
+      <p>تابع یه بلاک کده که یه کار مشخص انجام می‌ده و می‌شه چندبار صداش زد. <span class="hl">DRY</span> = Don't Repeat Yourself.</p>
+      <h3>۱. Function Declaration (اعلان تابع)</h3>
+      <p>با کلمه <span class="hl">function</span> تعریف می‌شه. <span class="hl">Hoisting</span> داره — می‌شه قبل از تعریف صداش زد.</p>
+      <h3>۲. Function Expression (تابع در متغیر)</h3>
+      <p>تابع رو داخل متغیر می‌ریزیم. Hoisting ندارد — باید قبل از استفاده تعریف بشه.</p>
+      <h3>۳. Arrow Function ✅ پیشنهادی</h3>
+      <p>نسخه کوتاه‌تر. اگه یه خطی باشه، {} و return لازم نیست. <span class="hl">this</span> مستقل ندارد.</p>
+      <h3>۴. IIFE (تابع خودصداکننده)</h3>
+      <p>فوری اجرا می‌شه. برای ایزوله کردن scope.</p>
+      <h3>پارامترهای پیشرفته:</h3>
+      <ul>
+        <li><span class="hl">Default Parameter</span> — مقدار پیش‌فرض اگه چیزی ندادن</li>
+        <li><span class="hl">Rest Operator (...)</span> — بقیه آرگومان‌ها رو آرایه می‌کنه</li>
+      </ul>
+      <div class="tip">💡 return مقداری برمی‌گردونه و تابع رو متوقف می‌کنه. بدون return، تابع undefined برمی‌گردونه.</div>
+    </div>`,
+    code:`// 1. Function Declaration (hoisting دارد)
+sayHi(); // قبل از تعریف کار می‌کنه!
+function sayHi() {
+  console.log("سلام!");
+}
+
+// 2. Function Expression
+const add = function(a, b) {
+  return a + b;
+};
+console.log(add(3, 4)); // 7
+
+// 3. Arrow Function ✅
+const multiply = (a, b) => a * b; // return ضمنی
+console.log(multiply(5, 6)); // 30
+
+const greet = name => "سلام " + name; // یه پارامتر - پرانتز اختیاریه
+console.log(greet("علی"));
+
+const getInfo = (name, age) => ({  // برگشت object → نیاز به ()
+  name,
+  age
+});
+console.log(getInfo("رضا", 25));
+
+// 4. IIFE
+(function() {
+  console.log("خودکار اجرا شدم!");
+})();
+
+// با arrow:
+(() => console.log("من هم!"))();
+
+// Default Parameters
+function power(base, exp = 2) {
+  return base ** exp;
+}
+console.log(power(3));    // 9
+console.log(power(2, 8)); // 256
+
+// Rest Operator
+function sum(...numbers) {
+  return numbers.reduce((total, n) => total + n, 0);
+}
+console.log(sum(1, 2, 3, 4, 5)); // 15
+console.log(sum(10, 20));         // 30`
+  },
+
+  { cat:"توابع", id:"this", icon:"👉", title:"this و call/apply/bind", badge:"پیشرفته",
+    content:`<div class="ls">
+      <h2>👉 this در جاوااسکریپت</h2>
+      <p><span class="hl">this</span> به آبجکت فعلی اشاره می‌کنه. مقدارش بستگی به نحوه فراخوانی تابع داره.</p>
+      <h3>this در آبجکت:</h3>
+      <p>داخل method آبجکت، this به خود آبجکت اشاره می‌کنه. ولی با <span class="hl">arrow function</span> به this بیرون اشاره می‌کنه!</p>
+      <h3>call() — فراخوانی با this دستی + آرگومان جداگانه</h3>
+      <h3>apply() — مثل call ولی آرگومان‌ها آرایه‌ای</h3>
+      <h3>bind() — یه تابع جدید می‌سازه با this از پیش تعیین شده</h3>
+      <table class="compare-table">
+        <tr><th>متد</th><th>فراخوانی</th><th>آرگومان‌ها</th></tr>
+        <tr><td>call</td><td>فوری</td><td>جداگانه: fn.call(obj, a, b)</td></tr>
+        <tr><td>apply</td><td>فوری</td><td>آرایه: fn.apply(obj, [a, b])</td></tr>
+        <tr><td>bind</td><td>بعداً</td><td>جداگانه، تابع جدید برمی‌گردونه</td></tr>
+      </table>
+      <div class="warn">⚠️ Arrow function this مستقل نداره — از this بیرونی ارث می‌بره. پس داخل آبجکت method، از function معمولی استفاده کن.</div>
+    </div>`,
+    code:`// this در آبجکت
+const person = {
+  name: "محمد",
+  // با function معمولی: this = person ✅
+  greet: function() {
+    console.log("سلام، " + this.name);
+  },
+  // با arrow: this = global/undefined ❌
+  greetArrow: () => {
+    console.log("سلام،", typeof this); // undefined در strict mode
+  }
+};
+person.greet();      // سلام، محمد ✅
+person.greetArrow(); // سلام، object/undefined
+
+// function خارج از آبجکت
+function introduce(age, city) {
+  console.log(\`\${this.name} - \${age} ساله - \${city}\`);
+}
+
+const user = { name: "علی" };
+
+// call: آرگومان جداگانه
+introduce.call(user, 25, "تهران");
+
+// apply: آرگومان آرایه‌ای
+introduce.apply(user, [25, "اصفهان"]);
+
+// bind: تابع جدید می‌سازه
+const boundIntroduce = introduce.bind(user, 30);
+boundIntroduce("مشهد");
+
+// مثال عملی bind
+const button = {
+  label: "دکمه",
+  click: function() {
+    console.log(this.label + " کلیک شد");
+  }
+};
+
+const clickHandler = button.click.bind(button);
+setTimeout(clickHandler, 100); // بعد از 100ms`
+  },
+
+  // ─── آرایه‌ها ───
+  { cat:"آرایه‌ها", id:"array-basics", icon:"📋", title:"آرایه‌ها — مقدمات", badge:"مهم",
+    content:`<div class="ls">
+      <h2>📋 آرایه‌ها (Arrays)</h2>
+      <p>آرایه لیست مرتبی از مقادیره. ایندکس از 0 شروع می‌شه.</p>
+      <h3>ایجاد آرایه:</h3>
+      <p><span class="hl">[]</span> پیشنهادی | <span class="hl">new Array()</span> قدیمی</p>
+      <h3>اضافه/حذف:</h3>
+      <ul>
+        <li><span class="hl">push()</span> → آخر اضافه، طول جدید برمی‌گردونه</li>
+        <li><span class="hl">pop()</span> → آخری رو حذف، اون عنصر رو برمی‌گردونه</li>
+        <li><span class="hl">unshift()</span> → اول اضافه، طول جدید برمی‌گردونه</li>
+        <li><span class="hl">shift()</span> → اولی رو حذف، اون عنصر رو برمی‌گردونه</li>
+        <li><span class="hl">splice(start, deleteCount, ...items)</span> → حذف/اضافه/جایگزین — آرایه اصلی رو تغییر می‌ده!</li>
+        <li><span class="hl">toSpliced()</span> ✅ → مثل splice ولی آرایه اصلی رو تغییر نمی‌ده</li>
+      </ul>
+      <h3>جستجو:</h3>
+      <ul>
+        <li><span class="hl">indexOf()</span> → ایندکس اولین تطابق (-1 اگه نبود)</li>
+        <li><span class="hl">lastIndexOf()</span> → آخرین تطابق</li>
+        <li><span class="hl">includes()</span> → true/false</li>
+        <li><span class="hl">find()</span> → اولین عنصری که شرط داره (یا undefined)</li>
+        <li><span class="hl">findIndex()</span> → ایندکسش</li>
+        <li><span class="hl">findLast() / findLastIndex()</span> → از آخر</li>
+      </ul>
+    </div>`,
+    code:`const arr = [3, 1, 4, 1, 5, 9, 2, 6];
+
+// خواندن
+console.log(arr[0]);              // 3
+console.log(arr[arr.length - 1]); // 6
+console.log(arr.at(-1));          // 6 ✅ (روش مدرن)
+console.log(arr.at(-2));          // 2
+
+// push/pop
+arr.push(100);
+console.log("بعد push:", arr);
+let removed = arr.pop();
+console.log("حذف شد:", removed);
+
+// unshift/shift
+arr.unshift(0);
+console.log("بعد unshift:", arr);
+arr.shift();
+console.log("بعد shift:", arr);
+
+// splice - آرایه اصلی رو تغییر می‌ده!
+let fruits = ["apple", "banana", "mango", "grape"];
+fruits.splice(1, 2, "cherry");  // از ایندکس 1، دوتا حذف، cherry اضافه
+console.log(fruits); // ["apple", "cherry", "grape"]
+
+// toSpliced - آرایه جدید ✅
+let original = ["a", "b", "c", "d"];
+let newArr = original.toSpliced(1, 1, "x");
+console.log(original); // ["a", "b", "c", "d"] تغییر نکرد
+console.log(newArr);   // ["a", "x", "c", "d"]
+
+// جستجو
+let nums = [10, 20, 30, 20, 40];
+console.log(nums.indexOf(20));     // 1
+console.log(nums.lastIndexOf(20)); // 3
+console.log(nums.includes(30));    // true
+console.log(nums.find(n => n > 25));      // 30
+console.log(nums.findIndex(n => n > 25)); // 2`
+  },
+
+  { cat:"آرایه‌ها", id:"array-methods", icon:"🛠️", title:"متدهای پیشرفته آرایه", badge:"مهم",
+    content:`<div class="ls">
+      <h2>🛠️ متدهای پیشرفته آرایه</h2>
+      <p>این متدها <span class="hl">آرایه اصلی رو تغییر نمی‌دن</span> — آرایه یا مقدار جدید برمی‌گردونن.</p>
+      <h3>map() — تبدیل هر عنصر</h3>
+      <p>روی همه عناصر اجرا می‌شه و آرایه جدید با نتیجه برمی‌گردونه. همیشه return کن!</p>
+      <h3>filter() — فیلتر بر اساس شرط</h3>
+      <p>فقط عناصری که شرط true دارن رو نگه می‌داره. آرایه‌ای از عناصر برمی‌گردونه.</p>
+      <h3>reduce() — جمع‌بندی به یه مقدار</h3>
+      <p>آرایه رو به یه مقدار کاهش می‌ده. acc = مجموع تا الان، current = عنصر فعلی.</p>
+      <h3>forEach() — فقط اجرا، بدون برگشت</h3>
+      <p>مثل map ولی undefined برمی‌گردونه. برای عملیات جانبی (side effects) مثل log.</p>
+      <h3>some() — حداقل یکی شرط داره؟</h3>
+      <h3>every() — همه شرط دارن؟</h3>
+      <h3>flat() — آرایه تودرتو رو صاف می‌کنه</h3>
+      <h3>slice(start, end) — برش بدون تغییر اصلی</h3>
+      <h3>sort() / toSorted() — مرتب‌سازی</h3>
+      <div class="tip">💡 map/filter/reduce آرایه اصلی رو تغییر نمی‌دن. forEach هم تغییر نمی‌ده ولی undefined برمی‌گردونه.</div>
+      <div class="warn">⚠️ sort() بدون callback، عددها رو به عنوان string مرتب می‌کنه! همیشه callback بده.</div>
+    </div>`,
+    code:`const numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3];
+
+// map - ضرب در 2
+const doubled = numbers.map(n => n * 2);
+console.log("map:", doubled);
+
+// تبدیل دلار به تومان
+const dollars = [10, 25, 100, 50];
+const tomans = dollars.map(d => (d * 60000).toLocaleString("fa-IR") + " تومان");
+console.log(tomans);
+
+// filter - اعداد بزرگ‌تر از 4
+const bigNums = numbers.filter(n => n > 4);
+console.log("filter:", bigNums); // [5, 9, 6, 5]
+
+// فیلتر آبجکت‌ها
+const students = [
+  { name: "علی", score: 85 },
+  { name: "رضا", score: 45 },
+  { name: "سارا", score: 92 },
+];
+const passed = students.filter(s => s.score >= 60);
+console.log("قبول‌شدگان:", passed.map(s => s.name));
+
+// reduce - جمع کل
+const sum = numbers.reduce((acc, n) => acc + n, 0);
+console.log("جمع:", sum);
+
+// reduce برای ساختن آبجکت
+const cart = [
+  { name: "کتاب", price: 50000, qty: 2 },
+  { name: "قلم", price: 10000, qty: 5 },
+];
+const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+console.log("جمع سبد:", total.toLocaleString("fa-IR"));
+
+// some & every
+console.log(numbers.some(n => n > 8));  // true (9 هست)
+console.log(numbers.every(n => n > 0)); // true همه > 0
+
+// flat
+const nested = [1, [2, 3], [4, [5, 6]]];
+console.log(nested.flat());       // [1, 2, 3, 4, [5, 6]]
+console.log(nested.flat(2));      // [1, 2, 3, 4, 5, 6]
+console.log(nested.flat(Infinity)); // همه سطح‌ها
+
+// sort - عددی
+const nums = [30, 2, 80, 20, 14];
+const sorted = [...nums].sort((a, b) => a - b); // صعودی
+console.log("صعودی:", sorted);
+console.log("نزولی:", [...nums].sort((a, b) => b - a));
+
+// toSorted - آرایه اصلی دست نخورده ✅
+const original = [5, 1, 3];
+const s = original.toSorted((a, b) => a - b);
+console.log(original); // [5, 1, 3] تغییر نکرد
+console.log(s);        // [1, 3, 5]`
+  },
+
+  // ─── آبجکت‌ها ───
+  { cat:"آبجکت‌ها", id:"objects", icon:"🗂️", title:"آبجکت‌ها", badge:"مهم",
+    content:`<div class="ls">
+      <h2>🗂️ آبجکت‌ها (Objects)</h2>
+      <p>آبجکت مجموعه‌ای از جفت‌های key:value هست. بهترین روش برای گروه‌بندی داده‌های مرتبطه.</p>
+      <h3>دسترسی به property:</h3>
+      <ul>
+        <li><span class="hl">obj.key</span> — Dot notation (پیشنهادی)</li>
+        <li><span class="hl">obj["key"]</span> — Bracket notation (وقتی key داینامیکه یا فاصله داره)</li>
+      </ul>
+      <h3>متدهای Object:</h3>
+      <ul>
+        <li><span class="hl">Object.keys(obj)</span> → آرایه کلیدها</li>
+        <li><span class="hl">Object.values(obj)</span> → آرایه مقادیر</li>
+        <li><span class="hl">Object.entries(obj)</span> → آرایه [key,value]ها</li>
+        <li><span class="hl">Object.assign(target, source)</span> → کپی properties</li>
+        <li><span class="hl">Object.freeze(obj)</span> → کاملاً قفل (تغییر نمی‌شه)</li>
+        <li><span class="hl">Object.seal(obj)</span> → اضافه/حذف نمی‌شه ولی تغییر می‌شه</li>
+      </ul>
+      <h3>Shorthand Properties:</h3>
+      <p>اگه اسم متغیر و key یکیه، می‌تونی کوتاه بنویسی: <span class="hl">{ name, age }</span> به جای <span class="hl">{ name: name, age: age }</span></p>
+    </div>`,
+    code:`const person = {
+  name: "محمد",
+  age: 25,
+  "full name": "محمد اکبری", // key با فاصله
+  address: { city: "تهران", zip: "11111" },
+  greet() { // shorthand method
+    return "سلام، " + this.name;
+  }
+};
+
+// دسترسی
+console.log(person.name);           // محمد
+console.log(person["full name"]);   // محمد اکبری
+console.log(person.address.city);   // تهران
+console.log(person.greet());        // سلام، محمد
+
+// اضافه/تغییر/حذف
+person.email = "m@m.com";  // اضافه
+person.age = 26;           // تغییر
+delete person["full name"]; // حذف
+
+// Object.keys/values/entries
+console.log(Object.keys(person));
+
+Object.entries(person).forEach(([key, val]) => {
+  if (typeof val !== "object" && typeof val !== "function") {
+    console.log(key + ":", val);
+  }
+});
+
+// Shorthand
+let name = "رضا", age = 30;
+let user = { name, age }; // به جای { name: name, age: age }
+console.log(user);
+
+// Computed property names
+let field = "score";
+let data = { [field]: 95 }; // key از متغیر
+console.log(data.score); // 95
+
+// Spread برای کپی و merge
+const base = { role: "user", active: true };
+const admin = { ...base, role: "admin", name: "سارا" };
+console.log(admin);
+
+// freeze vs seal
+const config = Object.freeze({ debug: false, ver: "1.0" });
+config.debug = true; // بدون error ولی تغییر نمی‌کنه
+console.log(config.debug); // false
+
+const settings = Object.seal({ theme: "dark", lang: "fa" });
+settings.theme = "light"; // ✅ تغییر ممکنه
+settings.newProp = "test"; // ❌ اضافه نمی‌شه
+console.log(settings);`
+  },
+
+  // ─── Destructuring و Spread ───
+  { cat:"Destructuring & Spread", id:"destruct", icon:"📤", title:"Destructuring", badge:"مدرن",
+    content:`<div class="ls">
+      <h2>📤 Destructuring</h2>
+      <p>استخراج مقادیر از آرایه یا آبجکت به صورت خوانا و کوتاه.</p>
+      <h3>Array Destructuring:</h3>
+      <p>ترتیب مهمه. با <span class="hl">,</span> می‌شه عنصری رو رد کرد.</p>
+      <h3>Object Destructuring:</h3>
+      <p>اسم کلید مهمه نه ترتیب. می‌تونی اسم جدید بدی: <span class="hl">{ name: newName }</span></p>
+      <h3>Default Values:</h3>
+      <p>اگه مقدار undefined بود، پیش‌فرض استفاده می‌شه: <span class="hl">{ color = "red" }</span></p>
+      <h3>Nested Destructuring:</h3>
+      <p>می‌شه تودرتو destructure کرد.</p>
+      <h3>Rest در Destructuring:</h3>
+      <p>بقیه رو جمع می‌کنه: <span class="hl">const [a, ...rest] = arr</span></p>
+      <div class="tip">💡 Destructuring در parameter تابع هم کار می‌کنه! خیلی تمیزتره.</div>
+    </div>`,
+    code:`// ── Array Destructuring ──
+const colors = ["red", "green", "blue", "yellow"];
+
+const [first, second] = colors;
+console.log(first, second); // red green
+
+// رد کردن عنصر
+const [, , third] = colors;
+console.log(third); // blue
+
+// Default value
+const [a, b, c, d, e = "purple"] = colors;
+console.log(e); // purple (چون colors[4] وجود نداره)
+
+// Rest
+const [head, ...tail] = colors;
+console.log(head); // red
+console.log(tail); // ["green", "blue", "yellow"]
+
+// Swap با destructuring
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x, y); // 2 1
+
+// تودرتو
+const matrix = [[1, 2], [3, 4]];
+const [[r1c1, r1c2], [r2c1]] = matrix;
+console.log(r1c1, r1c2, r2c1); // 1 2 3
+
+// ── Object Destructuring ──
+const product = {
+  name: "لپ‌تاپ",
+  price: 30000000,
+  brand: "dell",
+  specs: { ram: 16, storage: 512 }
+};
+
+const { name, price } = product;
+console.log(name, price);
+
+// اسم جدید
+const { name: productName, brand: maker } = product;
+console.log(productName, maker);
+
+// Default + اسم جدید
+const { color = "مشکی", name: pName } = product;
+console.log(color, pName);
+
+// Nested
+const { specs: { ram, storage } } = product;
+console.log(ram, storage); // 16 512
+
+// Rest در object
+const { name: n, ...rest } = product;
+console.log(n);    // لپ‌تاپ
+console.log(rest); // بقیه properties
+
+// در parameter تابع
+function show({ name, price, color = "نامشخص" }) {
+  console.log(\`\${name} - \${price.toLocaleString()} - \${color}\`);
+}
+show(product);`
+  },
+
+  { cat:"Destructuring & Spread", id:"spread-rest", icon:"🌊", title:"Spread & Rest", badge:"مدرن",
+    content:`<div class="ls">
+      <h2>🌊 Spread و Rest Operator</h2>
+      <p>هر دو از <span class="hl">...</span> استفاده می‌کنن ولی کار عکس هم دارن.</p>
+      <h3>Spread — پخش/استخراج</h3>
+      <p>محتوای آرایه/آبجکت رو بیرون می‌کشه. <span class="hl">بعد از = قرار می‌گیره.</span></p>
+      <ul>
+        <li>کپی آرایه: <span class="hl">[...arr]</span></li>
+        <li>ادغام آرایه: <span class="hl">[...arr1, ...arr2]</span></li>
+        <li>کپی آبجکت: <span class="hl">{...obj}</span></li>
+        <li>پاس دادن به تابع: <span class="hl">Math.max(...nums)</span></li>
+      </ul>
+      <h3>Rest — جمع‌آوری</h3>
+      <p>بقیه رو داخل آرایه جمع می‌کنه. <span class="hl">قبل از = یا توی parameter قرار می‌گیره.</span></p>
+      <div class="tip">💡 قانون ساده: بعد از = → Spread (پخش می‌کنه) | توی parameter یا قبل از = → Rest (جمع می‌کنه)</div>
+      <div class="warn">⚠️ Spread فقط یه سطح کپی می‌کنه (shallow copy). برای آبجکت‌های تودرتو، JSON.parse(JSON.stringify(obj)) استفاده کن.</div>
+    </div>`,
+    code:`// ── SPREAD ──
+
+// کپی آرایه (shallow)
+const original = [1, 2, 3];
+const copy = [...original];
+copy.push(99);
+console.log(original); // [1, 2, 3] دست نخورده
+console.log(copy);     // [1, 2, 3, 99]
+
+// ادغام آرایه‌ها
+const front = ["HTML", "CSS"];
+const back = ["Node", "Python"];
+const fullStack = [...front, "JavaScript", ...back];
+console.log(fullStack);
+
+// کپی آبجکت
+const user = { name: "علی", age: 25 };
+const updated = { ...user, age: 26, city: "تهران" };
+console.log(updated);
+console.log(user); // تغییر نکرد
+
+// ادغام آبجکت (بعدی قبلی رو override می‌کنه)
+const defaults = { theme: "dark", lang: "fa", size: 14 };
+const prefs = { lang: "en", size: 18 };
+const final = { ...defaults, ...prefs };
+console.log(final); // lang: en, size: 18
+
+// spread در function call
+const nums = [3, 1, 4, 1, 5, 9, 2, 6];
+console.log("Max:", Math.max(...nums)); // 9
+console.log("Min:", Math.min(...nums)); // 1
+
+// String به آرایه
+const chars = [..."hello"];
+console.log(chars); // ["h","e","l","l","o"]
+
+// ── REST ──
+
+// توی تابع
+function sum(first, ...rest) {
+  console.log("اول:", first);
+  console.log("بقیه:", rest);
+  return [first, ...rest].reduce((a, b) => a + b, 0);
+}
+console.log("جمع:", sum(1, 2, 3, 4, 5)); // 15
+
+// در destructuring
+const [a, b, ...others] = [10, 20, 30, 40, 50];
+console.log(a, b, others); // 10 20 [30, 40, 50]
+
+const { name, ...otherProps } = { name: "رضا", age: 25, city: "شیراز" };
+console.log(name, otherProps); // رضا {age: 25, city: شیراز}`
+  },
+
+  // ─── OOP ───
+  { cat:"OOP", id:"class-basics", icon:"🏗️", title:"کلاس‌ها — مقدمات", badge:"OOP",
+    content:`<div class="ls">
+      <h2>🏗️ OOP — برنامه‌نویسی شیءگرا</h2>
+      <p>OOP روشی برای سازماندهی کدهاست. به جای نوشتن توابع پراکنده، داده و رفتار رو داخل <span class="hl">آبجکت</span> گروه‌بندی می‌کنیم.</p>
+      <h3>مفاهیم اصلی OOP:</h3>
+      <ul>
+        <li><span class="hl">Encapsulation</span> — داده و رفتار رو داخل یه واحد نگه داری</li>
+        <li><span class="hl">Inheritance</span> — کلاس فرزند از پدر ارث می‌بره</li>
+        <li><span class="hl">Polymorphism</span> — متدهای مشابه رفتار متفاوت دارن</li>
+        <li><span class="hl">Abstraction</span> — پیچیدگی رو مخفی کن</li>
+      </ul>
+      <h3>class در JavaScript:</h3>
+      <p><span class="hl">class</span> یه template (قالب) هست. از روش می‌شه آبجکت ساخت.</p>
+      <p><span class="hl">constructor()</span> وقتی new زده می‌شه اجرا می‌شه. برای مقداردهی اولیه.</p>
+      <p><span class="hl">this</span> داخل class به instance فعلی اشاره می‌کنه.</p>
+      <p><span class="hl">new ClassName()</span> یه instance جدید می‌سازه.</p>
+      <div class="tip">💡 اسم کلاس با حرف بزرگ شروع می‌شه: Car, Person, BankAccount</div>
+      <div class="warn">⚠️ class فقط syntax sugar هست — زیرش همون prototype-based هست.</div>
+    </div>`,
+    code:`// ── تعریف کلاس ──
+class Car {
+  // constructor: وقتی new Car() زده می‌شه اجرا می‌شه
+  constructor(name, engineStatus = "off") {
+    this.name = name;
+    this.speed = 0;
+    this.isEngineOn = engineStatus === "on";
+    this.gears = 1;
+  }
+
+  // Method
+  startEngine() {
+    this.isEngineOn = true;
+    console.log(\`\${this.name}: موتور روشن شد 🔑\`);
+  }
+
+  stopEngine() {
+    this.isEngineOn = false;
+    this.speed = 0;
+    console.log(\`\${this.name}: موتور خاموش شد\`);
+  }
+
+  accelerate(amount) {
+    if (!this.isEngineOn) {
+      console.log("❌ اول موتور رو روشن کن!");
+      return;
+    }
+    this.speed += amount;
+    console.log(\`\${this.name}: سرعت → \${this.speed} km/h\`);
+  }
+
+  getInfo() {
+    return \`\${this.name} | سرعت: \${this.speed} | موتور: \${this.isEngineOn ? "روشن" : "خاموش"}\`;
+  }
+}
+
+// ── ساختن Instance ──
+const myCar = new Car("پژو ۴۰۵");
+myCar.startEngine();
+myCar.accelerate(60);
+myCar.accelerate(40);
+console.log(myCar.getInfo());
+myCar.stopEngine();
+
+const bmw = new Car("BMW", "on"); // engine از اول روشنه
+bmw.accelerate(120);
+console.log(bmw.getInfo());
+
+// هر instance مستقله
+console.log(myCar.speed, bmw.speed); // 0 و 120`
+  },
+
+  { cat:"OOP", id:"class-advanced", icon:"🔬", title:"Inheritance و Static", badge:"OOP",
+    content:`<div class="ls">
+      <h2>🔬 Inheritance، Static، Getter/Setter</h2>
+      <h3>extends — ارث‌بری</h3>
+      <p>کلاس فرزند همه properties و methods کلاس پدر رو به ارث می‌بره.</p>
+      <p><span class="hl">super()</span> در constructor فرزند، constructor پدر رو صدا می‌زنه. <span class="hl">باید</span> قبل از this بیاد.</p>
+      <p><span class="hl">super.method()</span> متد پدر رو صدا می‌زنه.</p>
+      <h3>static — مربوط به کلاس نه instance</h3>
+      <p>بدون ساختن instance قابل استفاده. <span class="hl">Math.random()</span> مثال خوبیه.</p>
+      <h3>Getter و Setter</h3>
+      <p>بهت اجازه می‌ده property رو مثل متغیر بخونی/بنویسی ولی پشت‌صحنه منطق داشته باشی.</p>
+      <h3>Private Fields (#)</h3>
+      <p>با # فقط داخل کلاس قابل دسترسه — encapsulation واقعی!</p>
+      <div class="tip">💡 instanceof برای چک کردن اینکه یه آبجکت از کدام کلاس هست استفاده کن.</div>
+    </div>`,
+    code:`// ── کلاس پایه ──
+class Animal {
+  #sound; // Private Field - فقط داخل کلاس!
+
+  constructor(name, sound) {
+    this.name = name;
+    this.#sound = sound;
+    this.isAlive = true;
+  }
+
+  makeSound() {
+    console.log(\`\${this.name}: \${this.#sound}\`);
+  }
+
+  eat(food) {
+    console.log(\`\${this.name} داره \${food} می‌خوره\`);
+  }
+
+  // Getter
+  get status() {
+    return this.isAlive ? "زنده" : "نه زنده";
+  }
+
+  // Setter
+  set alive(val) {
+    if (typeof val !== "boolean") {
+      console.error("باید boolean باشه!");
+      return;
+    }
+    this.isAlive = val;
+  }
+
+  // Static method - بدون instance
+  static describe() {
+    console.log("Animal: موجود زنده‌ای که صدا می‌کنه");
+  }
+}
+
+// ── کلاس فرزند ──
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name, "هاپ هاپ!"); // اول باید super صدا بزنیم
+    this.breed = breed;
+    this.tricks = [];
+  }
+
+  // Override متد پدر
+  makeSound() {
+    super.makeSound(); // متد پدر رو هم صدا می‌زنه
+    console.log(\`\${this.name} دمش رو تکون می‌ده 🐾\`);
+  }
+
+  learn(trick) {
+    this.tricks.push(trick);
+    console.log(\`\${this.name} یاد گرفت: \${trick}\`);
+  }
+
+  get info() {
+    return \`\${this.name} (\${this.breed}) - \${this.tricks.length} حقه بلده\`;
+  }
+}
+
+// استفاده
+Animal.describe(); // static - بدون new
+
+const dog = new Dog("رکس", "German Shepherd");
+dog.makeSound();
+dog.eat("استخوان");
+dog.learn("بشین");
+dog.learn("دست بده");
+console.log(dog.info);
+console.log("وضعیت:", dog.status); // getter
+
+dog.alive = false; // setter
+console.log("وضعیت:", dog.status);
+
+// instanceof
+console.log(dog instanceof Dog);    // true
+console.log(dog instanceof Animal); // true (ارث برده)`
+  },
+
+  // ─── String Methods ───
+  { cat:"متدهای String", id:"string-methods", icon:"📝", title:"متدهای String", badge:"پایه",
+    content:`<div class="ls">
+      <h2>📝 متدهای String</h2>
+      <p>رشته‌ها <span class="hl">immutable</span> هستن — متدها رشته جدید برمی‌گردونن، اصلی تغییر نمی‌کنه.</p>
+      <h3>متدهای پراستفاده:</h3>
+      <ul>
+        <li><span class="hl">length</span> — طول رشته</li>
+        <li><span class="hl">toUpperCase() / toLowerCase()</span></li>
+        <li><span class="hl">trim() / trimStart() / trimEnd()</span> — فاصله اضافی</li>
+        <li><span class="hl">includes(str, startIndex)</span> — آیا وجود داره؟</li>
+        <li><span class="hl">startsWith() / endsWith()</span></li>
+        <li><span class="hl">indexOf() / lastIndexOf()</span> — موقعیت، -1 اگه نباشه</li>
+        <li><span class="hl">slice(start, end)</span> — برش (منفی قبول)</li>
+        <li><span class="hl">substring(start, end)</span> — مثل slice ولی منفی نمی‌ده</li>
+        <li><span class="hl">replace() / replaceAll()</span></li>
+        <li><span class="hl">split(separator)</span> — به آرایه تبدیل</li>
+        <li><span class="hl">padStart(len, char) / padEnd()</span></li>
+        <li><span class="hl">repeat(n)</span></li>
+        <li><span class="hl">charAt(i) / at(i)</span> — کاراکتر در ایندکس</li>
+        <li><span class="hl">charCodeAt() / String.fromCharCode()</span></li>
+        <li><span class="hl">toLocaleString()</span> — فرمت عدد با جداکننده</li>
+      </ul>
+    </div>`,
+    code:`const text = "  JavaScript برنامه‌نویسی  ";
+
+// اصول پایه
+console.log(text.length);      // 26
+console.log(text.trim());      // "JavaScript برنامه‌نویسی"
+console.log(text.trimStart()); // حذف فاصله اول
+
+// بزرگ/کوچک
+const email = "   User@GMAIL.COM   ";
+const clean = email.trim().toLowerCase();
+console.log(clean); // user@gmail.com
+
+// includes / startsWith / endsWith
+const url = "https://example.com/products?id=5";
+console.log(url.startsWith("https"));       // true
+console.log(url.endsWith("products"));      // false
+console.log(url.includes("example"));       // true
+console.log(url.includes("example", 10));   // از ایندکس 10
+
+// indexOf
+let str = "javascript is awesome javascript";
+console.log(str.indexOf("javascript"));     // 0
+console.log(str.lastIndexOf("javascript")); // 23
+
+// slice vs substring
+console.log(str.slice(0, 10));    // javascript
+console.log(str.slice(-10));      // javascript
+console.log(str.substring(0, 10));// javascript
+console.log(str.substring(-4));   // کل رشته (منفی → 0)
+
+// replace / replaceAll
+let msg = "سلام دنیا! دنیا زیباست.";
+console.log(msg.replace("دنیا", "جهان"));    // اولی
+console.log(msg.replaceAll("دنیا", "جهان")); // همه
+
+// split ↔ join
+const csv = "سیب,موز,انگور,هلو";
+const fruits = csv.split(",");
+console.log(fruits);
+console.log(fruits.join(" | "));
+
+// padStart - کاربرد عملی
+const h = "9", m = "5";
+console.log(h.padStart(2, "0") + ":" + m.padStart(2, "0")); // 09:05
+
+// mask کارت بانکی
+const card = "6219861953066601";
+const masked = card.slice(-4).padStart(card.length, "*");
+console.log(masked); // ************6601
+
+// toLocaleString
+const price = 25000000;
+console.log(price.toLocaleString("fa-IR")); // ۲۵٬۰۰۰٬۰۰۰`
+  },
+
+  // ─── Math ───
+  { cat:"Math", id:"math", icon:"📐", title:"متدهای Math", badge:"پایه",
+    content:`<div class="ls">
+      <h2>📐 متدهای Math</h2>
+      <ul>
+        <li><span class="hl">Math.PI</span> — عدد پی (3.14159...)</li>
+        <li><span class="hl">Math.round(x)</span> — رند معمولی</li>
+        <li><span class="hl">Math.ceil(x)</span> — رند به بالا (سقف)</li>
+        <li><span class="hl">Math.floor(x)</span> — رند به پایین (کف)</li>
+        <li><span class="hl">Math.trunc(x)</span> — حذف اعشار (فقط عدد صحیح)</li>
+        <li><span class="hl">Math.pow(base, exp)</span> — توان</li>
+        <li><span class="hl">Math.sqrt(x)</span> — جذر</li>
+        <li><span class="hl">Math.abs(x)</span> — قدر مطلق</li>
+        <li><span class="hl">Math.max(...nums)</span> — بیشترین</li>
+        <li><span class="hl">Math.min(...nums)</span> — کمترین</li>
+        <li><span class="hl">Math.random()</span> — عدد تصادفی [0, 1)</li>
+        <li><span class="hl">Math.sign(x)</span> — 1 مثبت | 0 صفر | -1 منفی</li>
+        <li><span class="hl">Math.log(x)</span> — لگاریتم طبیعی</li>
+      </ul>
+      <div class="tip">💡 فرمول عدد تصادفی بین min و max: Math.floor(Math.random() * (max - min + 1)) + min</div>
+    </div>`,
+    code:`// ثابت‌ها
+console.log(Math.PI);  // 3.14159...
+console.log(Math.E);   // 2.71828...
+
+// رند کردن
+console.log(Math.round(3.5));  // 4
+console.log(Math.round(3.4));  // 3
+console.log(Math.ceil(3.1));   // 4 (سقف)
+console.log(Math.floor(3.9));  // 3 (کف)
+console.log(Math.trunc(3.7));  // 3
+console.log(Math.trunc(-3.7)); // -3
+
+// توان و جذر
+console.log(Math.pow(2, 10)); // 1024
+console.log(2 ** 10);         // 1024 (ES6)
+console.log(Math.sqrt(144));  // 12
+
+// قدر مطلق و علامت
+console.log(Math.abs(-42)); // 42
+console.log(Math.sign(-5)); // -1
+console.log(Math.sign(0));  // 0
+console.log(Math.sign(5));  // 1
+
+// بیشترین و کمترین
+const nums = [5, 76, 90, 110, 19, 3];
+console.log(Math.max(...nums)); // 110
+console.log(Math.min(...nums)); // 3
+
+// random - عدد [0, 1)
+console.log(Math.random());
+
+// عدد صحیح تصادفی بین 1 تا 6
+const dice = Math.floor(Math.random() * 6) + 1;
+console.log("تاس:", dice);
+
+// تصادفی بین min و max
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(randInt(10, 20));
+console.log(randInt(100, 200));
+
+// toFixed - اعشار مشخص
+let pi = 3.14159;
+console.log(pi.toFixed(2)); // "3.14" (رشته!)
+console.log(+pi.toFixed(2)); // 3.14 (عدد)
+
+// Number.isInteger
+console.log(Number.isInteger(42));   // true
+console.log(Number.isInteger(42.5)); // false`
+  },
+
+  // ─── DOM ───
+  { cat:"DOM", id:"dom", icon:"🎯", title:"DOM — کامل", badge:"DOM",
+    content:`<div class="ls">
+      <h2>🎯 DOM (Document Object Model)</h2>
+      <p>DOM یه رابطه‌ای بین JS و HTML هست. با DOM می‌تونیم HTML رو داینامیک کنیم.</p>
+      <h3>انتخاب المان‌ها:</h3>
+      <table class="compare-table">
+        <tr><th>روش</th><th>خروجی</th><th>توصیه</th></tr>
+        <tr><td>getElementById</td><td>Element</td><td>✅</td></tr>
+        <tr><td>getElementsByClassName</td><td>HTMLCollection</td><td>⚠️</td></tr>
+        <tr><td>getElementsByTagName</td><td>HTMLCollection</td><td>⚠️</td></tr>
+        <tr><td>querySelector</td><td>Element (اولی)</td><td>✅✅</td></tr>
+        <tr><td>querySelectorAll</td><td>NodeList</td><td>✅✅</td></tr>
+      </table>
+      <div class="warn">⚠️ HTMLCollection متد forEach نداره! ولی NodeList (querySelectorAll) داره.</div>
+      <h3>تغییر محتوا:</h3>
+      <ul>
+        <li><span class="hl">textContent</span> — متن خالص (HTML نمی‌فهمه)</li>
+        <li><span class="hl">innerHTML</span> — HTML می‌فهمه (مراقب XSS باش!)</li>
+        <li><span class="hl">innerText</span> — مثل textContent ولی به CSS توجه می‌کنه</li>
+      </ul>
+      <h3>کلاس:</h3>
+      <p>classList.add | remove | toggle | contains | replace</p>
+      <h3>ساخت المان:</h3>
+      <p>createElement → textContent → setAttribute → appendChild/append</p>
+    </div>`,
+    code:`// در این محیط DOM نداریم، ولی اینا رو حفظ کن:
+
+// ── انتخاب ──
+// const el = document.getElementById("myId");
+// const el = document.querySelector(".myClass"); // پیشنهادی
+// const el = document.querySelector("#myId");
+// const els = document.querySelectorAll("p.highlight");
+
+// ── خواندن/نوشتن ──
+// el.textContent = "متن جدید";
+// el.innerHTML = "<strong>متن</strong>"; // مراقب XSS!
+// console.log(el.getAttribute("href"));
+// el.setAttribute("data-id", "42");
+// el.removeAttribute("disabled");
+
+// ── استایل ──
+// el.style.color = "red";
+// el.style.backgroundColor = "blue";
+// console.log(getComputedStyle(el).fontSize);
+
+// ── classList ──
+// el.classList.add("active");
+// el.classList.remove("old");
+// el.classList.toggle("dark"); // اگه هست حذف، نیست اضافه
+// el.classList.contains("active"); // true/false
+// el.classList.replace("old", "new");
+
+// ── ساخت المان ──
+// const p = document.createElement("p");
+// p.textContent = "پاراگراف جدید";
+// p.classList.add("highlight");
+// document.body.appendChild(p);
+// document.body.append(p, " متن", anotherEl); // چند تا یکجا
+
+// ── پیمایش DOM ──
+// el.parentElement
+// el.children
+// el.firstElementChild
+// el.lastElementChild
+// el.nextElementSibling
+// el.previousElementSibling
+
+// شبیه‌سازی برای کنسول:
+const fakeDOM = {
+  elements: {},
+  create(tag, content, cls) {
+    const el = { tag, content, className: cls, style: {}, classList: new Set() };
+    el.classList.add = c => el.classList.add_set = (el.classList.add_set || []).concat(c);
+    return el;
+  }
+};
+
+const div = fakeDOM.create("div", "سلام", "card");
+div.style.color = "red";
+console.log("المان:", div.tag, "|", div.content);
+console.log("رنگ:", div.style.color);
+
+// dataset
+const mockEl = { dataset: { userId: "42", role: "admin" } };
+console.log("userId:", mockEl.dataset.userId);
+console.log("role:", mockEl.dataset.role);`
+  },
+
+  // ─── Events ───
+  { cat:"Events", id:"events", icon:"🖱️", title:"رویدادها", badge:"DOM",
+    content:`<div class="ls">
+      <h2>🖱️ رویدادها (Events)</h2>
+      <h3>addEventListener — روش اصلی ✅</h3>
+      <p><span class="hl">element.addEventListener(event, callback, options)</span></p>
+      <p>options: <span class="hl">{ once: true }</span> — فقط یه بار | <span class="hl">{ capture: true }</span> — capturing phase</p>
+      <h3>رویدادهای مهم:</h3>
+      <ul>
+        <li><span class="hl">click / dblclick</span> — کلیک</li>
+        <li><span class="hl">mousedown / mouseup / mousemove</span></li>
+        <li><span class="hl">mouseenter / mouseleave</span> — bubble نمی‌کنن</li>
+        <li><span class="hl">keydown / keyup / keypress</span></li>
+        <li><span class="hl">input / change</span> — input: هر تغییر | change: بعد از focus رفت</li>
+        <li><span class="hl">submit</span> — ارسال فرم</li>
+        <li><span class="hl">focus / blur</span></li>
+        <li><span class="hl">scroll / resize</span></li>
+        <li><span class="hl">load / DOMContentLoaded</span></li>
+      </ul>
+      <h3>Event Object:</h3>
+      <ul>
+        <li><span class="hl">e.target</span> — المانی که روش کلیک شد</li>
+        <li><span class="hl">e.currentTarget</span> — المانی که listener داره</li>
+        <li><span class="hl">e.preventDefault()</span> — رفتار پیش‌فرض رو لغو کن</li>
+        <li><span class="hl">e.stopPropagation()</span> — bubble رو متوقف کن</li>
+        <li><span class="hl">e.key / e.code</span> — کلید فشرده شده</li>
+      </ul>
+      <h3>Event Delegation:</h3>
+      <p>به جای listener روی هر المان، listener رو روی parent بزار و e.target چک کن.</p>
+      <div class="tip">💡 Event Delegation برای المان‌هایی که داینامیک اضافه می‌شن عالیه!</div>
+    </div>`,
+    code:`// شبیه‌سازی Event System
+class EventEmitter {
+  constructor(name) {
+    this.name = name;
+    this._listeners = {};
+  }
+
+  addEventListener(event, cb, opts = {}) {
+    if (!this._listeners[event]) this._listeners[event] = [];
+    this._listeners[event].push({ cb, once: opts.once });
+    console.log(\`[\${this.name}] listener "\${event}" اضافه شد\`);
+  }
+
+  dispatchEvent(event, detail = {}) {
+    const e = {
+      type: event,
+      target: this,
+      currentTarget: this,
+      ...detail,
+      preventDefault: () => console.log("⛔ پیش‌فرض لغو شد"),
+      stopPropagation: () => console.log("⛔ bubble متوقف شد"),
+    };
+    const listeners = this._listeners[event] || [];
+    listeners.forEach(({ cb, once }, i) => {
+      cb(e);
+      if (once) listeners.splice(i, 1);
+    });
+  }
+}
+
+// ── Click ──
+const btn = new EventEmitter("button");
+btn.addEventListener("click", (e) => {
+  console.log("کلیک روی:", e.target.name);
+});
+btn.dispatchEvent("click");
+btn.dispatchEvent("click");
+
+// ── once ──
+const btn2 = new EventEmitter("button2");
+btn2.addEventListener("click", () => console.log("فقط یه بار!"), { once: true });
+btn2.dispatchEvent("click"); // اجرا می‌شه
+btn2.dispatchEvent("click"); // اجرا نمی‌شه
+
+// ── keyboard ──
+const input = new EventEmitter("input");
+input.addEventListener("keydown", (e) => {
+  console.log("کلید:", e.key || "Enter");
+  if ((e.key === "s") && e.ctrlKey) {
+    e.preventDefault();
+    console.log("Ctrl+S → ذخیره");
+  }
+});
+input.dispatchEvent("keydown", { key: "s", ctrlKey: true });
+
+// ── Event Delegation ──
+const list = new EventEmitter("ul");
+list.addEventListener("click", (e) => {
+  const t = e.realTarget || "";
+  if (t === "deleteBtn") console.log("🗑️ حذف کلیک شد");
+  if (t === "editBtn") console.log("✏️ ویرایش کلیک شد");
+});
+list.dispatchEvent("click", { realTarget: "deleteBtn" });
+list.dispatchEvent("click", { realTarget: "editBtn" });
+
+// ── Submit form ──
+const form = new EventEmitter("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("فرم submit شد ولی refresh نشد");
+});
+form.dispatchEvent("submit");`
+  },
+
+  // ─── Async ───
+  { cat:"Async JS", id:"timers", icon:"⏱️", title:"setTimeout و setInterval", badge:"Async",
+    content:`<div class="ls">
+      <h2>⏱️ setTimeout و setInterval</h2>
+      <h3>setTimeout — یه بار بعد از تاخیر</h3>
+      <p><span class="hl">setTimeout(callback, delay)</span> — delay به میلی‌ثانیه. ۱ ثانیه = ۱۰۰۰ms</p>
+      <p>برای لغو: <span class="hl">clearTimeout(id)</span></p>
+      <h3>setInterval — تکرار با فاصله</h3>
+      <p><span class="hl">setInterval(callback, delay)</span> — هر delay یه بار اجرا می‌شه</p>
+      <p>برای لغو: <span class="hl">clearInterval(id)</span> — حتماً لغوش کن!</p>
+      <div class="warn">⚠️ setInterval رو همیشه clearInterval کن وقتی دیگه نیازی نیست — مموری لیک!</div>
+      <div class="tip">💡 setTimeout با delay=0 کد رو بعد از call stack خالی شدن اجرا می‌کنه.</div>
+    </div>`,
+    code:`// setTimeout — یه بار بعد از تاخیر
+console.log("شروع");
+
+const timeoutId = setTimeout(() => {
+  console.log("بعد از 500ms اجرا شدم!");
+}, 500);
+
+console.log("این قبل از timeout اجرا می‌شه!");
+
+// لغو قبل از اجرا
+// clearTimeout(timeoutId);
+
+// setTimeout با 0
+setTimeout(() => console.log("من آخر اجرا می‌شم!"), 0);
+console.log("این زودتر از timeout=0 هم اجرا می‌شه");
+
+// setInterval — تکرار
+let count = 0;
+const intervalId = setInterval(() => {
+  count++;
+  console.log("تیک:", count);
+
+  if (count >= 3) {
+    clearInterval(intervalId);
+    console.log("✅ setInterval متوقف شد");
+  }
+}, 200);
+
+// کاربرد عملی: countdown
+function countdown(from) {
+  let current = from;
+  const id = setInterval(() => {
+    console.log("⏰", current);
+    current--;
+    if (current < 0) {
+      clearInterval(id);
+      console.log("🚀 شروع!");
+    }
+  }, 300);
+}
+countdown(3);
+
+// setTimeout برای انیمیشن
+function fadeIn(steps = 5) {
+  let opacity = 0;
+  function step() {
+    opacity += 1 / steps;
+    console.log("opacity:", opacity.toFixed(1));
+    if (opacity < 1) setTimeout(step, 100);
+    else console.log("fade in کامل شد!");
+  }
+  step();
+}
+fadeIn();`
+  },
+
+  { cat:"Async JS", id:"promises", icon:"🤝", title:"Promise", badge:"پیشرفته",
+    content:`<div class="ls">
+      <h2>🤝 Promise</h2>
+      <p>Promise نمایانگر یه عملیات ناهمزمانه که ممکنه موفق یا ناموفق بشه.</p>
+      <h3>سه حالت:</h3>
+      <ul>
+        <li><span class="hl">pending</span> — در انتظار</li>
+        <li><span class="hl">fulfilled</span> — موفق شد (resolve)</li>
+        <li><span class="hl">rejected</span> — شکست خورد (reject)</li>
+      </ul>
+      <h3>.then() .catch() .finally()</h3>
+      <p>می‌شه chain کرد: هر then مقداری برمی‌گردونه که بعدی می‌گیره.</p>
+      <h3>Promise.all()</h3>
+      <p>منتظر همه می‌شه. اگه یکی fail بشه، همه fail می‌شن.</p>
+      <h3>Promise.allSettled()</h3>
+      <p>منتظر همه می‌شه حتی اگه fail بشن. نتیجه هر کدوم جداگانه.</p>
+      <h3>Promise.race()</h3>
+      <p>اولین جواب (موفق یا ناموفق) رو برمی‌گردونه.</p>
+      <h3>Promise.any()</h3>
+      <p>اولین موفق رو برمی‌گردونه. اگه همه fail بشن، AggregateError.</p>
+    </div>`,
+    code:`// ساختن Promise
+function fetchData(id, shouldFail = false) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shouldFail) {
+        reject(new Error(\`خطا برای id=\${id}\`));
+      } else {
+        resolve({ id, data: "اطلاعات " + id });
+      }
+    }, 100 * id);
+  });
+}
+
+// .then / .catch / .finally
+fetchData(1)
+  .then(result => {
+    console.log("✅", result.data);
+    return result.id * 100; // مقدار برگشتی به then بعدی می‌ره
+  })
+  .then(score => console.log("امتیاز:", score))
+  .catch(err => console.error("❌", err.message))
+  .finally(() => console.log("تموم شد (همیشه اجرا می‌شه)"));
+
+// Promise.all — همه موفق یا همه fail
+Promise.all([fetchData(1), fetchData(2), fetchData(3)])
+  .then(results => {
+    results.forEach(r => console.log("all ✓", r.data));
+  })
+  .catch(err => console.error("all ❌", err.message));
+
+// Promise.allSettled — نتیجه همه
+Promise.allSettled([fetchData(1), fetchData(-1, true), fetchData(2)])
+  .then(results => {
+    results.forEach(r => {
+      if (r.status === "fulfilled") console.log("✅", r.value.data);
+      else console.log("❌", r.reason.message);
+    });
+  });
+
+// Promise.race — اولین جواب
+Promise.race([fetchData(3), fetchData(1), fetchData(2)])
+  .then(first => console.log("اولین:", first.data));`
+  },
+
+  { cat:"Async JS", id:"async-await", icon:"⏳", title:"Async/Await", badge:"پیشرفته",
+    content:`<div class="ls">
+      <h2>⏳ Async/Await</h2>
+      <p>روش مدرن برای کار با Promise. کد async رو مثل sync می‌نویسیم — خواناتر!</p>
+      <h3>قوانین:</h3>
+      <ul>
+        <li>تابع باید <span class="hl">async</span> باشه تا بتونی await داخلش بزنی</li>
+        <li><span class="hl">await</span> فقط داخل async function کار می‌کنه</li>
+        <li>async function همیشه Promise برمی‌گردونه</li>
+        <li>await بدون try/catch → unhandled rejection</li>
+      </ul>
+      <h3>Error Handling:</h3>
+      <p>از <span class="hl">try/catch/finally</span> استفاده کن.</p>
+      <h3>parallel vs sequential:</h3>
+      <ul>
+        <li>sequential: هر await بعد از قبلی — کندتر</li>
+        <li>parallel با Promise.all — سریع‌تر</li>
+      </ul>
+      <div class="tip">💡 top-level await در module ها بدون async function کار می‌کنه (ES2022+)</div>
+    </div>`,
+    code:`// شبیه‌سازی async عملیات
+function wait(ms, value, fail = false) {
+  return new Promise((res, rej) =>
+    setTimeout(() => fail ? rej(new Error("خطا!")) : res(value), ms)
+  );
+}
+
+// ── async/await ساده ──
+async function loadUser() {
+  console.log("شروع لود...");
+  const user = await wait(100, { name: "علی", age: 25 });
+  console.log("کاربر:", user.name);
+  const score = await wait(50, 95);
+  console.log("امتیاز:", score);
+  return { user, score };
+}
+loadUser().then(result => console.log("نتیجه:", result.user.name, result.score));
+
+// ── Error Handling ──
+async function safeLoad() {
+  try {
+    const data = await wait(50, "داده‌ها");
+    console.log("✅", data);
+    await wait(30, null, true); // این fail می‌کنه
+    console.log("این اجرا نمی‌شه");
+  } catch (err) {
+    console.error("❌", err.message);
+  } finally {
+    console.log("finally همیشه اجرا می‌شه");
+  }
+}
+safeLoad();
+
+// ── Sequential vs Parallel ──
+async function sequential() {
+  console.time("sequential");
+  const a = await wait(100, "A");
+  const b = await wait(100, "B");
+  const c = await wait(100, "C");
+  console.log(a, b, c);
+  console.timeEnd("sequential"); // ~300ms
+}
+
+async function parallel() {
+  console.time("parallel");
+  const [a, b, c] = await Promise.all([
+    wait(100, "A"),
+    wait(100, "B"),
+    wait(100, "C")
+  ]);
+  console.log(a, b, c);
+  console.timeEnd("parallel"); // ~100ms!
+}
+
+sequential();
+parallel();
+
+// ── async در loop ──
+async function loadMany() {
+  const ids = [1, 2, 3];
+  for (const id of ids) {
+    try {
+      const result = await wait(30, "داده " + id, id === 2);
+      console.log("✅ id=" + id + ":", result);
+    } catch (err) {
+      console.error("❌ id=" + id + ":", err.message);
+    }
+  }
+}
+loadMany();`
+  },
+
+  // ─── LocalStorage ───
+  { cat:"Storage & BOM", id:"localstorage", icon:"💾", title:"localStorage", badge:"مرورگر",
+    content:`<div class="ls">
+      <h2>💾 localStorage و sessionStorage</h2>
+      <p>ذخیره‌سازی داده در مرورگر کاربر.</p>
+      <h3>localStorage:</h3>
+      <p>داده‌ها تا وقتی که خودت حذف کنی باقی می‌مونن — حتی بعد از بستن مرورگر.</p>
+      <h3>sessionStorage:</h3>
+      <p>داده‌ها تا وقتی tab بازه. با بستن tab حذف می‌شن.</p>
+      <h3>متدها:</h3>
+      <ul>
+        <li><span class="hl">setItem(key, value)</span> — ذخیره</li>
+        <li><span class="hl">getItem(key)</span> — خواندن (null اگه نباشه)</li>
+        <li><span class="hl">removeItem(key)</span> — حذف یکی</li>
+        <li><span class="hl">clear()</span> — پاک کردن همه</li>
+        <li><span class="hl">length</span> — تعداد آیتم‌ها</li>
+        <li><span class="hl">key(i)</span> — کلید ایندکس i</li>
+      </ul>
+      <div class="warn">⚠️ فقط string ذخیره می‌کنه! آبجکت/آرایه باید stringify بشن.</div>
+      <div class="tip">💡 یه helper بساز که JSON.stringify/parse رو داخلش بزاره تا همیشه درست کار کنه.</div>
+    </div>`,
+    code:`// شبیه‌سازی localStorage
+const ls = (() => {
+  const store = {};
+  return {
+    setItem: (k, v) => { store[k] = String(v); console.log(\`💾 ذخیره: \${k}\`); },
+    getItem: (k) => store[k] ?? null,
+    removeItem: (k) => { delete store[k]; console.log(\`🗑️ حذف: \${k}\`); },
+    clear: () => { Object.keys(store).forEach(k => delete store[k]); },
+    get length() { return Object.keys(store).length; }
+  };
+})();
+
+// string
+ls.setItem("username", "محمد");
+console.log(ls.getItem("username")); // محمد
+console.log(typeof ls.getItem("username")); // string
+
+// number - باید تبدیل کنیم
+ls.setItem("age", 25);
+const age = Number(ls.getItem("age"));
+console.log(age, typeof age); // 25 number
+
+// آبجکت - JSON
+const user = { name: "علی", role: "admin", prefs: { dark: true } };
+ls.setItem("user", JSON.stringify(user));
+
+const savedUser = JSON.parse(ls.getItem("user"));
+console.log(savedUser.name);       // علی
+console.log(savedUser.prefs.dark); // true
+
+// آرایه - JSON
+const history = ["صفحه اول", "محصولات", "سبد خرید"];
+ls.setItem("history", JSON.stringify(history));
+const savedHistory = JSON.parse(ls.getItem("history"));
+console.log(savedHistory);
+
+// ── Helper Class ──
+class Storage {
+  constructor(type = "local") {
+    this.store = {}; // در واقعیت: localStorage یا sessionStorage
+  }
+  set(key, val) {
+    this.store[key] = JSON.stringify(val);
+  }
+  get(key) {
+    try { return JSON.parse(this.store[key] ?? null); }
+    catch { return null; }
+  }
+  remove(key) { delete this.store[key]; }
+}
+
+const store = new Storage();
+store.set("config", { theme: "dark", lang: "fa" });
+console.log(store.get("config")); // {theme: "dark", lang: "fa"}
+store.remove("config");
+console.log(store.get("config")); // null`
+  },
+
+  // ─── JSON ───
+  { cat:"Storage & BOM", id:"json", icon:"📄", title:"JSON", badge:"مهم",
+    content:`<div class="ls">
+      <h2>📄 JSON (JavaScript Object Notation)</h2>
+      <p>فرمت متنی برای تبادل داده بین سرور و کلاینت. قابل خواندن توسط انسان و ماشین.</p>
+      <h3>قوانین JSON:</h3>
+      <ul>
+        <li>کلیدها باید <span class="hl">double quote</span> داشته باشن: "name"</li>
+        <li>مقادیر مجاز: string، number، boolean، null، array، object</li>
+        <li><span class="hl">undefined</span>، <span class="hl">function</span>، <span class="hl">Symbol</span> مجاز نیستن — حذف می‌شن!</li>
+        <li>trailing comma مجاز نیست: {"a":1,} → ❌</li>
+      </ul>
+      <h3>متدها:</h3>
+      <ul>
+        <li><span class="hl">JSON.stringify(obj, replacer, indent)</span> — آبجکت → string</li>
+        <li><span class="hl">JSON.parse(str, reviver)</span> — string → آبجکت</li>
+      </ul>
+      <h3>کاربردها:</h3>
+      <ul>
+        <li>ارتباط با API</li>
+        <li>ذخیره در localStorage</li>
+        <li>Deep Clone: JSON.parse(JSON.stringify(obj))</li>
+      </ul>
+      <div class="warn">⚠️ Deep Clone با JSON برای NaN، Infinity، Date، Function کار نمی‌کنه!</div>
+    </div>`,
+    code:`// JSON.stringify — آبجکت به string
+const user = {
+  name: "علی",
+  age: 25,
+  isAdmin: false,
+  skills: ["JS", "React"],
+  address: { city: "تهران" },
+  // اینا حذف می‌شن:
+  greet: function() {},
+  sym: Symbol("id"),
+  undef: undefined,
+  // اینا null می‌شن:
+  nan: NaN,
+  inf: Infinity,
+};
+
+const json = JSON.stringify(user);
+console.log(json);
+console.log(typeof json); // string
+
+// با indent برای خوانایی
+const pretty = JSON.stringify(user, null, 2);
+console.log(pretty);
+
+// JSON.parse — string به آبجکت
+const parsed = JSON.parse(json);
+console.log(parsed.name);       // علی
+console.log(parsed.skills[0]);  // JS
+
+// ── Deep Clone ──
+const original = { a: 1, b: { c: 2, d: [3, 4] } };
+const clone = JSON.parse(JSON.stringify(original));
+clone.b.c = 999;
+clone.b.d.push(5);
+console.log("اصلی:", original.b.c, original.b.d); // 2 [3,4]
+console.log("کلون:", clone.b.c, clone.b.d);       // 999 [3,4,5]
+
+// ── Error Handling ──
+try {
+  JSON.parse("{ invalid }");
+} catch (err) {
+  console.error("JSON نامعتبر:", err.message);
+}
+
+// ── Replacer Function ──
+const data = { name: "رضا", password: "secret123", age: 30 };
+const safe = JSON.stringify(data, (key, val) => {
+  if (key === "password") return undefined; // حذف
+  return val;
+});
+console.log(safe); // password حذف شده`
+  },
+
+  // ─── Closure ───
+  { cat:"مفاهیم پیشرفته", id:"closure", icon:"🔒", title:"Closure", badge:"پیشرفته",
+    content:`<div class="ls">
+      <h2>🔒 Closure</h2>
+      <p>Closure یعنی تابع داخلی به متغیرهای تابع بیرونی دسترسی داره، <span class="hl">حتی بعد از اینکه تابع بیرونی تموم شده.</span></p>
+      <p>به زبان ساده: تابع «خاطره» داره — محیط لحظه‌ای که تعریف شد رو به یاد می‌آره.</p>
+      <h3>کاربردها:</h3>
+      <ul>
+        <li>Private Variables — متغیرهای خصوصی</li>
+        <li>Factory Functions — ساختن توابع اختصاصی</li>
+        <li>Memoization — کش کردن نتایج</li>
+        <li>Module Pattern — کپسوله‌سازی</li>
+      </ul>
+      <div class="tip">💡 هر بار که تابع بیرونی صدا می‌زنی، یه closure جدید با environment مستقل ساخته می‌شه.</div>
+    </div>`,
+    code:`// ── مثال پایه ──
+function outer() {
+  let count = 0; // این توی closure زنده می‌مونه
+
+  return {
+    increment() { count++; console.log("count:", count); },
+    decrement() { count--; console.log("count:", count); },
+    getCount() { return count; }
+  };
+}
+
+const counter1 = outer();
+counter1.increment(); // 1
+counter1.increment(); // 2
+counter1.decrement(); // 1
+
+const counter2 = outer(); // closure مستقل!
+counter2.increment(); // 1 (مستقل از counter1)
+
+// ── Factory Function ──
+function createMultiplier(factor) {
+  return (n) => n * factor; // factor توی closure نگه می‌داره
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+const byFive = createMultiplier(5);
+
+console.log(double(10)); // 20
+console.log(triple(10)); // 30
+console.log(byFive(10)); // 50
+
+// ── Private Variables ──
+function createPerson(name, age) {
+  let _age = age; // private!
+
+  return {
+    getName: () => name,
+    getAge: () => _age,
+    birthday() {
+      _age++;
+      console.log(\`تبریک! \${name} شد \${_age} ساله 🎂\`);
+    }
+  };
+}
+
+const ali = createPerson("علی", 24);
+ali.birthday(); // علی شد 25 ساله
+ali.birthday(); // علی شد 26 ساله
+// ali._age → undefined (واقعاً private!)
+
+// ── Memoization ──
+function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) {
+      console.log("از cache:", key);
+      return cache[key];
+    }
+    cache[key] = fn(...args);
+    return cache[key];
+  };
+}
+
+const slowSquare = memoize((n) => {
+  console.log("محاسبه:", n);
+  return n * n;
+});
+
+console.log(slowSquare(5)); // محاسبه: 5 → 25
+console.log(slowSquare(5)); // از cache → 25
+console.log(slowSquare(10)); // محاسبه: 10 → 100`
+  },
+
+];
+
+// ══════════════════════════════════════════
+//              منطق برنامه
+// ══════════════════════════════════════════
+let currentCode = "";
+let isDark = true;
+const conOut = document.getElementById("con-out");
+const lesson = document.getElementById("lesson");
+
+// ── Override console ──
+const orig = {
+  log: console.log.bind(console),
+  error: console.error.bind(console),
+  warn: console.warn.bind(console),
+  info: console.info.bind(console),
+  time: console.time.bind(console),
+  timeEnd: console.timeEnd.bind(console),
+};
+
+function addLine(args, type) {
+  const empty = conOut.querySelector(".cempty");
+  if (empty) empty.remove();
+  const icons = { log:"›", error:"✕", warn:"⚠", info:"ℹ" };
+  const line = document.createElement("div");
+  line.className = "cline " + type;
+  line.innerHTML = `<span style="opacity:.5;flex-shrink:0">${icons[type]||"›"}</span><span>${args.map(fmtVal).join(" ")}</span>`;
+  conOut.appendChild(line);
+  conOut.scrollTop = conOut.scrollHeight;
+}
+
+function fmtVal(v) {
+  if (v === null) return '<span style="color:#888">null</span>';
+  if (v === undefined) return '<span style="color:#888">undefined</span>';
+  if (typeof v === "boolean") return `<span style="color:#c678dd">${v}</span>`;
+  if (typeof v === "number") return `<span style="color:#d19a66">${isNaN(v) ? "NaN" : v === Infinity ? "Infinity" : v}</span>`;
+  if (typeof v === "string") return `<span style="color:#98c379">"${v}"</span>`;
+  if (Array.isArray(v)) {
+    const items = v.slice(0,8).map(fmtVal).join(", ");
+    return `<span style="color:#61afef">[${items}${v.length>8?", ...":''}]</span>`;
+  }
+  if (v instanceof Error) return `<span style="color:#ff6b6b">${v.message}</span>`;
+  if (typeof v === "object") {
+    try {
+      const e = Object.entries(v).slice(0,5).map(([k,val]) => `${k}:${fmtVal(val)}`).join(", ");
+      return `<span style="color:#e5c07b">{${e}${Object.keys(v).length>5?", ...":''}}</span>`;
+    } catch { return String(v); }
+  }
+  if (typeof v === "function") return `<span style="color:#c678dd">ƒ ${v.name||"anonymous"}()</span>`;
+  return String(v);
+}
+
+const timers = {};
+console.log = (...a) => { orig.log(...a); addLine(a, "log"); };
+console.error = (...a) => { orig.error(...a); addLine(a, "error"); };
+console.warn = (...a) => { orig.warn(...a); addLine(a, "warn"); };
+console.info = (...a) => { orig.info(...a); addLine(a, "info"); };
+console.time = (l) => { timers[l] = Date.now(); orig.time(l); };
+console.timeEnd = (l) => {
+  const t = timers[l] ? Date.now() - timers[l] : 0;
+  addLine([`${l}: ${t}ms`], "info");
+  orig.timeEnd(l);
+};
+
+function clearCon() {
+  conOut.innerHTML = '<div class="cempty"><span style="font-size:28px;opacity:.3">🖥️</span><span>کنسول پاک شد</span></div>';
+}
+
+function runCode() {
+  if (!currentCode.trim()) { addLine(["کدی برای اجرا نیست!"], "warn"); return; }
+  clearCon();
+  try {
+    const fn = new Function(currentCode);
+    fn();
+  } catch (e) {
+    addLine([e.toString()], "error");
+  }
+}
+
+function handleInput(e) {
+  if (e.key !== "Enter") return;
+  const inp = document.getElementById("con-input");
+  const code = inp.value.trim();
+  if (!code) return;
+  addLine(["> " + code], "info");
+  try {
+    const r = eval(code);
+    if (r !== undefined) addLine([r], "log");
+  } catch (err) { addLine([err.toString()], "error"); }
+  inp.value = "";
+}
+
+function toggleTheme() {
+  isDark = !isDark;
+  document.body.classList.toggle("light", !isDark);
+  document.getElementById("theme-btn").textContent = isDark ? "🌙 دارک" : "☀️ لایت";
+}
+
+// ── ساختن sidebar ──
+function buildSidebar() {
+  const list = document.getElementById("topic-list");
+  const cats = {};
+  topics.forEach(t => {
+    if (!cats[t.cat]) cats[t.cat] = [];
+    cats[t.cat].push(t);
+  });
+  Object.entries(cats).forEach(([cat, items]) => {
+    const ct = document.createElement("div");
+    ct.className = "cat-title"; ct.textContent = cat;
+    list.appendChild(ct);
+    items.forEach(item => {
+      const el = document.createElement("div");
+      el.className = "topic-item";
+      el.dataset.id = item.id;
+      el.innerHTML = `<span>${item.icon}</span><span>${item.title}</span><span class="topic-badge">${item.badge}</span>`;
+      el.onclick = () => loadTopic(item);
+      list.appendChild(el);
+    });
+  });
+}
+
+function loadTopic(item) {
+  currentCode = item.code || "";
+  document.querySelectorAll(".topic-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.id === item.id);
+  });
+  document.getElementById("content-title").textContent = item.icon + " " + item.title;
+  document.getElementById("content-sub").textContent = item.badge + " — " + item.cat;
+  lesson.innerHTML = item.content + buildCode(item.code, item.title);
+  lesson.scrollTop = 0;
+  clearCon();
+  lesson.querySelectorAll(".code-run").forEach(btn => {
+    btn.onclick = () => { currentCode = item.code; runCode(); };
+  });
+}
+
+function buildCode(code, title) {
+  if (!code) return "";
+  return `
+    <div class="code-block">
+      <div class="code-hdr">
+        <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
+        <span>${title}.js</span>
+        <button class="code-run">▶ اجرا</button>
+      </div>
+      <pre>${esc(code)}</pre>
+    </div>`;
+}
+
+function esc(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function filterTopics(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll(".topic-item").forEach(el => {
+    el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
+  });
+  document.querySelectorAll(".cat-title").forEach(el => {
+    let next = el.nextElementSibling, show = false;
+    while (next && next.classList.contains("topic-item")) {
+      if (next.style.display !== "none") show = true;
+      next = next.nextElementSibling;
+    }
+    el.style.display = show ? "" : "none";
+  });
+}
+
+buildSidebar();
+</script>
+</body>
 </html>
