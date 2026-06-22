@@ -1,6 +1,5 @@
 // ============================================================
-// 📚 جزوه کامل جاوااسکریپت - همه مباحث به صورت جداگانه
-// هر بخش یک موضوع کامل با توضیحات و مثال‌های عملی
+// 📚 داده‌های جزوه - همه مباحث جاوااسکریپت
 // ============================================================
 
 const topics = [
@@ -8,7 +7,6 @@ const topics = [
   // 📦 بخش ۱: مقدمات و مفاهیم پایه
   // ============================================================
 
-  // --- ۱.۱ مقدمه ---
   {
     cat: "مقدمات",
     id: "intro",
@@ -49,7 +47,6 @@ function sayHello(name) {
 console.log(sayHello("رضا"));`,
   },
 
-  // --- ۱.۲ متغیرها ---
   {
     cat: "مقدمات",
     id: "vars",
@@ -59,7 +56,6 @@ console.log(sayHello("رضا"));`,
     content: `<div class="ls">
       <h2>📦 متغیرها در جاوااسکریپت</h2>
       <p>متغیر مثل یک جعبه است که مقدار را در خود نگه می‌دارد. در جاوااسکریپت سه روش برای تعریف متغیر داریم:</p>
-
       <h3>🔴 var — قدیمی و مشکل‌دار</h3>
       <p><span class="hl">var</span> در نسخه‌های قدیمی جاوااسکریپت استفاده می‌شد. امروزه دیگر استفاده از آن توصیه نمی‌شود.</p>
       <ul>
@@ -67,7 +63,6 @@ console.log(sayHello("رضا"));`,
         <li><span class="hl">Hoisting</span> دارد — قبل از تعریف undefined می‌دهد (نه خطا).</li>
         <li>می‌توان آن را دوباره تعریف کرد (re-declare).</li>
       </ul>
-
       <h3>🟢 let — برای مقادیر قابل تغییر ✅</h3>
       <p><span class="hl">let</span> روش مدرن برای تعریف متغیرهایی است که مقدار آنها تغییر می‌کند.</p>
       <ul>
@@ -75,7 +70,6 @@ console.log(sayHello("رضا"));`,
         <li>می‌توان مقدار آن را تغییر داد (reassign).</li>
         <li>نمی‌توان آن را دوباره تعریف کرد.</li>
       </ul>
-
       <h3>🔵 const — برای مقادیر ثابت ✅</h3>
       <p><span class="hl">const</span> برای متغیرهایی که مقدار آنها تغییر نمی‌کند استفاده می‌شود.</p>
       <ul>
@@ -83,9 +77,7 @@ console.log(sayHello("رضا"));`,
         <li>نمی‌توان مقدار آن را تغییر داد (مقاوم در برابر reassign).</li>
         <li>برای آرایه و آبجکت، محتوا قابل تغییر است ولی خود متغیر قابل تغییر نیست.</li>
       </ul>
-
       <div class="tip">💡 قانون طلایی: همیشه از const استفاده کنید، مگر اینکه بدانید قرار است مقدار متغیر تغییر کند، در آن صورت از let استفاده کنید. هرگز از var استفاده نکنید!</div>
-
       <table class="compare-table">
         <tr><th>ویژگی</th><th>var</th><th>let</th><th>const</th></tr>
         <tr><td>Scope (محدوده)</td><td>function</td><td>block</td><td>block</td></tr>
@@ -93,7 +85,6 @@ console.log(sayHello("رضا"));`,
         <tr><td>Reassign (تغییر مقدار)</td><td>✅</td><td>✅</td><td>❌</td></tr>
         <tr><td>Re-declare (تعریف مجدد)</td><td>✅</td><td>❌</td><td>❌</td></tr>
       </table>
-
       <div class="warn">⚠️ تفاوت <span class="hl">let</span> و <span class="hl">const</span>: const نمی‌تواند reassign شود، اما اگر const یک آبجکت یا آرایه باشد، محتوای آن قابل تغییر است!</div>
     </div>`,
     code: `// ============================================
@@ -153,7 +144,6 @@ function testScope() {
 testScope();`,
   },
 
-  // --- ۱.۳ انواع داده ---
   {
     cat: "مقدمات",
     id: "types",
@@ -163,7 +153,6 @@ testScope();`,
     content: `<div class="ls">
       <h2>🔢 انواع داده در جاوااسکریپت</h2>
       <p>جاوااسکریپت ۸ نوع داده دارد که به دو دسته کلی <span class="hl">Primitive</span> (مقداری) و <span class="hl">Reference</span> (مرجعی) تقسیم می‌شوند.</p>
-
       <h3>📌 Primitive Types (انواع مقداری)</h3>
       <p>این نوع داده‌ها مقدار را مستقیماً در حافظه ذخیره می‌کنند و تغییر در آنها تأثیری روی متغیرهای دیگر ندارد.</p>
       <ul>
@@ -175,17 +164,14 @@ testScope();`,
         <li><span class="hl">BigInt</span> — اعداد بسیار بزرگ: 9007199254740991n</li>
         <li><span class="hl">Symbol</span> — مقدار یکتا و منحصربه‌فرد</li>
       </ul>
-
       <h3>📌 Reference Types (انواع مرجعی)</h3>
       <p>این نوع داده‌ها آدرس حافظه را ذخیره می‌کنند و تغییر در آنها بر روی همه متغیرهایی که به آن اشاره دارند تأثیر می‌گذارد.</p>
       <ul>
         <li><span class="hl">Object</span> — آبجکت‌ها، آرایه‌ها، توابع، Map، Set و...</li>
       </ul>
-
       <h3>⚠️ Falsy Values</h3>
       <p>مقادیری که در شرط‌ها به false تبدیل می‌شوند:</p>
       <p><span class="hl">0</span>, <span class="hl">""</span> (رشته خالی), <span class="hl">null</span>, <span class="hl">undefined</span>, <span class="hl">NaN</span>, <span class="hl">false</span></p>
-
       <div class="warn">⚠️ <span class="hl">typeof null</span> → "object" — این یک باگ تاریخی در جاوااسکریپت است که به خاطر سازگاری باقی مانده است.</div>
       <div class="tip">💡 برای بررسی null، از <span class="hl">=== null</span> استفاده کنید نه typeof.</div>
     </div>`,
@@ -250,7 +236,6 @@ console.log("!!NaN:", !!NaN);     // false
 console.log("!!'hello':", !!'hello'); // true`,
   },
 
-  // --- ۱.۴ عملگرها ---
   {
     cat: "مقدمات",
     id: "operators",
@@ -260,19 +245,16 @@ console.log("!!'hello':", !!'hello'); // true`,
     content: `<div class="ls">
       <h2>➕ عملگرها در جاوااسکریپت</h2>
       <p>عملگرها برای انجام عملیات روی داده‌ها استفاده می‌شوند. در جاوااسکریپت انواع مختلفی از عملگرها وجود دارد.</p>
-
       <h3>📐 عملگرهای ریاضی</h3>
       <ul>
         <li><span class="hl">+</span> جمع | <span class="hl">-</span> تفریق | <span class="hl">*</span> ضرب | <span class="hl">/</span> تقسیم</li>
         <li><span class="hl">%</span> باقیمانده تقسیم | <span class="hl">**</span> توان</li>
         <li><span class="hl">++</span> یک واحد افزایش | <span class="hl">--</span> یک واحد کاهش</li>
       </ul>
-
       <h3>📝 عملگرهای انتساب</h3>
       <p><span class="hl">=</span> انتساب ساده | <span class="hl">+=</span> جمع و انتساب | <span class="hl">-=</span> تفریق و انتساب</p>
       <p><span class="hl">*=</span> ضرب و انتساب | <span class="hl">/=</span> تقسیم و انتساب | <span class="hl">%=</span> باقیمانده و انتساب</p>
       <p><span class="hl">**=</span> توان و انتساب</p>
-
       <h3>⚖️ عملگرهای مقایسه‌ای</h3>
       <ul>
         <li><span class="hl">==</span> برابری (نوع را چک نمی‌کند) — <span class="hl">اجتناب کنید!</span></li>
@@ -280,7 +262,6 @@ console.log("!!'hello':", !!'hello'); // true`,
         <li><span class="hl">!=</span> نابرابری | <span class="hl">!==</span> نابرابری دقیق</li>
         <li><span class="hl">&lt;</span> کوچک‌تر | <span class="hl">&gt;</span> بزرگ‌تر | <span class="hl">&lt;=</span> کوچک‌تر یا مساوی | <span class="hl">&gt;=</span> بزرگ‌تر یا مساوی</li>
       </ul>
-
       <h3>🔗 عملگرهای منطقی</h3>
       <ul>
         <li><span class="hl">&&</span> AND — هر دو شرط باید true باشند</li>
@@ -289,7 +270,6 @@ console.log("!!'hello':", !!'hello'); // true`,
         <li><span class="hl">??</span> Nullish Coalescing — اگر null یا undefined بود، مقدار جایگزین را برمی‌گرداند</li>
         <li><span class="hl">?.</span> Optional Chaining — اگر وجود نداشت undefined برمی‌گرداند (نه خطا)</li>
       </ul>
-
       <div class="warn">⚠️ همیشه از <span class="hl">===</span> استفاده کنید نه <span class="hl">==</span>. مثلاً <span class="hl">0 == false</span> → true ولی <span class="hl">0 === false</span> → false</div>
       <div class="tip">💡 عملگر <span class="hl">??</span> با <span class="hl">||</span> تفاوت دارد: <span class="hl">||</span> همه falsy values را در نظر می‌گیرد، اما <span class="hl">??</span> فقط null و undefined را.</div>
     </div>`,
@@ -352,7 +332,6 @@ let status = age >= 18 ? "بزرگسال" : "نوجوان";
 console.log("status:", status);`,
   },
 
-  // --- ۱.۵ isNaN ---
   {
     cat: "مقدمات",
     id: "isnan",
@@ -362,10 +341,8 @@ console.log("status:", status);`,
     content: `<div class="ls">
       <h2>🔍 isNaN — بررسی عدد بودن</h2>
       <p><span class="hl">isNaN</span> مخفف "is Not a Number" است و بررسی می‌کند که آیا مقدار مورد نظر عدد نیست یا خیر.</p>
-
       <h3>🔹 نحوه استفاده</h3>
       <pre>isNaN(value)</pre>
-
       <h3>🔹 نکات مهم</h3>
       <ul>
         <li>اگر مقدار <span class="hl">عدد</span> باشد → <span class="hl">false</span> برمی‌گرداند</li>
@@ -373,14 +350,12 @@ console.log("status:", status);`,
         <li>قبل از بررسی، سعی می‌کند مقدار را به عدد تبدیل کند</li>
         <li>برای رشته‌های عددی (مثل "123")، false برمی‌گرداند چون می‌توانند به عدد تبدیل شوند</li>
       </ul>
-
       <h3>🔹 کاربردها</h3>
       <ul>
         <li>اعتبارسنجی ورودی‌های عددی در فرم‌ها</li>
         <li>بررسی اینکه یک مقدار از API عدد است یا نه</li>
         <li>جلوگیری از خطاهای محاسباتی</li>
       </ul>
-
       <div class="tip">💡 برای بررسی دقیق‌تر از <span class="hl">Number.isNaN()</span> استفاده کنید که تبدیل نوع انجام نمی‌دهد.</div>
     </div>`,
     code: `// ============================================
@@ -425,7 +400,6 @@ console.log(validateNumber("abc"));  // ❌
 console.log(validateNumber(""));     // ❌`,
   },
 
-  // --- ۱.۶ concat ---
   {
     cat: "مقدمات",
     id: "concat",
@@ -435,10 +409,8 @@ console.log(validateNumber(""));     // ❌`,
     content: `<div class="ls">
       <h2>🔗 concat — چسباندن رشته‌ها</h2>
       <p><span class="hl">concat()</span> یک متد برای چسباندن (اتصال) دو یا چند رشته به یکدیگر است.</p>
-
       <h3>🔹 نحوه استفاده</h3>
       <pre>str1.concat(str2, str3, ...)</pre>
-
       <h3>🔹 نکات مهم</h3>
       <ul>
         <li>رشته اصلی را تغییر نمی‌دهد (immutable)</li>
@@ -446,14 +418,12 @@ console.log(validateNumber(""));     // ❌`,
         <li>می‌تواند چندین رشته را همزمان بچسباند</li>
         <li>اگر آرگومان داده نشود، یک کپی از رشته اصلی برمی‌گرداند</li>
       </ul>
-
       <h3>🔹 روش‌های دیگر چسباندن رشته</h3>
       <ul>
         <li><span class="hl">+</span> عملگر جمع — ساده‌ترین روش</li>
         <li><span class="hl">template literals</span> (با backtick) — روش مدرن و پیشنهادی</li>
         <li><span class="hl">concat()</span> — روش قدیمی‌تر</li>
       </ul>
-
       <div class="tip">💡 در جاوااسکریپت مدرن، از <span class="hl">template literals</span> (\`...\`) استفاده کنید که خوانایی بهتری دارد.</div>
     </div>`,
     code: `// ============================================
@@ -502,7 +472,6 @@ console.log("سلام " + name + " شما " + age + " ساله هستید");
 console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
   },
 
-  // --- ۱.۷ عملگرهای ریاضی (Math) ---
   {
     cat: "مقدمات",
     id: "math-basics",
@@ -512,7 +481,6 @@ console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
     content: `<div class="ls">
       <h2>📐 عملگرهای ریاضی و متدهای Math</h2>
       <p>جاوااسکریپت عملگرهای ریاضی پایه و همچنین یک شیء <span class="hl">Math</span> با متدهای پیشرفته‌تر ارائه می‌دهد.</p>
-
       <h3>🔹 عملگرهای ریاضی پایه</h3>
       <ul>
         <li><span class="hl">+</span> جمع</li>
@@ -522,7 +490,6 @@ console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
         <li><span class="hl">%</span> باقیمانده تقسیم</li>
         <li><span class="hl">**</span> توان (ES6)</li>
       </ul>
-
       <h3>🔹 متدهای مهم Math</h3>
       <ul>
         <li><span class="hl">Math.pow(base, exp)</span> — توان (مشابه **)</li>
@@ -537,7 +504,6 @@ console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
         <li><span class="hl">Math.random()</span> — عدد تصادفی بین 0 و 1</li>
         <li><span class="hl">Math.sign(x)</span> — علامت عدد (1, -1, 0)</li>
       </ul>
-
       <div class="tip">💡 عملگر <span class="hl">**</span> (توان) از ES6 به جاوااسکریپت اضافه شده و جایگزین بهتری برای <span class="hl">Math.pow()</span> است.</div>
     </div>`,
     code: `// ============================================
@@ -602,7 +568,6 @@ console.log("randInt(10, 20):", randInt(10, 20));`,
   // 🔀 بخش ۲: کنترل جریان
   // ============================================================
 
-  // --- ۲.۱ شرط‌ها ---
   {
     cat: "کنترل جریان",
     id: "conditions",
@@ -612,13 +577,10 @@ console.log("randInt(10, 20):", randInt(10, 20));`,
     content: `<div class="ls">
       <h2>🔀 شرط‌ها در جاوااسکریپت</h2>
       <p>شرط‌ها به برنامه اجازه می‌دهند بر اساس شرایط مختلف تصمیم‌گیری کند.</p>
-
       <h3>🔹 if / else if / else</h3>
       <p>ساده‌ترین و پرکاربردترین روش شرط‌گذاری. شرایط را به‌ترتیب بررسی می‌کند.</p>
-
       <h3>🔹 Ternary Operator</h3>
       <p>نسخه فشرده if/else: <span class="hl">شرط ? مقدارTrue : مقدارFalse</span></p>
-
       <h3>🔹 switch / case</h3>
       <p>برای مقایسه یک مقدار با چند حالت مختلف.</p>
     </div>`,
@@ -676,7 +638,6 @@ theme ??= "dark";
 console.log(theme); // dark`,
   },
 
-  // --- ۲.۲ حلقه‌ها ---
   {
     cat: "کنترل جریان",
     id: "loops",
@@ -685,25 +646,19 @@ console.log(theme); // dark`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔄 حلقه‌ها در جاوااسکریپت</h2>
-
       <h3>🔹 for</h3>
       <p>وقتی تعداد تکرار مشخص است.</p>
       <pre>for (let i = 0; i < 10; i++) { ... }</pre>
-
       <h3>🔹 while</h3>
       <p>تا زمانی که شرط برقرار است.</p>
       <pre>while (شرط) { ... }</pre>
-
       <h3>🔹 do...while</h3>
       <p>حداقل یک بار اجرا می‌شود.</p>
       <pre>do { ... } while (شرط);</pre>
-
       <h3>🔹 for...of</h3>
       <p>پیمایش روی مقادیر آرایه و رشته.</p>
-
       <h3>🔹 for...in</h3>
       <p>پیمایش روی کلیدهای آبجکت.</p>
-
       <h3>🔹 break و continue</h3>
       <ul>
         <li><span class="hl">break</span> — از حلقه خارج می‌شود</li>
@@ -761,7 +716,6 @@ for (let i = 0; i < 10; i++) {
 }`,
   },
 
-  // --- ۲.۳ do-while ---
   {
     cat: "کنترل جریان",
     id: "do-while",
@@ -771,18 +725,15 @@ for (let i = 0; i < 10; i++) {
     content: `<div class="ls">
       <h2>🔄 حلقه do-while</h2>
       <p>حلقه <span class="hl">do-while</span> مانند <span class="hl">while</span> است، با این تفاوت که <span class="hl">حداقل یک بار</span> اجرا می‌شود، حتی اگر شرط از ابتدا false باشد.</p>
-
       <h3>🔹 ساختار</h3>
       <pre>do {
   // کد (حداقل یک بار اجرا می‌شود)
 } while (شرط);</pre>
-
       <h3>🔹 تفاوت با while</h3>
       <ul>
         <li><span class="hl">while</span> — اول شرط را بررسی می‌کند، اگر false باشد اجرا نمی‌شود</li>
         <li><span class="hl">do-while</span> — اول اجرا می‌کند، بعد شرط را بررسی می‌کند</li>
       </ul>
-
       <div class="tip">💡 از do-while زمانی استفاده کنید که می‌خواهید کد حداقل یک بار اجرا شود، مثل منوهای تعاملی.</div>
     </div>`,
     code: `// ============================================
@@ -825,7 +776,6 @@ do {
   // 📋 بخش ۳: آرایه‌ها
   // ============================================================
 
-  // --- ۳.۱ مقدمات آرایه ---
   {
     cat: "آرایه‌ها",
     id: "array-basics",
@@ -835,11 +785,9 @@ do {
     content: `<div class="ls">
       <h2>📋 آرایه‌ها در جاوااسکریپت</h2>
       <p>آرایه یک لیست مرتب از مقادیر است. ایندکس‌ها از <span class="hl">0</span> شروع می‌شوند.</p>
-
       <h3>🔹 ایجاد آرایه</h3>
       <p><span class="hl">[]</span> — روش پیشنهادی</p>
       <p><span class="hl">new Array()</span> — روش قدیمی</p>
-
       <h3>🔹 اضافه و حذف</h3>
       <ul>
         <li><span class="hl">push()</span> — به انتها اضافه</li>
@@ -847,7 +795,6 @@ do {
         <li><span class="hl">unshift()</span> — به ابتدا اضافه</li>
         <li><span class="hl">shift()</span> — از ابتدا حذف</li>
       </ul>
-
       <h3>🔹 جستجو</h3>
       <ul>
         <li><span class="hl">indexOf()</span> — ایندکس اولین تطابق</li>
@@ -896,7 +843,6 @@ console.log("find(n => n > 25):", nums.find(n => n > 25));
 console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`,
   },
 
-  // --- ۳.۲ متدهای پیشرفته آرایه ---
   {
     cat: "آرایه‌ها",
     id: "array-methods",
@@ -906,25 +852,18 @@ console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`,
     content: `<div class="ls">
       <h2>🛠️ متدهای پیشرفته آرایه</h2>
       <p>این متدها <span class="hl">آرایه اصلی را تغییر نمی‌دهند</span>.</p>
-
       <h3>🔹 map()</h3>
       <p>تبدیل هر عنصر به مقدار جدید.</p>
-
       <h3>🔹 filter()</h3>
       <p>فیلتر بر اساس شرط.</p>
-
       <h3>🔹 reduce()</h3>
       <p>جمع‌بندی به یک مقدار.</p>
-
       <h3>🔹 forEach()</h3>
       <p>اجرا روی هر عنصر (بدون برگشت).</p>
-
       <h3>🔹 some() و every()</h3>
       <p>بررسی وجود یا همه بودن شرط.</p>
-
       <h3>🔹 flat()</h3>
       <p>صاف کردن آرایه تودرتو.</p>
-
       <h3>🔹 sort() / toSorted()</h3>
       <p>مرتب‌سازی.</p>
     </div>`,
@@ -973,7 +912,6 @@ console.log("toSorted:", nums.toSorted((a, b) => a - b));
 console.log("original:", nums);`,
   },
 
-  // --- ۳.۳ splice و toSpliced ---
   {
     cat: "آرایه‌ها",
     id: "splice",
@@ -982,14 +920,11 @@ console.log("original:", nums);`,
     badge: "پیشرفته",
     content: `<div class="ls">
       <h2>✂️ splice و toSpliced</h2>
-
       <h3>🔹 splice()</h3>
       <p>آرایه اصلی را تغییر می‌دهد. برای حذف، اضافه و جایگزینی استفاده می‌شود.</p>
       <pre>arr.splice(start, deleteCount, ...items)</pre>
-
       <h3>🔹 toSpliced()</h3>
       <p>مثل splice ولی آرایه اصلی را تغییر نمی‌دهد (ES2023).</p>
-
       <h3>🔹 کاربردها</h3>
       <ul>
         <li>حذف عناصر از آرایه</li>
@@ -1028,7 +963,6 @@ letters.splice(1, 0, "x", "y");
 console.log("بعد از اضافه:", letters);`,
   },
 
-  // --- ۳.۴ slice و concat ---
   {
     cat: "آرایه‌ها",
     id: "slice-concat",
@@ -1037,11 +971,9 @@ console.log("بعد از اضافه:", letters);`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>📦 slice و concat</h2>
-
       <h3>🔹 slice()</h3>
       <p>بخشی از آرایه را برش می‌دهد و یک آرایه جدید برمی‌گرداند. آرایه اصلی را تغییر نمی‌دهد.</p>
       <pre>arr.slice(start, end)</pre>
-
       <h3>🔹 concat()</h3>
       <p>آرایه‌ها را به هم متصل می‌کند و یک آرایه جدید برمی‌گرداند.</p>
       <pre>arr1.concat(arr2, arr3, ...)</pre>
@@ -1067,7 +999,6 @@ let merged = arr1.concat(arr2, arr3);
 console.log("concat:", merged);`,
   },
 
-  // --- ۳.۵ join و split ---
   {
     cat: "آرایه‌ها",
     id: "join-split",
@@ -1076,11 +1007,9 @@ console.log("concat:", merged);`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔀 join و split</h2>
-
       <h3>🔹 join()</h3>
       <p>آرایه را به رشته تبدیل می‌کند و عناصر را با جداکننده مشخص به هم متصل می‌کند.</p>
       <pre>arr.join(separator)</pre>
-
       <h3>🔹 split()</h3>
       <p>رشته را بر اساس جداکننده به آرایه تبدیل می‌کند.</p>
       <pre>str.split(separator)</pre>
@@ -1114,7 +1043,6 @@ console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`,
   // 🗂️ بخش ۴: آبجکت‌ها
   // ============================================================
 
-  // --- ۴.۱ آبجکت‌ها ---
   {
     cat: "آبجکت‌ها",
     id: "objects",
@@ -1124,13 +1052,11 @@ console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`,
     content: `<div class="ls">
       <h2>🗂️ آبجکت‌ها در جاوااسکریپت</h2>
       <p>آبجکت مجموعه‌ای از جفت‌های <span class="hl">کلید: مقدار</span> است.</p>
-
       <h3>🔹 دسترسی به ویژگی‌ها</h3>
       <ul>
         <li><span class="hl">obj.key</span> — Dot notation</li>
         <li><span class="hl">obj["key"]</span> — Bracket notation</li>
       </ul>
-
       <h3>🔹 متدهای Object</h3>
       <ul>
         <li><span class="hl">Object.keys()</span> — کلیدها</li>
@@ -1186,7 +1112,6 @@ console.log("seal:", settings);`,
   // 📤 بخش ۵: Destructuring و Spread
   // ============================================================
 
-  // --- ۵.۱ Destructuring ---
   {
     cat: "Destructuring & Spread",
     id: "destruct",
@@ -1196,13 +1121,10 @@ console.log("seal:", settings);`,
     content: `<div class="ls">
       <h2>📤 Destructuring</h2>
       <p>استخراج مقادیر از آرایه یا آبجکت به صورت خوانا.</p>
-
       <h3>🔹 Array Destructuring</h3>
       <pre>const [a, b, ...rest] = arr;</pre>
-
       <h3>🔹 Object Destructuring</h3>
       <pre>const { name, age } = obj;</pre>
-
       <h3>🔹 Default Values</h3>
       <p>اگر مقدار undefined بود، مقدار پیش‌فرض استفاده می‌شود.</p>
     </div>`,
@@ -1247,7 +1169,6 @@ function show({ name, price, color = "نامشخص" }) {
 show(product);`,
   },
 
-  // --- ۵.۲ Spread و Rest ---
   {
     cat: "Destructuring & Spread",
     id: "spread-rest",
@@ -1256,10 +1177,8 @@ show(product);`,
     badge: "مدرن",
     content: `<div class="ls">
       <h2>🌊 Spread و Rest</h2>
-
       <h3>🔹 Spread</h3>
       <p>آرایه یا آبجکت را باز می‌کند.</p>
-
       <h3>🔹 Rest</h3>
       <p>بقیه را در یک آرایه جمع می‌کند.</p>
     </div>`,
@@ -1312,7 +1231,6 @@ console.log("otherProps:", otherProps);`,
   // 📝 بخش ۶: متدهای String
   // ============================================================
 
-  // --- ۶.۱ charAt و at ---
   {
     cat: "متدهای String",
     id: "char-at",
@@ -1321,11 +1239,9 @@ console.log("otherProps:", otherProps);`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔤 charAt و at</h2>
-
       <h3>🔹 charAt()</h3>
       <p>کاراکتر در ایندکس مشخص را برمی‌گرداند. اگر ایندکس نامعتبر باشد، رشته خالی برمی‌گرداند.</p>
       <pre>str.charAt(index)</pre>
-
       <h3>🔹 at()</h3>
       <p>مثل charAt ولی از ایندکس منفی پشتیبانی می‌کند (ES2022).</p>
       <pre>str.at(index)</pre>
@@ -1351,7 +1267,6 @@ console.log('text.at(-1):', text.at(-1)); // "t"
 console.log('text.charAt(-1):', text.charAt(-1)); // ""`,
   },
 
-  // --- ۶.۲ indexOf و lastIndexOf ---
   {
     cat: "متدهای String",
     id: "index-of",
@@ -1360,10 +1275,8 @@ console.log('text.charAt(-1):', text.charAt(-1)); // ""`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔍 indexOf و lastIndexOf</h2>
-
       <h3>🔹 indexOf()</h3>
       <p>اولین ایندکس یک زیررشته را برمی‌گرداند. اگر نباشد، -1 برمی‌گرداند.</p>
-
       <h3>🔹 lastIndexOf()</h3>
       <p>آخرین ایندکس یک زیررشته را برمی‌گرداند.</p>
     </div>`,
@@ -1393,7 +1306,6 @@ console.log('startsWith("java"):', text.startsWith("java")); // true
 console.log('endsWith("script"):', text.endsWith("script")); // true`,
   },
 
-  // --- ۶.۳ trim ---
   {
     cat: "متدهای String",
     id: "trim",
@@ -1402,13 +1314,10 @@ console.log('endsWith("script"):', text.endsWith("script")); // true`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>✂️ trim — حذف فاصله‌ها</h2>
-
       <h3>🔹 trim()</h3>
       <p>فاصله‌های اضافی از ابتدا و انتهای رشته را حذف می‌کند.</p>
-
       <h3>🔹 trimStart()</h3>
       <p>فقط فاصله‌های ابتدای رشته را حذف می‌کند.</p>
-
       <h3>🔹 trimEnd()</h3>
       <p>فقط فاصله‌های انتهای رشته را حذف می‌کند.</p>
     </div>`,
@@ -1434,7 +1343,6 @@ let multiSpace = "  hello   world  ";
 console.log("trim():", multiSpace.trim());`,
   },
 
-  // --- ۶.۴ toUpperCase و toLowerCase ---
   {
     cat: "متدهای String",
     id: "case",
@@ -1443,10 +1351,8 @@ console.log("trim():", multiSpace.trim());`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔠 toUpperCase و toLowerCase</h2>
-
       <h3>🔹 toUpperCase()</h3>
       <p>همه حروف رشته را به بزرگ تبدیل می‌کند.</p>
-
       <h3>🔹 toLowerCase()</h3>
       <p>همه حروف رشته را به کوچک تبدیل می‌کند.</p>
     </div>`,
@@ -1474,7 +1380,6 @@ console.log(compareIgnoreCase("Hello", "hello")); // true
 console.log(compareIgnoreCase("Hello", "world")); // false`,
   },
 
-  // --- ۶.۵ slice و substring ---
   {
     cat: "متدهای String",
     id: "slice-substring",
@@ -1483,10 +1388,8 @@ console.log(compareIgnoreCase("Hello", "world")); // false`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>✂️ slice و substring</h2>
-
       <h3>🔹 slice(start, end)</h3>
       <p>بخشی از رشته را برش می‌دهد. از ایندکس منفی پشتیبانی می‌کند.</p>
-
       <h3>🔹 substring(start, end)</h3>
       <p>مثل slice ولی از ایندکس منفی پشتیبانی نمی‌کند.</p>
     </div>`,
@@ -1512,7 +1415,6 @@ let masked = card.slice(-4).padStart(card.length, "*");
 console.log("مخفی:", masked);`,
   },
 
-  // --- ۶.۶ replace و replaceAll ---
   {
     cat: "متدهای String",
     id: "replace",
@@ -1521,10 +1423,8 @@ console.log("مخفی:", masked);`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>🔄 replace و replaceAll</h2>
-
       <h3>🔹 replace()</h3>
       <p>اولین مورد از یک زیررشته را جایگزین می‌کند.</p>
-
       <h3>🔹 replaceAll()</h3>
       <p>همه موارد یک زیررشته را جایگزین می‌کند.</p>
     </div>`,
@@ -1552,7 +1452,6 @@ let multiSpace = "hello   world    javascript";
 console.log(multiSpace.replace(/\\s+/g, " "));`,
   },
 
-  // --- ۶.۷ padStart و padEnd ---
   {
     cat: "متدهای String",
     id: "pad",
@@ -1561,10 +1460,8 @@ console.log(multiSpace.replace(/\\s+/g, " "));`,
     badge: "پایه",
     content: `<div class="ls">
       <h2>📏 padStart و padEnd</h2>
-
       <h3>🔹 padStart()</h3>
       <p>رشته را از ابتدا تا طول مشخص با کاراکتر مشخص پر می‌کند.</p>
-
       <h3>🔹 padEnd()</h3>
       <p>رشته را از انتها تا طول مشخص با کاراکتر مشخص پر می‌کند.</p>
     </div>`,
@@ -1595,7 +1492,6 @@ let orderNumber = 42;
 console.log(orderNumber.toString().padStart(6, "0")); // "000042"`,
   },
 
-  // --- ۶.۸ toLocaleString ---
   {
     cat: "متدهای String",
     id: "locale-string",
@@ -1605,17 +1501,14 @@ console.log(orderNumber.toString().padStart(6, "0")); // "000042"`,
     content: `<div class="ls">
       <h2>🌍 toLocaleString — فرمت اعداد با جداکننده</h2>
       <p><span class="hl">toLocaleString()</span> اعداد را به صورت محلی (مطابق با زبان و کشور) فرمت می‌کند.</p>
-
       <h3>🔹 نحوه استفاده</h3>
       <pre>number.toLocaleString(locale, options)</pre>
-
       <h3>🔹 کاربردها</h3>
       <ul>
         <li>جدا کردن اعداد با کاما (مثل ۱,۰۰۰,۰۰۰)</li>
         <li>فرمت قیمت‌ها و مبالغ</li>
         <li>نمایش اعداد به صورت محلی</li>
       </ul>
-
       <div class="tip">💡 برای نمایش قیمت در فروشگاه‌های ایرانی، از <span class="hl">toLocaleString("fa-IR")</span> استفاده کنید.</div>
     </div>`,
     code: `// ============================================
@@ -1658,7 +1551,6 @@ console.log(ratio.toLocaleString("fa-IR", {
   // 🔄 بخش ۷: توابع (Functions)
   // ============================================================
 
-  // --- ۷.۱ توابع ---
   {
     cat: "توابع",
     id: "functions",
@@ -1668,25 +1560,19 @@ console.log(ratio.toLocaleString("fa-IR", {
     content: `<div class="ls">
       <h2>⚙️ توابع در جاوااسکریپت</h2>
       <p>تابع یک بلوک کد است که یک کار مشخص را انجام می‌دهد و می‌توان آن را چندین بار فراخوانی کرد.</p>
-
       <h3>🔹 ۱. Function Declaration</h3>
       <p>با <span class="hl">function</span> تعریف می‌شود. <span class="hl">Hoisting</span> دارد.</p>
-
       <h3>🔹 ۲. Function Expression</h3>
       <p>تابع در متغیر قرار می‌گیرد. Hoisting ندارد.</p>
-
       <h3>🔹 ۳. Arrow Function ✅</h3>
       <p>نسخه کوتاه‌تر و مدرن‌تر.</p>
-
       <h3>🔹 ۴. IIFE</h3>
       <p>تابع خودصداکننده — فوری اجرا می‌شود.</p>
-
       <h3>🔹 پارامترهای پیشرفته</h3>
       <ul>
         <li><span class="hl">Default Parameter</span> — مقدار پیش‌فرض</li>
         <li><span class="hl">Rest Operator (...)</span> — جمع‌آوری آرگومان‌ها</li>
       </ul>
-
       <div class="tip">💡 <span class="hl">return</span> مقدار را برمی‌گرداند و تابع را متوقف می‌کند.</div>
     </div>`,
     code: `// ============================================
@@ -1744,7 +1630,6 @@ function sum(...numbers) {
 console.log(sum(1, 2, 3, 4, 5)); // 15`,
   },
 
-  // --- ۷.۲ this و call/apply/bind ---
   {
     cat: "توابع",
     id: "this",
@@ -1754,13 +1639,10 @@ console.log(sum(1, 2, 3, 4, 5)); // 15`,
     content: `<div class="ls">
       <h2>👉 this در جاوااسکریپت</h2>
       <p><span class="hl">this</span> به آبجکت فعلی اشاره می‌کند. مقدار آن بستگی به نحوه فراخوانی دارد.</p>
-
       <h3>🔹 call()</h3>
       <p>فراخوانی با this مشخص + آرگومان جداگانه.</p>
-
       <h3>🔹 apply()</h3>
       <p>مثل call ولی آرگومان‌ها آرایه‌ای.</p>
-
       <h3>🔹 bind()</h3>
       <p>تابع جدید با this مشخص می‌سازد (اجرا نمی‌کند).</p>
     </div>`,
@@ -1803,7 +1685,6 @@ bound("مشهد");`,
   // 🏗️ بخش ۸: OOP
   // ============================================================
 
-  // --- ۸.۱ کلاس‌ها ---
   {
     cat: "OOP",
     id: "class-basics",
@@ -1813,7 +1694,6 @@ bound("مشهد");`,
     content: `<div class="ls">
       <h2>🏗️ OOP — برنامه‌نویسی شیءگرا</h2>
       <p>OOP روشی برای سازماندهی کدهاست. داده و رفتار را در <span class="hl">آبجکت</span> گروه‌بندی می‌کند.</p>
-
       <h3>🔹 مفاهیم اصلی</h3>
       <ul>
         <li><span class="hl">Encapsulation</span> — داده و رفتار در یک واحد</li>
@@ -1821,7 +1701,6 @@ bound("مشهد");`,
         <li><span class="hl">Polymorphism</span> — رفتار متفاوت</li>
         <li><span class="hl">Abstraction</span> — مخفی کردن پیچیدگی</li>
       </ul>
-
       <h3>🔹 class در JS</h3>
       <p><span class="hl">constructor()</span> با <span class="hl">new</span> اجرا می‌شود.</p>
     </div>`,
@@ -1860,7 +1739,6 @@ myCar.accelerate(60);
 console.log(myCar.getInfo());`,
   },
 
-  // --- ۸.۲ Inheritance و Static ---
   {
     cat: "OOP",
     id: "class-advanced",
@@ -1869,16 +1747,12 @@ console.log(myCar.getInfo());`,
     badge: "OOP",
     content: `<div class="ls">
       <h2>🔬 Inheritance و Static</h2>
-
       <h3>🔹 extends</h3>
       <p>کلاس فرزند از پدر ارث می‌برد. <span class="hl">super()</span> برای صدا زدن constructor پدر.</p>
-
       <h3>🔹 static</h3>
       <p>مربوط به کلاس، نه instance.</p>
-
       <h3>🔹 Getter/Setter</h3>
       <p>دسترسی به ویژگی‌ها با منطق پشت‌صحنه.</p>
-
       <h3>🔹 Private Fields (#)</h3>
       <p>فقط داخل کلاس قابل دسترس.</p>
     </div>`,
@@ -1944,7 +1818,6 @@ console.log(dog.status);`,
   // 🎯 بخش ۹: DOM
   // ============================================================
 
-  // --- ۹.۱ DOM ---
   {
     cat: "DOM",
     id: "dom",
@@ -1954,7 +1827,6 @@ console.log(dog.status);`,
     content: `<div class="ls">
       <h2>🎯 DOM (Document Object Model)</h2>
       <p>DOM یک رابط بین جاوااسکریپت و HTML است.</p>
-
       <h3>🔹 انتخاب المان‌ها</h3>
       <table class="compare-table">
         <tr><th>روش</th><th>خروجی</th><th>توصیه</th></tr>
@@ -1962,13 +1834,11 @@ console.log(dog.status);`,
         <tr><td>querySelector</td><td>Element (اولی)</td><td>✅✅</td></tr>
         <tr><td>querySelectorAll</td><td>NodeList</td><td>✅✅</td></tr>
       </table>
-
       <h3>🔹 تغییر محتوا</h3>
       <ul>
         <li><span class="hl">textContent</span> — متن خالص</li>
         <li><span class="hl">innerHTML</span> — HTML</li>
       </ul>
-
       <h3>🔹 classList</h3>
       <p>add | remove | toggle | contains | replace</p>
     </div>`,
@@ -2022,7 +1892,6 @@ console.log("المان:", div.tag, div.content);`,
   // 🖱️ بخش ۱۰: رویدادها
   // ============================================================
 
-  // --- ۱۰.۱ رویدادهای موس ---
   {
     cat: "رویدادها",
     id: "mouse-events",
@@ -2031,7 +1900,6 @@ console.log("المان:", div.tag, div.content);`,
     badge: "DOM",
     content: `<div class="ls">
       <h2>🖱️ رویدادهای موس</h2>
-
       <h3>🔹 انواع رویدادها</h3>
       <ul>
         <li><span class="hl">click</span> — کلیک</li>
@@ -2043,7 +1911,6 @@ console.log("المان:", div.tag, div.content);`,
         <li><span class="hl">mousemove</span> — حرکت موس</li>
         <li><span class="hl">contextmenu</span> — راست کلیک</li>
       </ul>
-
       <h3>🔹 Event Object</h3>
       <ul>
         <li><span class="hl">e.clientX / e.clientY</span> — موقعیت موس</li>
@@ -2103,7 +1970,6 @@ sim.addEventListener("click", () => console.log("کلیک شبیه‌سازی ش
 sim.trigger("click");`,
   },
 
-  // --- ۱۰.۲ رویدادهای کیبورد ---
   {
     cat: "رویدادها",
     id: "keyboard-events",
@@ -2112,13 +1978,11 @@ sim.trigger("click");`,
     badge: "DOM",
     content: `<div class="ls">
       <h2>⌨️ رویدادهای کیبورد</h2>
-
       <h3>🔹 انواع رویدادها</h3>
       <ul>
         <li><span class="hl">keydown</span> — فشار دادن کلید</li>
         <li><span class="hl">keyup</span> — رها کردن کلید</li>
       </ul>
-
       <h3>🔹 Event Object</h3>
       <ul>
         <li><span class="hl">e.key</span> — مقدار کلید</li>
@@ -2190,7 +2054,6 @@ kbSim.addEventListener("keydown", (e) => {
 kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
   },
 
-  // --- ۱۰.۳ رویدادهای ورودی ---
   {
     cat: "رویدادها",
     id: "input-events",
@@ -2199,7 +2062,6 @@ kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
     badge: "DOM",
     content: `<div class="ls">
       <h2>📝 رویدادهای ورودی</h2>
-
       <h3>🔹 انواع رویدادها</h3>
       <ul>
         <li><span class="hl">input</span> — هر تغییر (لحظه‌ای)</li>
@@ -2207,7 +2069,6 @@ kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
         <li><span class="hl">focus</span> — کلیک روی المان</li>
         <li><span class="hl">blur</span> — خروج از المان</li>
       </ul>
-
       <h3>🔹 تفاوت input و change</h3>
       <p><span class="hl">input</span> هر بار تایپ اجرا می‌شود، <span class="hl">change</span> فقط بعد از خارج شدن.</p>
     </div>`,
@@ -2274,7 +2135,6 @@ inputSim.setValue("hello");
 inputSim.blur();`,
   },
 
-  // --- ۱۰.۴ رویدادهای فرم ---
   {
     cat: "رویدادها",
     id: "form-events",
@@ -2283,13 +2143,10 @@ inputSim.blur();`,
     badge: "DOM",
     content: `<div class="ls">
       <h2>📋 رویدادهای فرم</h2>
-
       <h3>🔹 submit</h3>
       <p>وقتی فرم ارسال می‌شود. با <span class="hl">e.preventDefault()</span> جلوگیری می‌کنیم.</p>
-
       <h3>🔹 reset</h3>
       <p>وقتی فرم ریست می‌شود.</p>
-
       <h3>🔹 اعتبارسنجی</h3>
       <p>بررسی ورودی‌ها قبل از ارسال.</p>
     </div>`,
@@ -2351,7 +2208,6 @@ formSim.submit();`,
   // ⏱️ بخش ۱۱: Async
   // ============================================================
 
-  // --- ۱۱.۱ setTimeout و setInterval ---
   {
     cat: "Async JS",
     id: "timers",
@@ -2360,15 +2216,12 @@ formSim.submit();`,
     badge: "Async",
     content: `<div class="ls">
       <h2>⏱️ setTimeout و setInterval</h2>
-
       <h3>🔹 setTimeout</h3>
       <p>یک بار بعد از تأخیر اجرا می‌شود.</p>
       <pre>setTimeout(callback, delay)</pre>
-
       <h3>🔹 setInterval</h3>
       <p>هر delay یک بار اجرا می‌شود.</p>
       <pre>setInterval(callback, delay)</pre>
-
       <div class="warn">⚠️ setInterval را با <span class="hl">clearInterval</span> متوقف کنید تا مموری لیک نشود.</div>
     </div>`,
     code: `// ============================================
@@ -2416,7 +2269,6 @@ function countdown(from) {
 countdown(3);`,
   },
 
-  // --- ۱۱.۲ Promise ---
   {
     cat: "Async JS",
     id: "promises",
@@ -2426,14 +2278,12 @@ countdown(3);`,
     content: `<div class="ls">
       <h2>🤝 Promise</h2>
       <p>Promise نمایانگر یک عملیات ناهمزمان است.</p>
-
       <h3>🔹 سه حالت</h3>
       <ul>
         <li><span class="hl">pending</span> — در انتظار</li>
         <li><span class="hl">fulfilled</span> — موفق</li>
         <li><span class="hl">rejected</span> — شکست</li>
       </ul>
-
       <h3>🔹 متدها</h3>
       <ul>
         <li><span class="hl">.then()</span> — موفق</li>
@@ -2484,7 +2334,6 @@ Promise.race([fetchData(3), fetchData(1), fetchData(2)])
   .then(first => console.log("اولین:", first.data));`,
   },
 
-  // --- ۱۱.۳ Async/Await ---
   {
     cat: "Async JS",
     id: "async-await",
@@ -2494,7 +2343,6 @@ Promise.race([fetchData(3), fetchData(1), fetchData(2)])
     content: `<div class="ls">
       <h2>⏳ Async/Await</h2>
       <p>روش مدرن برای کار با Promise. کد را sync می‌نویسیم.</p>
-
       <h3>🔹 قوانین</h3>
       <ul>
         <li>تابع باید <span class="hl">async</span> باشد</li>
@@ -2570,7 +2418,6 @@ parallel();`,
   // 💾 بخش ۱۲: Storage
   // ============================================================
 
-  // --- ۱۲.۱ localStorage ---
   {
     cat: "Storage & BOM",
     id: "localstorage",
@@ -2580,7 +2427,6 @@ parallel();`,
     content: `<div class="ls">
       <h2>💾 localStorage</h2>
       <p>ذخیره‌سازی داده در مرورگر کاربر.</p>
-
       <h3>🔹 متدها</h3>
       <ul>
         <li><span class="hl">setItem(key, value)</span> — ذخیره</li>
@@ -2588,7 +2434,6 @@ parallel();`,
         <li><span class="hl">removeItem(key)</span> — حذف</li>
         <li><span class="hl">clear()</span> — پاک کردن همه</li>
       </ul>
-
       <div class="warn">⚠️ فقط <span class="hl">string</span> ذخیره می‌کند. برای آبجکت از <span class="hl">JSON.stringify</span> استفاده کنید.</div>
     </div>`,
     code: `// ============================================
@@ -2633,7 +2478,6 @@ store.set("config", { theme: "dark" });
 console.log(store.get("config"));`,
   },
 
-  // --- ۱۲.۲ JSON ---
   {
     cat: "Storage & BOM",
     id: "json",
@@ -2643,13 +2487,11 @@ console.log(store.get("config"));`,
     content: `<div class="ls">
       <h2>📄 JSON</h2>
       <p>فرمت متنی برای تبادل داده.</p>
-
       <h3>🔹 متدها</h3>
       <ul>
         <li><span class="hl">JSON.stringify()</span> — آبجکت → string</li>
         <li><span class="hl">JSON.parse()</span> — string → آبجکت</li>
       </ul>
-
       <h3>🔹 قوانین</h3>
       <ul>
         <li>کلیدها با <span class="hl">double quote</span></li>
@@ -2699,7 +2541,6 @@ try {
   // 🔒 بخش ۱۳: مفاهیم پیشرفته
   // ============================================================
 
-  // --- ۱۳.۱ Closure ---
   {
     cat: "مفاهیم پیشرفته",
     id: "closure",
@@ -2709,7 +2550,6 @@ try {
     content: `<div class="ls">
       <h2>🔒 Closure</h2>
       <p>Closure یعنی تابع داخلی به متغیرهای تابع بیرونی دسترسی دارد، <span class="hl">حتی بعد از اینکه تابع بیرونی تمام شده.</span></p>
-
       <h3>🔹 کاربردها</h3>
       <ul>
         <li>Private Variables — متغیرهای خصوصی</li>
@@ -2769,7 +2609,6 @@ console.log(ali.getAge());`,
   // 🚀 بخش ۱۴: API
   // ============================================================
 
-  // --- ۱۴.۱ fetch ---
   {
     cat: "API و Async",
     id: "fetch-api",
@@ -2779,7 +2618,6 @@ console.log(ali.getAge());`,
     content: `<div class="ls">
       <h2>🚀 fetch API</h2>
       <p>روش مدرن برای درخواست‌های HTTP.</p>
-
       <h3>🔹 متدها</h3>
       <ul>
         <li><span class="hl">GET</span> — دریافت داده</li>
@@ -2788,7 +2626,6 @@ console.log(ali.getAge());`,
         <li><span class="hl">PATCH</span> — به‌روزرسانی جزئی</li>
         <li><span class="hl">DELETE</span> — حذف داده</li>
       </ul>
-
       <div class="tip">💡 همیشه <span class="hl">res.ok</span> را بررسی کنید. fetch خطاهای ۴۰۴ را به catch نمی‌فرستد.</div>
     </div>`,
     code: `// ============================================
@@ -2824,7 +2661,6 @@ fetch("https://jsonplaceholder.typicode.com/posts/100", {
   .catch(err => console.error("❌", err));`,
   },
 
-  // --- ۱۴.۲ Axios ---
   {
     cat: "API و Async",
     id: "axios",
@@ -2834,7 +2670,6 @@ fetch("https://jsonplaceholder.typicode.com/posts/100", {
     content: `<div class="ls">
       <h2>📦 Axios</h2>
       <p>کتابخانه محبوب برای درخواست‌های HTTP.</p>
-
       <h3>🔹 مزایا</h3>
       <ul>
         <li>✅ JSON را خودکار parse می‌کند</li>
@@ -2894,7 +2729,6 @@ axiosSim.get("/users").then(res => console.log("✅", res.data));`,
   // 📦 بخش ۱۵: BOM
   // ============================================================
 
-  // --- ۱۵.۱ BOM ---
   {
     cat: "Storage & BOM",
     id: "bom",
@@ -2904,16 +2738,12 @@ axiosSim.get("/users").then(res => console.log("✅", res.data));`,
     content: `<div class="ls">
       <h2>🌐 BOM (Browser Object Model)</h2>
       <p>BOM به شما امکان تعامل با مرورگر را می‌دهد.</p>
-
       <h3>🔹 window</h3>
       <p>ابجکت اصلی مرورگر.</p>
-
       <h3>🔹 location</h3>
       <p>اطلاعات آدرس صفحه.</p>
-
       <h3>🔹 history</h3>
       <p>تاریخچه مرورگر.</p>
-
       <h3>🔹 navigator</h3>
       <p>اطلاعات مرورگر کاربر.</p>
     </div>`,
