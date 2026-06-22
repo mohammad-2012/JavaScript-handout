@@ -1952,47 +1952,116 @@ function runSpecificCode(encodedCode) {
   const out = document.getElementById("con-out");
   const empty = out.querySelector(".cempty");
   if (empty) empty.remove();
+
   const originalLog = console.log;
   const originalError = console.error;
   const originalWarn = console.warn;
   const originalInfo = console.info;
+
   console.log = function (...args) {
-    addLine(
-      "log",
-      args
-        .map((a) =>
-          typeof a === "object" ? JSON.stringify(a, null, 2) : String(a),
-        )
-        .join(" "),
-    );
+    // اطمینان از اینکه args یک آرایه است
+    const argsArray = Array.from(args);
+    const text = argsArray
+      .map((a) => {
+        if (a === null) return "null";
+        if (a === undefined) return "undefined";
+        if (typeof a === "object") {
+          try {
+            return JSON.stringify(a, null, 2);
+          } catch {
+            return String(a);
+          }
+        }
+        return String(a);
+      })
+      .join(" ");
+    addLine("log", text);
     originalLog.apply(console, args);
   };
+
   console.error = function (...args) {
-    addLine("error", args.map((a) => String(a)).join(" "));
+    const argsArray = Array.from(args);
+    const text = argsArray
+      .map((a) => {
+        if (a === null) return "null";
+        if (a === undefined) return "undefined";
+        if (typeof a === "object") {
+          try {
+            return JSON.stringify(a, null, 2);
+          } catch {
+            return String(a);
+          }
+        }
+        return String(a);
+      })
+      .join(" ");
+    addLine("error", text);
     originalError.apply(console, args);
   };
+
   console.warn = function (...args) {
-    addLine("warn", args.map((a) => String(a)).join(" "));
+    const argsArray = Array.from(args);
+    const text = argsArray
+      .map((a) => {
+        if (a === null) return "null";
+        if (a === undefined) return "undefined";
+        if (typeof a === "object") {
+          try {
+            return JSON.stringify(a, null, 2);
+          } catch {
+            return String(a);
+          }
+        }
+        return String(a);
+      })
+      .join(" ");
+    addLine("warn", text);
     originalWarn.apply(console, args);
   };
+
   console.info = function (...args) {
-    addLine("info", args.map((a) => String(a)).join(" "));
+    const argsArray = Array.from(args);
+    const text = argsArray
+      .map((a) => {
+        if (a === null) return "null";
+        if (a === undefined) return "undefined";
+        if (typeof a === "object") {
+          try {
+            return JSON.stringify(a, null, 2);
+          } catch {
+            return String(a);
+          }
+        }
+        return String(a);
+      })
+      .join(" ");
+    addLine("info", text);
     originalInfo.apply(console, args);
   };
+
   try {
     const result = eval(code);
     if (result !== undefined) {
-      addLine(
-        "log",
-        "← " +
-          (typeof result === "object"
-            ? JSON.stringify(result, null, 2)
-            : String(result)),
-      );
+      let resultText;
+      if (result === null) {
+        resultText = "null";
+      } else if (result === undefined) {
+        resultText = "undefined";
+      } else if (typeof result === "object") {
+        try {
+          resultText = JSON.stringify(result, null, 2);
+        } catch {
+          resultText = String(result);
+        }
+      } else {
+        resultText = String(result);
+      }
+      addLine("log", "← " + resultText);
     }
   } catch (e) {
     addLine("error", "❌ " + e.message);
   }
+
   console.log = originalLog;
   console.error = originalError;
   console.warn = originalWarn;
