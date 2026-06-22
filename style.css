@@ -46,7 +46,9 @@ body {
   height: 100vh;
   overflow: hidden;
   font-size: 15px;
-  transition: background var(--transition), color var(--transition);
+  transition:
+    background var(--transition),
+    color var(--transition);
 }
 
 #sidebar {
@@ -57,7 +59,13 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: background var(--transition), width 0.4s ease, min-width 0.4s ease;
+  transition:
+    background var(--transition),
+    width 0.35s ease,
+    min-width 0.35s ease,
+    transform 0.35s ease;
+  position: relative;
+  z-index: 100;
 }
 
 #sidebar.closed {
@@ -65,11 +73,13 @@ body {
   min-width: 0 !important;
   border-left: none;
   overflow: hidden;
+  padding: 0;
 }
 
 #sidebar-header {
   padding: 16px 14px 12px;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 #sidebar-header h1 {
@@ -88,7 +98,9 @@ body {
   color: var(--text);
   font-size: 13px;
   outline: none;
-  transition: border-color 0.2s, background var(--transition);
+  transition:
+    border-color 0.2s,
+    background var(--transition);
 }
 
 #search-box:focus {
@@ -179,49 +191,41 @@ body {
   color: #00d4aa;
   border-color: rgba(0, 212, 170, 0.25);
 }
-
 .topic-badge[data-level="پایه"] {
   background: rgba(74, 144, 226, 0.15);
   color: #4a90e2;
   border-color: rgba(74, 144, 226, 0.25);
 }
-
 .topic-badge[data-level="مهم"] {
   background: rgba(255, 169, 64, 0.15);
   color: #ffa940;
   border-color: rgba(255, 169, 64, 0.25);
 }
-
 .topic-badge[data-level="پیشرفته"] {
   background: rgba(255, 107, 107, 0.15);
   color: #ff6b6b;
   border-color: rgba(255, 107, 107, 0.25);
 }
-
 .topic-badge[data-level="مدرن"] {
   background: rgba(124, 106, 255, 0.15);
   color: #7c6aff;
   border-color: rgba(124, 106, 255, 0.25);
 }
-
 .topic-badge[data-level="OOP"] {
   background: rgba(255, 106, 158, 0.15);
   color: #ff6a9e;
   border-color: rgba(255, 106, 158, 0.25);
 }
-
 .topic-badge[data-level="DOM"] {
   background: rgba(0, 200, 200, 0.15);
   color: #00c8c8;
   border-color: rgba(0, 200, 200, 0.25);
 }
-
 .topic-badge[data-level="Async"] {
   background: rgba(255, 160, 0, 0.15);
   color: #ffa000;
   border-color: rgba(255, 160, 0, 0.25);
 }
-
 .topic-badge[data-level="مرورگر"] {
   background: rgba(100, 200, 100, 0.15);
   color: #64c864;
@@ -309,17 +313,22 @@ body {
   align-items: center;
   gap: 12px;
   transition: background var(--transition);
+  flex-shrink: 0;
 }
 
 #content-title {
   font-size: 17px;
   font-weight: 700;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #content-sub {
   font-size: 12px;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .top-btn {
@@ -330,6 +339,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 #run-btn {
@@ -498,15 +508,12 @@ body {
   height: 10px;
   border-radius: 50%;
 }
-
 .d-r {
   background: #ff5f57;
 }
-
 .d-y {
   background: #febc2e;
 }
-
 .d-g {
   background: #28c840;
 }
@@ -562,6 +569,7 @@ body {
   gap: 8px;
   font-size: 13px;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 #con-hdr span {
@@ -608,26 +616,8 @@ body {
   transform: scale(1.05);
   box-shadow: 0 4px 16px rgba(255, 107, 107, 0.5);
 }
-
 #clear-btn:active {
   transform: scale(0.95);
-}
-
-#toggle-console-btn {
-  padding: 3px 10px;
-  background: var(--accent);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: bold;
-}
-
-#toggle-console-btn:hover {
-  background: #9b6aff;
-  transform: scale(1.05);
 }
 
 #con-out {
@@ -712,6 +702,7 @@ body {
   align-items: center;
   padding: 8px 12px;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 #con-input-area span {
@@ -738,25 +729,30 @@ body {
 #tg-badge {
   position: fixed;
   bottom: 16px;
-  right: 60px;
+  right: 16px;
   background: linear-gradient(135deg, #0088cc, #006aaa);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 24px;
+  padding: 10px 20px;
+  border-radius: 28px;
   text-decoration: none;
   z-index: 999;
   display: flex;
   align-items: center;
-  gap: 7px;
-  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+  gap: 8px;
+  box-shadow: 0 4px 24px rgba(0, 136, 204, 0.5);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #tg-badge:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 136, 204, 0.6);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 36px rgba(0, 136, 204, 0.7);
+}
+
+#tg-badge svg {
+  width: 20px;
+  height: 20px;
 }
 
 #welcome {
@@ -818,44 +814,177 @@ body {
   margin-top: 4px;
 }
 
-@media (max-width: 860px) {
-  #sidebar {
-    width: 220px;
-    min-width: 220px;
-  }
-  #console-panel {
-    width: 280px;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   body {
-    flex-direction: column;
-    height: auto;
-    overflow: auto;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
   }
+
   #sidebar {
-    width: 100%;
-    min-width: unset;
-    height: 180px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    min-width: 280px;
+    transform: translateX(100%);
+    z-index: 200;
+    border-radius: 0;
+    box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.35s ease;
   }
-  #console-panel {
-    width: 100%;
-    border-right: none;
-    border-top: 1px solid var(--border);
-    height: 200px;
+
+  #sidebar.open {
+    transform: translateX(0);
   }
-  #body-area {
-    flex-direction: column;
+
+  #sidebar.closed {
+    transform: translateX(100%);
+    width: 280px !important;
+    min-width: 280px !important;
   }
-  #tg-badge {
-    font-size: 10px;
+
+  #sidebar-toggle {
+    display: none !important;
+  }
+
+  #mobile-sidebar-btn {
+    display: flex !important;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
     padding: 6px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  #mobile-sidebar-btn:hover {
+    background: #9b6aff;
+  }
+
+  #main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #console-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    min-width: 280px;
+    transform: translateX(-100%);
+    z-index: 200;
+    border-radius: 0;
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.35s ease;
+    border-right: none;
+  }
+
+  #console-panel.open {
+    transform: translateX(0);
+  }
+
+  #console-panel.closed {
+    transform: translateX(-100%);
+    width: 280px !important;
+    min-width: 280px !important;
+  }
+
+  #console-toggle-btn {
+    display: none !important;
+  }
+
+  #mobile-console-btn {
+    display: flex !important;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  #mobile-console-btn:hover {
+    background: #9b6aff;
+  }
+
+  #top-bar {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #content-title {
+    font-size: 15px;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  #content-sub {
+    font-size: 10px;
+    display: none;
+  }
+
+  .top-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  #lesson {
+    padding: 16px;
+  }
+
+  #tg-badge {
+    font-size: 12px;
+    padding: 8px 16px;
     bottom: 12px;
     right: 12px;
   }
-  #sidebar-toggle,
-  #console-toggle-btn {
-    display: none;
+
+  #tg-badge svg {
+    width: 16px;
+    height: 16px;
   }
+
+  #sidebar-overlay,
+  #console-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #sidebar-overlay.active,
+  #console-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  #mobile-sidebar-btn,
+  #mobile-console-btn,
+  #sidebar-overlay,
+  #console-overlay {
+    display: none !important;
+  }
+}
+
+#mobile-sidebar-btn,
+#mobile-console-btn {
+  display: none;
 }

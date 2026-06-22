@@ -1,12 +1,4 @@
-// ============================================================
-// 📚 داده‌های جزوه - همه مباحث جاوااسکریپت
-// ============================================================
-
 const topics = [
-  // ============================================================
-  // 📦 بخش ۱: مقدمات و مفاهیم پایه
-  // ============================================================
-
   {
     cat: "مقدمات",
     id: "intro",
@@ -28,25 +20,16 @@ const topics = [
       <div class="tip">💡 جاوااسکریپت یکی از محبوب‌ترین زبان‌های برنامه‌نویسی دنیاست و در همه مرورگرها پشتیبانی می‌شود.</div>
       <div class="tip">💡 برای شروع، فقط کافی است یک فایل HTML و یک فایل JS داشته باشید. کدهای JS را در تگ &lt;script&gt; قرار دهید یا به فایل جداگانه لینک کنید.</div>
     </div>`,
-    code: `// اولین برنامه جاوااسکریپت
-console.log("سلام دنیا!");
-
-// نمایش پیام در صفحه
-// alert("خوش آمدید!");
-
-// متغیر و نوع داده
+    code: `console.log("سلام دنیا!");
 let name = "علی";
 let age = 25;
 let isStudent = true;
 console.log(name, age, isStudent);
-
-// یک تابع ساده
 function sayHello(name) {
   return "سلام " + name + "!";
 }
 console.log(sayHello("رضا"));`,
   },
-
   {
     cat: "مقدمات",
     id: "vars",
@@ -87,63 +70,35 @@ console.log(sayHello("رضا"));`,
       </table>
       <div class="warn">⚠️ تفاوت <span class="hl">let</span> و <span class="hl">const</span>: const نمی‌تواند reassign شود، اما اگر const یک آبجکت یا آرایه باشد، محتوای آن قابل تغییر است!</div>
     </div>`,
-    code: `// ============================================
-// مثال‌های var
-// ============================================
-var x = 10;
-var x = 20; // می‌توان دوباره تعریف کرد
-console.log("var x:", x); // 20
-
-// Hoisting با var
-console.log("hoisted قبل از تعریف:", hoisted); // undefined (نه خطا!)
+    code: `var x = 10;
+var x = 20;
+console.log("var x:", x);
+console.log("hoisted:", hoisted);
 var hoisted = "hello";
-
-// ============================================
-// مثال‌های let
-// ============================================
 let age = 20;
-age = 21; // می‌توان مقدار را تغییر داد
+age = 21;
 console.log("let age:", age);
-
-// let در بلاک
 {
   let blockVar = "فقط داخل این بلاک";
   console.log("داخل بلاک:", blockVar);
 }
-// console.log(blockVar); // ❌ ReferenceError
-
-// ============================================
-// مثال‌های const
-// ============================================
 const PI = 3.14159;
-// PI = 3; // ❌ TypeError - نمی‌توان تغییر داد
-
-// اما محتوای آرایه قابل تغییر است
 const arr = [1, 2, 3];
-arr.push(4); // ✅ مجاز
+arr.push(4);
 console.log("const array:", arr);
-
-// محتوای آبجکت قابل تغییر است
 const obj = { name: "علی" };
-obj.age = 25; // ✅ مجاز
+obj.age = 25;
 console.log("const object:", obj);
-
-// ============================================
-// مقایسه در عمل
-// ============================================
 function testScope() {
   if (true) {
-    var v = "var";   // function-scoped
-    let l = "let";   // block-scoped
-    const c = "const"; // block-scoped
+    var v = "var";
+    let l = "let";
+    const c = "const";
   }
-  console.log("var خارج از بلاک:", v); // ✅ کار می‌کند
-  // console.log(l); // ❌ ReferenceError
-  // console.log(c); // ❌ ReferenceError
+  console.log("var خارج از بلاک:", v);
 }
 testScope();`,
   },
-
   {
     cat: "مقدمات",
     id: "types",
@@ -175,67 +130,42 @@ testScope();`,
       <div class="warn">⚠️ <span class="hl">typeof null</span> → "object" — این یک باگ تاریخی در جاوااسکریپت است که به خاطر سازگاری باقی مانده است.</div>
       <div class="tip">💡 برای بررسی null، از <span class="hl">=== null</span> استفاده کنید نه typeof.</div>
     </div>`,
-    code: `// ============================================
-// String (رشته)
-// ============================================
-let name = "محمد";
+    code: `let name = "محمد";
 let singleQ = 'علی';
-let template = \`سلام \${name}!\`; // Template Literal
+let template = \`سلام \${name}!\`;
 console.log("String:", template);
-
-// ============================================
-// Number (عدد)
-// ============================================
 console.log("عدد:", 42);
 console.log("اعشاری:", 3.14);
 console.log("بی‌نهایت:", Infinity);
 console.log("Not a Number:", NaN);
-
-console.log("isNaN('hello'):", isNaN("hello")); // true
-console.log("isNaN(42):", isNaN(42)); // false
-
-// ============================================
-// Boolean (بولین)
-// ============================================
+console.log("isNaN('hello'):", isNaN("hello"));
+console.log("isNaN(42):", isNaN(42));
 let isLoggedIn = true;
-console.log("typeof isLoggedIn:", typeof isLoggedIn); // "boolean"
-
-// ============================================
-// undefined vs null
-// ============================================
+console.log("typeof isLoggedIn:", typeof isLoggedIn);
 let notDefined;
 let emptyOnPurpose = null;
-
-console.log("typeof notDefined:", typeof notDefined); // "undefined"
-console.log("typeof emptyOnPurpose:", typeof emptyOnPurpose); // "object" ← باگ!
-console.log("null === null:", emptyOnPurpose === null); // true
-
-// ============================================
-// Type Conversion (تبدیل نوع)
-// ============================================
-console.log("Number('42'):", Number("42"));   // 42
-console.log("Number(true):", Number(true));   // 1
-console.log("Number(false):", Number(false)); // 0
-console.log("Number(null):", Number(null));   // 0
-console.log("Number('hello'):", Number("hello")); // NaN
-
-console.log("String(42):", String(42));   // "42"
-console.log("String(true):", String(true)); // "true"
-
-console.log("Boolean(0):", Boolean(0));     // false
-console.log('Boolean(""):', Boolean(""));   // false
-console.log("Boolean(null):", Boolean(null)); // false
-console.log("Boolean(1):", Boolean(1));     // true
-console.log('Boolean("hi"):', Boolean("hi")); // true
-
-console.log("!!0:", !!0);         // false
-console.log('!!"":', !!"");       // false
-console.log("!!null:", !!null);   // false
-console.log("!!undefined:", !!undefined); // false
-console.log("!!NaN:", !!NaN);     // false
-console.log("!!'hello':", !!'hello'); // true`,
+console.log("typeof notDefined:", typeof notDefined);
+console.log("typeof emptyOnPurpose:", typeof emptyOnPurpose);
+console.log("null === null:", emptyOnPurpose === null);
+console.log("Number('42'):", Number("42"));
+console.log("Number(true):", Number(true));
+console.log("Number(false):", Number(false));
+console.log("Number(null):", Number(null));
+console.log("Number('hello'):", Number("hello"));
+console.log("String(42):", String(42));
+console.log("String(true):", String(true));
+console.log("Boolean(0):", Boolean(0));
+console.log('Boolean(""):', Boolean(""));
+console.log("Boolean(null):", Boolean(null));
+console.log("Boolean(1):", Boolean(1));
+console.log('Boolean("hi"):', Boolean("hi"));
+console.log("!!0:", !!0);
+console.log('!!"":', !!"");
+console.log("!!null:", !!null);
+console.log("!!undefined:", !!undefined);
+console.log("!!NaN:", !!NaN);
+console.log("!!'hello':", !!'hello');`,
   },
-
   {
     cat: "مقدمات",
     id: "operators",
@@ -273,65 +203,40 @@ console.log("!!'hello':", !!'hello'); // true`,
       <div class="warn">⚠️ همیشه از <span class="hl">===</span> استفاده کنید نه <span class="hl">==</span>. مثلاً <span class="hl">0 == false</span> → true ولی <span class="hl">0 === false</span> → false</div>
       <div class="tip">💡 عملگر <span class="hl">??</span> با <span class="hl">||</span> تفاوت دارد: <span class="hl">||</span> همه falsy values را در نظر می‌گیرد، اما <span class="hl">??</span> فقط null و undefined را.</div>
     </div>`,
-    code: `// ============================================
-// عملگرهای ریاضی
-// ============================================
-console.log("10 + 3 =", 10 + 3);
+    code: `console.log("10 + 3 =", 10 + 3);
 console.log("10 - 3 =", 10 - 3);
 console.log("10 * 3 =", 10 * 3);
 console.log("10 / 3 =", 10 / 3);
-console.log("10 % 3 =", 10 % 3); // باقیمانده
-console.log("2 ** 10 =", 2 ** 10); // توان
-
+console.log("10 % 3 =", 10 % 3);
+console.log("2 ** 10 =", 2 ** 10);
 let x = 5;
-console.log("x++:", x++); // 5 (بعداً 6 می‌شود)
-console.log("x بعد از ++:", x); // 6
-console.log("++x:", ++x); // 7 (اول افزایش می‌دهد)
-
-// ============================================
-// عملگرهای انتساب
-// ============================================
+console.log("x++:", x++);
+console.log("x بعد از ++:", x);
+console.log("++x:", ++x);
 let n = 10;
-n += 5;  console.log("n += 5 →", n); // 15
-n -= 2;  console.log("n -= 2 →", n); // 13
-n *= 2;  console.log("n *= 2 →", n); // 26
-n **= 2; console.log("n **= 2 →", n); // 676
-
-// ============================================
-// عملگرهای مقایسه‌ای
-// ============================================
-console.log('5 == "5":', 5 == "5");   // true (danger!)
-console.log('5 === "5":', 5 === "5"); // false (correct)
-console.log('null == undefined:', null == undefined);   // true
-console.log('null === undefined:', null === undefined); // false
-
-// ============================================
-// عملگرهای منطقی
-// ============================================
-console.log("true && false:", true && false); // false
-console.log("true || false:", true || false); // true
-console.log("!true:", !true); // false
-
-// Nullish Coalescing (??)
+n += 5; console.log("n += 5 →", n);
+n -= 2; console.log("n -= 2 →", n);
+n *= 2; console.log("n *= 2 →", n);
+n **= 2; console.log("n **= 2 →", n);
+console.log('5 == "5":', 5 == "5");
+console.log('5 === "5":', 5 === "5");
+console.log('null == undefined:', null == undefined);
+console.log('null === undefined:', null === undefined);
+console.log("true && false:", true && false);
+console.log("true || false:", true || false);
+console.log("!true:", !true);
 let user = null;
-console.log("user ?? 'مهمان':", user ?? "مهمان"); // مهمان
-
-// تفاوت || و ??
+console.log("user ?? 'مهمان':", user ?? "مهمان");
 let zero = 0;
-console.log('zero || "پیش‌فرض":', zero || "پیش‌فرض"); // پیش‌فرض
-console.log('zero ?? "پیش‌فرض":', zero ?? "پیش‌فرض"); // 0
-
-// Optional Chaining (?.)
+console.log('zero || "پیش‌فرض":', zero || "پیش‌فرض");
+console.log('zero ?? "پیش‌فرض":', zero ?? "پیش‌فرض");
 let profile = { user: { name: "علی" } };
-console.log("profile?.user?.name:", profile?.user?.name); // علی
-console.log("profile?.address?.city:", profile?.address?.city); // undefined
-
-// Ternary Operator
+console.log("profile?.user?.name:", profile?.user?.name);
+console.log("profile?.address?.city:", profile?.address?.city);
 let age = 20;
 let status = age >= 18 ? "بزرگسال" : "نوجوان";
 console.log("status:", status);`,
   },
-
   {
     cat: "مقدمات",
     id: "isnan",
@@ -358,48 +263,31 @@ console.log("status:", status);`,
       </ul>
       <div class="tip">💡 برای بررسی دقیق‌تر از <span class="hl">Number.isNaN()</span> استفاده کنید که تبدیل نوع انجام نمی‌دهد.</div>
     </div>`,
-    code: `// ============================================
-// isNaN - بررسی عدد بودن
-// ============================================
-console.log('isNaN("mohammad"):', isNaN("mohammad")); // true (عدد نیست)
-console.log('isNaN("123"):', isNaN("123")); // false (می‌تواند عدد شود)
-console.log("isNaN(42):", isNaN(42)); // false (عدد است)
-console.log("isNaN(true):", isNaN(true)); // false (true → 1)
-console.log("isNaN(null):", isNaN(null)); // false (null → 0)
-console.log("isNaN(undefined):", isNaN(undefined)); // true
-
-// ============================================
-// مثال عملی - اعتبارسنجی
-// ============================================
+    code: `console.log('isNaN("mohammad"):', isNaN("mohammad"));
+console.log('isNaN("123"):', isNaN("123"));
+console.log("isNaN(42):", isNaN(42));
+console.log("isNaN(true):", isNaN(true));
+console.log("isNaN(null):", isNaN(null));
+console.log("isNaN(undefined):", isNaN(undefined));
 let userInput = "89765432543647";
 if (isNaN(userInput)) {
   console.log("❌ ورودی عدد نیست!");
 } else {
   console.log("✅ ورودی عدد است!");
 }
-
-// ============================================
-// Number.isNaN - بررسی دقیق‌تر
-// ============================================
-console.log("Number.isNaN('hello'):", Number.isNaN("hello")); // false
-console.log("Number.isNaN(NaN):", Number.isNaN(NaN)); // true
-console.log("isNaN('hello'):", isNaN("hello")); // true
-
-// ============================================
-// کاربرد در فرم
-// ============================================
+console.log("Number.isNaN('hello'):", Number.isNaN("hello"));
+console.log("Number.isNaN(NaN):", Number.isNaN(NaN));
+console.log("isNaN('hello'):", isNaN("hello"));
 function validateNumber(input) {
   if (isNaN(input) || input === "") {
     return "❌ لطفاً یک عدد معتبر وارد کنید";
   }
   return "✅ عدد معتبر است";
 }
-
-console.log(validateNumber("25"));   // ✅
-console.log(validateNumber("abc"));  // ❌
-console.log(validateNumber(""));     // ❌`,
+console.log(validateNumber("25"));
+console.log(validateNumber("abc"));
+console.log(validateNumber(""));`,
   },
-
   {
     cat: "مقدمات",
     id: "concat",
@@ -426,52 +314,26 @@ console.log(validateNumber(""));     // ❌`,
       </ul>
       <div class="tip">💡 در جاوااسکریپت مدرن، از <span class="hl">template literals</span> (\`...\`) استفاده کنید که خوانایی بهتری دارد.</div>
     </div>`,
-    code: `// ============================================
-// روش‌های مختلف چسباندن رشته
-// ============================================
-let firstName = "محمد ";
+    code: `let firstName = "محمد ";
 let lastName = "اکبری";
-
-// روش ۱: با عملگر +
 console.log("روش (+) :", firstName + lastName);
-
-// روش ۲: با concat()
 let result = firstName.concat("", lastName);
 console.log("روش concat() :", result);
-
-// روش ۳: با template literal (پیشنهادی)
 let fullName = \`\${firstName} \${lastName}\`;
 console.log("روش template literal:", fullName);
-
-// ============================================
-// concat با چندین رشته
-// ============================================
 let str1 = "سلام ";
 let str2 = "دنیا ";
 let str3 = "!";
-console.log(str1.concat(str2, str3)); // "سلام دنیا !"
-
-// ============================================
-// concat بدون آرگومان = کپی رشته
-// ============================================
+console.log(str1.concat(str2, str3));
 let original = "hello";
 let copy = original.concat();
-console.log("کپی:", copy); // "hello"
-console.log("آیا برابر هستند؟", original === copy); // true
-
-// ============================================
-// مقایسه روش‌ها
-// ============================================
+console.log("کپی:", copy);
+console.log("آیا برابر هستند؟", original === copy);
 let name = "علی";
 let age = 25;
-
-// روش قدیمی با + (کمتر توصیه می‌شود)
 console.log("سلام " + name + " شما " + age + " ساله هستید");
-
-// روش مدرن با template literal (توصیه شده)
 console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
   },
-
   {
     cat: "مقدمات",
     id: "math-basics",
@@ -506,68 +368,36 @@ console.log(\`سلام \${name} شما \${age} ساله هستید\`);`,
       </ul>
       <div class="tip">💡 عملگر <span class="hl">**</span> (توان) از ES6 به جاوااسکریپت اضافه شده و جایگزین بهتری برای <span class="hl">Math.pow()</span> است.</div>
     </div>`,
-    code: `// ============================================
-// عملگرهای ریاضی پایه
-// ============================================
-console.log("10 + 3 =", 10 + 3);
+    code: `console.log("10 + 3 =", 10 + 3);
 console.log("10 - 3 =", 10 - 3);
 console.log("10 * 3 =", 10 * 3);
 console.log("10 / 3 =", 10 / 3);
-console.log("10 % 3 =", 10 % 3); // باقیمانده
-console.log("2 ** 10 =", 2 ** 10); // توان (ES6)
-
-// ============================================
-// Math.pow و Math.sqrt
-// ============================================
-console.log("Math.pow(3, 3):", Math.pow(3, 3)); // 27
-console.log("3 ** 3:", 3 ** 3); // 27 (روش مدرن‌تر)
-console.log("Math.sqrt(144):", Math.sqrt(144)); // 12
-
-// ============================================
-// گرد کردن
-// ============================================
-console.log("round(3.14):", Math.round(3.14)); // 3
-console.log("round(3.88):", Math.round(3.88)); // 4
-console.log("ceil(3.14):", Math.ceil(3.14));   // 4
-console.log("floor(3.88):", Math.floor(3.88)); // 3
-console.log("trunc(3.88):", Math.trunc(3.88)); // 3
-console.log("trunc(-3.88):", Math.trunc(-3.88)); // -3
-
-// ============================================
-// Math.abs و Math.sign
-// ============================================
-console.log("abs(-42):", Math.abs(-42)); // 42
-console.log("sign(-5):", Math.sign(-5)); // -1
-console.log("sign(0):", Math.sign(0));   // 0
-console.log("sign(5):", Math.sign(5));   // 1
-
-// ============================================
-// Math.min و Math.max
-// ============================================
+console.log("10 % 3 =", 10 % 3);
+console.log("2 ** 10 =", 2 ** 10);
+console.log("Math.pow(3, 3):", Math.pow(3, 3));
+console.log("3 ** 3:", 3 ** 3);
+console.log("Math.sqrt(144):", Math.sqrt(144));
+console.log("round(3.14):", Math.round(3.14));
+console.log("round(3.88):", Math.round(3.88));
+console.log("ceil(3.14):", Math.ceil(3.14));
+console.log("floor(3.88):", Math.floor(3.88));
+console.log("trunc(3.88):", Math.trunc(3.88));
+console.log("trunc(-3.88):", Math.trunc(-3.88));
+console.log("abs(-42):", Math.abs(-42));
+console.log("sign(-5):", Math.sign(-5));
+console.log("sign(0):", Math.sign(0));
+console.log("sign(5):", Math.sign(5));
 const nums = [5, 76, 90, 110, 19, 3];
-console.log("min:", Math.min(...nums)); // 3
-console.log("max:", Math.max(...nums)); // 110
-
-// ============================================
-// Math.random - عدد تصادفی
-// ============================================
-console.log("random:", Math.random()); // بین 0 و 1
-
-// عدد تصادفی بین 1 تا 6 (تاس)
+console.log("min:", Math.min(...nums));
+console.log("max:", Math.max(...nums));
+console.log("random:", Math.random());
 const dice = Math.floor(Math.random() * 6) + 1;
 console.log("تاس:", dice);
-
-// عدد تصادفی بین min و max
 function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 console.log("randInt(10, 20):", randInt(10, 20));`,
   },
-
-  // ============================================================
-  // 🔀 بخش ۲: کنترل جریان
-  // ============================================================
-
   {
     cat: "کنترل جریان",
     id: "conditions",
@@ -584,10 +414,7 @@ console.log("randInt(10, 20):", randInt(10, 20));`,
       <h3>🔹 switch / case</h3>
       <p>برای مقایسه یک مقدار با چند حالت مختلف.</p>
     </div>`,
-    code: `// ============================================
-// if / else if / else
-// ============================================
-let score = 78;
+    code: `let score = 78;
 if (score >= 90) {
   console.log("A - عالی!");
 } else if (score >= 80) {
@@ -597,17 +424,9 @@ if (score >= 90) {
 } else {
   console.log("D - مردود");
 }
-
-// ============================================
-// Ternary Operator
-// ============================================
 let age = 20;
 let msg = age >= 18 ? "بزرگسال" : "نوجوان";
 console.log(msg);
-
-// ============================================
-// switch / case
-// ============================================
 let day = "monday";
 switch (day) {
   case "saturday":
@@ -620,24 +439,15 @@ switch (day) {
   default:
     console.log("روز عادی");
 }
-
-// ============================================
-// Short-circuit Evaluation
-// ============================================
 let isLoggedIn = false;
 isLoggedIn && console.log("به داشبورد خوش آمدی");
 let username = "";
 let display = username || "مهمان";
 console.log(display);
-
-// ============================================
-// Nullish Assignment (??=)
-// ============================================
 let theme = null;
 theme ??= "dark";
-console.log(theme); // dark`,
+console.log(theme);`,
   },
-
   {
     cat: "کنترل جریان",
     id: "loops",
@@ -665,57 +475,33 @@ console.log(theme); // dark`,
         <li><span class="hl">continue</span> — این تکرار را رد می‌کند</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// for loop
-// ============================================
-for (let i = 1; i <= 5; i++) {
+    code: `for (let i = 1; i <= 5; i++) {
   console.log("i =", i);
 }
-
-// ============================================
-// while loop
-// ============================================
 let count = 3;
 while (count > 0) {
   console.log("شمارش:", count);
   count--;
 }
-
-// ============================================
-// do...while loop
-// ============================================
 let num = 100;
 do {
   console.log("حداقل یک بار اجرا شد:", num);
   num--;
 } while (num > 100);
-
-// ============================================
-// for...of روی آرایه
-// ============================================
 let fruits = ["سیب", "موز", "انگور"];
 for (let fruit of fruits) {
   console.log("میوه:", fruit);
 }
-
-// ============================================
-// for...in روی آبجکت
-// ============================================
 let person = { name: "علی", age: 25, city: "تهران" };
 for (let key in person) {
   console.log(key + ":", person[key]);
 }
-
-// ============================================
-// break & continue
-// ============================================
 for (let i = 0; i < 10; i++) {
   if (i === 3) continue;
   if (i === 7) break;
   console.log(i);
 }`,
   },
-
   {
     cat: "کنترل جریان",
     id: "do-while",
@@ -736,34 +522,22 @@ for (let i = 0; i < 10; i++) {
       </ul>
       <div class="tip">💡 از do-while زمانی استفاده کنید که می‌خواهید کد حداقل یک بار اجرا شود، مثل منوهای تعاملی.</div>
     </div>`,
-    code: `// ============================================
-// do-while - حداقل یک بار اجرا
-// ============================================
-let counter = 5;
+    code: `let counter = 5;
 do {
   console.log("شمارنده:", counter);
   counter--;
 } while (counter > 0);
-
-// ============================================
-// do-while با شرط false از ابتدا
-// ============================================
 let num = 100;
 do {
   console.log("حتی با شرط false هم اجرا شد:", num);
   num--;
 } while (num > 100);
-
-// ============================================
-// while vs do-while
-// ============================================
 console.log("--- while ---");
 let x = 10;
 while (x < 10) {
   console.log("while اجرا نشد");
   x++;
 }
-
 console.log("--- do-while ---");
 let y = 10;
 do {
@@ -771,11 +545,6 @@ do {
   y++;
 } while (y < 10);`,
   },
-
-  // ============================================================
-  // 📋 بخش ۳: آرایه‌ها
-  // ============================================================
-
   {
     cat: "آرایه‌ها",
     id: "array-basics",
@@ -804,37 +573,18 @@ do {
         <li><span class="hl">findIndex()</span> — ایندکس با شرط</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// ایجاد آرایه
-// ============================================
-const arr = [3, 1, 4, 1, 5, 9, 2, 6];
+    code: `const arr = [3, 1, 4, 1, 5, 9, 2, 6];
 console.log("آرایه:", arr);
-
-// ============================================
-// خواندن عناصر
-// ============================================
 console.log("arr[0]:", arr[0]);
-console.log("arr.at(-1):", arr.at(-1)); // آخرین عنصر
-
-// ============================================
-// push / pop
-// ============================================
+console.log("arr.at(-1):", arr.at(-1));
 arr.push(100);
 console.log("بعد push:", arr);
 let removed = arr.pop();
 console.log("حذف شد:", removed);
-
-// ============================================
-// unshift / shift
-// ============================================
 arr.unshift(0);
 console.log("بعد unshift:", arr);
 arr.shift();
 console.log("بعد shift:", arr);
-
-// ============================================
-// جستجو
-// ============================================
 let nums = [10, 20, 30, 20, 40];
 console.log("indexOf(20):", nums.indexOf(20));
 console.log("lastIndexOf(20):", nums.lastIndexOf(20));
@@ -842,7 +592,6 @@ console.log("includes(30):", nums.includes(30));
 console.log("find(n => n > 25):", nums.find(n => n > 25));
 console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`,
   },
-
   {
     cat: "آرایه‌ها",
     id: "array-methods",
@@ -867,51 +616,23 @@ console.log("findIndex(n => n > 25):", nums.findIndex(n => n > 25));`,
       <h3>🔹 sort() / toSorted()</h3>
       <p>مرتب‌سازی.</p>
     </div>`,
-    code: `// ============================================
-// map - تبدیل
-// ============================================
-const numbers = [1, 2, 3, 4, 5];
+    code: `const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map(n => n * 2);
 console.log("map:", doubled);
-
-// ============================================
-// filter - فیلتر
-// ============================================
 const bigNums = numbers.filter(n => n > 2);
 console.log("filter:", bigNums);
-
-// ============================================
-// reduce - جمع‌بندی
-// ============================================
 const sum = numbers.reduce((acc, n) => acc + n, 0);
 console.log("reduce (جمع):", sum);
-
-// ============================================
-// forEach - اجرا
-// ============================================
 numbers.forEach(n => console.log("عدد:", n));
-
-// ============================================
-// some و every
-// ============================================
 console.log("some (>3):", numbers.some(n => n > 3));
 console.log("every (>0):", numbers.every(n => n > 0));
-
-// ============================================
-// flat - صاف کردن
-// ============================================
 const nested = [1, [2, 3], [4, [5, 6]]];
 console.log("flat(2):", nested.flat(2));
-
-// ============================================
-// sort - مرتب‌سازی
-// ============================================
 const nums = [30, 2, 80, 20, 14];
 console.log("sorted:", [...nums].sort((a, b) => a - b));
 console.log("toSorted:", nums.toSorted((a, b) => a - b));
 console.log("original:", nums);`,
   },
-
   {
     cat: "آرایه‌ها",
     id: "splice",
@@ -932,37 +653,21 @@ console.log("original:", nums);`,
         <li>جایگزینی عناصر</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// splice - تغییر آرایه اصلی
-// ============================================
-let fruits = ["apple", "banana", "mango", "grape"];
+    code: `let fruits = ["apple", "banana", "mango", "grape"];
 fruits.splice(1, 2, "cherry", "kiwi");
 console.log("splice:", fruits);
-
-// ============================================
-// toSpliced - آرایه جدید ✅
-// ============================================
 let original = ["a", "b", "c", "d"];
 let newArr = original.toSpliced(1, 1, "x");
 console.log("original (تغییر نکرد):", original);
 console.log("newArr:", newArr);
-
-// ============================================
-// حذف با splice
-// ============================================
 let colors = ["red", "green", "blue", "yellow"];
 let removed = colors.splice(1, 2);
 console.log("حذف شد:", removed);
 console.log("آرایه بعد از حذف:", colors);
-
-// ============================================
-// اضافه با splice (deleteCount = 0)
-// ============================================
 let letters = ["a", "b", "c"];
 letters.splice(1, 0, "x", "y");
 console.log("بعد از اضافه:", letters);`,
   },
-
   {
     cat: "آرایه‌ها",
     id: "slice-concat",
@@ -978,27 +683,17 @@ console.log("بعد از اضافه:", letters);`,
       <p>آرایه‌ها را به هم متصل می‌کند و یک آرایه جدید برمی‌گرداند.</p>
       <pre>arr1.concat(arr2, arr3, ...)</pre>
     </div>`,
-    code: `// ============================================
-// slice - برش
-// ============================================
-let fruits = ["apple", "banana", "mango", "grape", "orange"];
+    code: `let fruits = ["apple", "banana", "mango", "grape", "orange"];
 let sliced = fruits.slice(1, 3);
 console.log("slice(1, 3):", sliced);
 console.log("آرایه اصلی:", fruits);
-
-// slice با ایندکس منفی
 console.log("slice(-2):", fruits.slice(-2));
-
-// ============================================
-// concat - اتصال
-// ============================================
 let arr1 = ["a", "b", "c"];
 let arr2 = [1, 2, 3];
 let arr3 = ["x", "y", "z"];
 let merged = arr1.concat(arr2, arr3);
 console.log("concat:", merged);`,
   },
-
   {
     cat: "آرایه‌ها",
     id: "join-split",
@@ -1014,35 +709,19 @@ console.log("concat:", merged);`,
       <p>رشته را بر اساس جداکننده به آرایه تبدیل می‌کند.</p>
       <pre>str.split(separator)</pre>
     </div>`,
-    code: `// ============================================
-// join - آرایه به رشته
-// ============================================
-let fruits = ["سیب", "موز", "انگور", "هلو"];
+    code: `let fruits = ["سیب", "موز", "انگور", "هلو"];
 console.log("join(', '):", fruits.join(", "));
 console.log("join(' | '):", fruits.join(" | "));
 console.log("join(''):", fruits.join(""));
-
-// ============================================
-// split - رشته به آرایه
-// ============================================
 let text = "سیب,موز,انگور,هلو";
 let arr = text.split(",");
 console.log("split(', '):", arr);
-
-// ============================================
-// کاربرد ترکیبی
-// ============================================
 let sentence = "javascript is awesome";
 let words = sentence.split(" ");
 console.log("کلمات:", words);
 console.log("برعکس:", words.reverse().join(" "));
 console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`,
   },
-
-  // ============================================================
-  // 🗂️ بخش ۴: آبجکت‌ها
-  // ============================================================
-
   {
     cat: "آبجکت‌ها",
     id: "objects",
@@ -1066,10 +745,7 @@ console.log("حروف اول:", words.map(w => w[0].toUpperCase()).join(""));`,
         <li><span class="hl">Object.seal()</span> — قفل جزئی</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// ایجاد آبجکت
-// ============================================
-const person = {
+    code: `const person = {
   name: "محمد",
   age: 25,
   "full name": "محمد اکبری",
@@ -1078,40 +754,22 @@ const person = {
     return "سلام، " + this.name;
   }
 };
-
-// ============================================
-// دسترسی
-// ============================================
 console.log("person.name:", person.name);
 console.log('person["full name"]:', person["full name"]);
 console.log("person.address.city:", person.address.city);
 console.log("person.greet():", person.greet());
-
-// ============================================
-// Object.keys/values/entries
-// ============================================
 console.log("keys:", Object.keys(person));
 console.log("values:", Object.values(person));
 Object.entries(person).forEach(([key, val]) => {
   console.log(key + ":", val);
 });
-
-// ============================================
-// freeze vs seal
-// ============================================
 const config = Object.freeze({ debug: false, ver: "1.0" });
 config.debug = true;
 console.log("freeze:", config.debug);
-
 const settings = Object.seal({ theme: "dark", lang: "fa" });
 settings.theme = "light";
 console.log("seal:", settings);`,
   },
-
-  // ============================================================
-  // 📤 بخش ۵: Destructuring و Spread
-  // ============================================================
-
   {
     cat: "Destructuring & Spread",
     id: "destruct",
@@ -1128,47 +786,30 @@ console.log("seal:", settings);`,
       <h3>🔹 Default Values</h3>
       <p>اگر مقدار undefined بود، مقدار پیش‌فرض استفاده می‌شود.</p>
     </div>`,
-    code: `// ============================================
-// Array Destructuring
-// ============================================
-const colors = ["red", "green", "blue", "yellow"];
+    code: `const colors = ["red", "green", "blue", "yellow"];
 const [first, second, ...rest] = colors;
 console.log("first:", first);
 console.log("second:", second);
 console.log("rest:", rest);
-
-// ============================================
-// Object Destructuring
-// ============================================
 const product = {
   name: "لپ‌تاپ",
   price: 30000000,
   brand: "dell",
   specs: { ram: 16, storage: 512 }
 };
-
 const { name, price, brand } = product;
 console.log("name, price, brand:", name, price, brand);
-
-// تغییر نام
 const { name: productName, brand: maker } = product;
 console.log("productName, maker:", productName, maker);
-
-// مقدار پیش‌فرض
 const { color = "مشکی" } = product;
 console.log("color:", color);
-
-// Nested
 const { specs: { ram, storage } } = product;
 console.log("ram, storage:", ram, storage);
-
-// در پارامتر تابع
 function show({ name, price, color = "نامشخص" }) {
   console.log(\`\${name} - \${price} - \${color}\`);
 }
 show(product);`,
   },
-
   {
     cat: "Destructuring & Spread",
     id: "spread-rest",
@@ -1182,55 +823,30 @@ show(product);`,
       <h3>🔹 Rest</h3>
       <p>بقیه را در یک آرایه جمع می‌کند.</p>
     </div>`,
-    code: `// ============================================
-// Spread - کپی
-// ============================================
-const original = [1, 2, 3];
+    code: `const original = [1, 2, 3];
 const copy = [...original];
 copy.push(99);
 console.log("original:", original);
 console.log("copy:", copy);
-
-// ============================================
-// Spread - ادغام
-// ============================================
 const arr1 = ["a", "b"];
 const arr2 = [1, 2];
 const merged = [...arr1, ...arr2];
 console.log("merged:", merged);
-
-// ============================================
-// Spread - کپی آبجکت
-// ============================================
 const user = { name: "علی", age: 25 };
 const updated = { ...user, age: 26, city: "تهران" };
 console.log("updated:", updated);
-
-// ============================================
-// Rest - در تابع
-// ============================================
 function sum(first, ...rest) {
   console.log("اول:", first);
   console.log("بقیه:", rest);
   return [first, ...rest].reduce((a, b) => a + b, 0);
 }
 console.log("جمع:", sum(1, 2, 3, 4, 5));
-
-// ============================================
-// Rest - در destructuring
-// ============================================
 const [a, b, ...others] = [10, 20, 30, 40, 50];
 console.log("a, b, others:", a, b, others);
-
 const { name: n, ...otherProps } = { name: "رضا", age: 25, city: "شیراز" };
 console.log("name:", n);
 console.log("otherProps:", otherProps);`,
   },
-
-  // ============================================================
-  // 📝 بخش ۶: متدهای String
-  // ============================================================
-
   {
     cat: "متدهای String",
     id: "char-at",
@@ -1246,27 +862,15 @@ console.log("otherProps:", otherProps);`,
       <p>مثل charAt ولی از ایندکس منفی پشتیبانی می‌کند (ES2022).</p>
       <pre>str.at(index)</pre>
     </div>`,
-    code: `// ============================================
-// charAt
-// ============================================
-let text = "javascript";
-console.log("charAt(0):", text.charAt(0)); // "j"
-console.log("charAt(10):", text.charAt(10)); // ""
-
-// ============================================
-// at - پشتیبانی از ایندکس منفی
-// ============================================
-console.log("at(-1):", text.at(-1)); // "t"
-console.log("at(-2):", text.at(-2)); // "p"
-
-// ============================================
-// مقایسه charAt و at
-// ============================================
-console.log('text[-1]:', text[-1]); // undefined
-console.log('text.at(-1):', text.at(-1)); // "t"
-console.log('text.charAt(-1):', text.charAt(-1)); // ""`,
+    code: `let text = "javascript";
+console.log("charAt(0):", text.charAt(0));
+console.log("charAt(10):", text.charAt(10));
+console.log("at(-1):", text.at(-1));
+console.log("at(-2):", text.at(-2));
+console.log('text[-1]:', text[-1]);
+console.log('text.at(-1):', text.at(-1));
+console.log('text.charAt(-1):', text.charAt(-1));`,
   },
-
   {
     cat: "متدهای String",
     id: "index-of",
@@ -1280,32 +884,16 @@ console.log('text.charAt(-1):', text.charAt(-1)); // ""`,
       <h3>🔹 lastIndexOf()</h3>
       <p>آخرین ایندکس یک زیررشته را برمی‌گرداند.</p>
     </div>`,
-    code: `// ============================================
-// indexOf
-// ============================================
-let text = "javascript is awesome javascript";
-console.log('indexOf("java"):', text.indexOf("java")); // 0
-console.log('indexOf("script"):', text.indexOf("script")); // 4
-console.log('indexOf("python"):', text.indexOf("python")); // -1
-
-// ============================================
-// lastIndexOf
-// ============================================
-console.log('lastIndexOf("java"):', text.lastIndexOf("java")); // 24
-
-// ============================================
-// includes
-// ============================================
-console.log('includes("java"):', text.includes("java")); // true
-console.log('includes("python"):', text.includes("python")); // false
-
-// ============================================
-// startsWith و endsWith
-// ============================================
-console.log('startsWith("java"):', text.startsWith("java")); // true
-console.log('endsWith("script"):', text.endsWith("script")); // true`,
+    code: `let text = "javascript is awesome javascript";
+console.log('indexOf("java"):', text.indexOf("java"));
+console.log('indexOf("script"):', text.indexOf("script"));
+console.log('indexOf("python"):', text.indexOf("python"));
+console.log('lastIndexOf("java"):', text.lastIndexOf("java"));
+console.log('includes("java"):', text.includes("java"));
+console.log('includes("python"):', text.includes("python"));
+console.log('startsWith("java"):', text.startsWith("java"));
+console.log('endsWith("script"):', text.endsWith("script"));`,
   },
-
   {
     cat: "متدهای String",
     id: "trim",
@@ -1321,28 +909,16 @@ console.log('endsWith("script"):', text.endsWith("script")); // true`,
       <h3>🔹 trimEnd()</h3>
       <p>فقط فاصله‌های انتهای رشته را حذف می‌کند.</p>
     </div>`,
-    code: `// ============================================
-// trim - حذف فاصله‌ها
-// ============================================
-let text = "   hello world   ";
+    code: `let text = "   hello world   ";
 console.log('trim():', text.trim());
 console.log('trimStart():', text.trimStart());
 console.log('trimEnd():', text.trimEnd());
-
-// ============================================
-// کاربرد در فرم‌ها
-// ============================================
 let email = "   user@example.com   ";
 let cleanEmail = email.trim().toLowerCase();
 console.log("ایمیل تمیز:", cleanEmail);
-
-// ============================================
-// trim با فاصله‌های داخلی
-// ============================================
 let multiSpace = "  hello   world  ";
 console.log("trim():", multiSpace.trim());`,
   },
-
   {
     cat: "متدهای String",
     id: "case",
@@ -1356,30 +932,18 @@ console.log("trim():", multiSpace.trim());`,
       <h3>🔹 toLowerCase()</h3>
       <p>همه حروف رشته را به کوچک تبدیل می‌کند.</p>
     </div>`,
-    code: `// ============================================
-// toUpperCase / toLowerCase
-// ============================================
-let text = "JavaScript is AWESOME";
+    code: `let text = "JavaScript is AWESOME";
 console.log("toUpperCase:", text.toUpperCase());
 console.log("toLowerCase:", text.toLowerCase());
-
-// ============================================
-// کاربرد در یکسان‌سازی
-// ============================================
 let userInput = "   User@GMAIL.com   ";
 let normalized = userInput.trim().toLowerCase();
 console.log("نرمال شده:", normalized);
-
-// ============================================
-// مقایسه بدون حساسیت به حروف
-// ============================================
 function compareIgnoreCase(str1, str2) {
   return str1.toLowerCase() === str2.toLowerCase();
 }
-console.log(compareIgnoreCase("Hello", "hello")); // true
-console.log(compareIgnoreCase("Hello", "world")); // false`,
+console.log(compareIgnoreCase("Hello", "hello"));
+console.log(compareIgnoreCase("Hello", "world"));`,
   },
-
   {
     cat: "متدهای String",
     id: "slice-substring",
@@ -1393,28 +957,16 @@ console.log(compareIgnoreCase("Hello", "world")); // false`,
       <h3>🔹 substring(start, end)</h3>
       <p>مثل slice ولی از ایندکس منفی پشتیبانی نمی‌کند.</p>
     </div>`,
-    code: `// ============================================
-// slice - برش
-// ============================================
-let text = "javascript is awesome";
-console.log("slice(0, 10):", text.slice(0, 10)); // "javascript"
-console.log("slice(11):", text.slice(11)); // "is awesome"
-console.log("slice(-7):", text.slice(-7)); // "awesome"
-
-// ============================================
-// substring - بدون منفی
-// ============================================
-console.log("substring(0, 10):", text.substring(0, 10)); // "javascript"
-console.log("substring(-7):", text.substring(-7)); // کل رشته
-
-// ============================================
-// کاربرد: مخفی کردن کارت
-// ============================================
+    code: `let text = "javascript is awesome";
+console.log("slice(0, 10):", text.slice(0, 10));
+console.log("slice(11):", text.slice(11));
+console.log("slice(-7):", text.slice(-7));
+console.log("substring(0, 10):", text.substring(0, 10));
+console.log("substring(-7):", text.substring(-7));
 let card = "6219861953066601";
 let masked = card.slice(-4).padStart(card.length, "*");
 console.log("مخفی:", masked);`,
   },
-
   {
     cat: "متدهای String",
     id: "replace",
@@ -1428,30 +980,14 @@ console.log("مخفی:", masked);`,
       <h3>🔹 replaceAll()</h3>
       <p>همه موارد یک زیررشته را جایگزین می‌کند.</p>
     </div>`,
-    code: `// ============================================
-// replace - فقط اولین
-// ============================================
-let text = "hello world hello";
-console.log('replace("hello", "hi"):', text.replace("hello", "hi")); // "hi world hello"
-
-// ============================================
-// replaceAll - همه
-// ============================================
-console.log('replaceAll("hello", "hi"):', text.replaceAll("hello", "hi")); // "hi world hi"
-
-// ============================================
-// replace با regex
-// ============================================
+    code: `let text = "hello world hello";
+console.log('replace("hello", "hi"):', text.replace("hello", "hi"));
+console.log('replaceAll("hello", "hi"):', text.replaceAll("hello", "hi"));
 let msg = "سلام دنیا! دنیا زیباست.";
 console.log('replace(/دنیا/g, "جهان"):', msg.replace(/دنیا/g, "جهان"));
-
-// ============================================
-// کاربرد: حذف فاصله‌های اضافی
-// ============================================
 let multiSpace = "hello   world    javascript";
 console.log(multiSpace.replace(/\\s+/g, " "));`,
   },
-
   {
     cat: "متدهای String",
     id: "pad",
@@ -1465,33 +1001,17 @@ console.log(multiSpace.replace(/\\s+/g, " "));`,
       <h3>🔹 padEnd()</h3>
       <p>رشته را از انتها تا طول مشخص با کاراکتر مشخص پر می‌کند.</p>
     </div>`,
-    code: `// ============================================
-// padStart
-// ============================================
-let hour = "9";
+    code: `let hour = "9";
 let minute = "5";
-console.log(hour.padStart(2, "0") + ":" + minute.padStart(2, "0")); // "09:05"
-
-// ============================================
-// padEnd
-// ============================================
+console.log(hour.padStart(2, "0") + ":" + minute.padStart(2, "0"));
 let text = "hello";
-console.log(text.padEnd(10, "-")); // "hello-----"
-
-// ============================================
-// مخفی کردن کارت بانکی
-// ============================================
+console.log(text.padEnd(10, "-"));
 let card = "6219861953066601";
 let masked = card.slice(-4).padStart(card.length, "*");
-console.log(masked); // "************6601"
-
-// ============================================
-// ایجاد شماره سفارش
-// ============================================
+console.log(masked);
 let orderNumber = 42;
-console.log(orderNumber.toString().padStart(6, "0")); // "000042"`,
+console.log(orderNumber.toString().padStart(6, "0"));`,
   },
-
   {
     cat: "متدهای String",
     id: "locale-string",
@@ -1511,46 +1031,25 @@ console.log(orderNumber.toString().padStart(6, "0")); // "000042"`,
       </ul>
       <div class="tip">💡 برای نمایش قیمت در فروشگاه‌های ایرانی، از <span class="hl">toLocaleString("fa-IR")</span> استفاده کنید.</div>
     </div>`,
-    code: `// ============================================
-// toLocaleString - فرمت اعداد
-// ============================================
-let price = 25000000;
-console.log("fa-IR:", price.toLocaleString("fa-IR")); // ۲۵٬۰۰۰٬۰۰۰
-console.log("en-US:", price.toLocaleString("en-US")); // 25,000,000
-console.log("de-DE:", price.toLocaleString("de-DE")); // 25.000.000
-
-// ============================================
-// فرمت قیمت با تومان
-// ============================================
+    code: `let price = 25000000;
+console.log("fa-IR:", price.toLocaleString("fa-IR"));
+console.log("en-US:", price.toLocaleString("en-US"));
+console.log("de-DE:", price.toLocaleString("de-DE"));
 let productPrice = 32000000;
 let formatted = productPrice.toLocaleString("fa-IR") + " تومان";
-console.log("قیمت:", formatted); // ۳۲٬۰۰۰٬۰۰۰ تومان
-
-// ============================================
-// فرمت با گزینه‌های پیشرفته
-// ============================================
+console.log("قیمت:", formatted);
 let number = 123456.789;
 console.log(number.toLocaleString("fa-IR", {
   style: "currency",
   currency: "IRR",
   minimumFractionDigits: 0
 }));
-// ۱۲۳٬۴۵۶ تومان
-
-// ============================================
-// فرمت درصد
-// ============================================
 let ratio = 0.75;
 console.log(ratio.toLocaleString("fa-IR", {
   style: "percent",
   minimumFractionDigits: 0
-})); // ۷۵٪`,
+}));`,
   },
-
-  // ============================================================
-  // 🔄 بخش ۷: توابع (Functions)
-  // ============================================================
-
   {
     cat: "توابع",
     id: "functions",
@@ -1575,61 +1074,34 @@ console.log(ratio.toLocaleString("fa-IR", {
       </ul>
       <div class="tip">💡 <span class="hl">return</span> مقدار را برمی‌گرداند و تابع را متوقف می‌کند.</div>
     </div>`,
-    code: `// ============================================
-// 1. Function Declaration (hoisting دارد)
-// ============================================
-sayHi();
+    code: `sayHi();
 function sayHi() {
   console.log("سلام!");
 }
-
-// ============================================
-// 2. Function Expression
-// ============================================
 const add = function(a, b) {
   return a + b;
 };
 console.log(add(3, 4));
-
-// ============================================
-// 3. Arrow Function ✅
-// ============================================
 const multiply = (a, b) => a * b;
 console.log(multiply(5, 6));
-
 const greet = name => "سلام " + name;
 console.log(greet("علی"));
-
 const getInfo = (name, age) => ({ name, age });
 console.log(getInfo("رضا", 25));
-
-// ============================================
-// 4. IIFE
-// ============================================
 (function() {
   console.log("خودکار اجرا شدم!");
 })();
-
 (() => console.log("من هم!"))();
-
-// ============================================
-// Default Parameters
-// ============================================
 function power(base, exp = 2) {
   return base ** exp;
 }
-console.log(power(3)); // 9
-console.log(power(2, 8)); // 256
-
-// ============================================
-// Rest Operator
-// ============================================
+console.log(power(3));
+console.log(power(2, 8));
 function sum(...numbers) {
   return numbers.reduce((total, n) => total + n, 0);
 }
-console.log(sum(1, 2, 3, 4, 5)); // 15`,
+console.log(sum(1, 2, 3, 4, 5));`,
   },
-
   {
     cat: "توابع",
     id: "this",
@@ -1646,10 +1118,7 @@ console.log(sum(1, 2, 3, 4, 5)); // 15`,
       <h3>🔹 bind()</h3>
       <p>تابع جدید با this مشخص می‌سازد (اجرا نمی‌کند).</p>
     </div>`,
-    code: `// ============================================
-// this در آبجکت
-// ============================================
-const person = {
+    code: `const person = {
   name: "محمد",
   greet: function() {
     console.log("سلام، " + this.name);
@@ -1658,33 +1127,17 @@ const person = {
     console.log("سلام،", typeof this);
   }
 };
-person.greet(); // سلام، محمد
-person.greetArrow(); // سلام، object
-
-// ============================================
-// call/apply/bind
-// ============================================
+person.greet();
+person.greetArrow();
 function introduce(age, city) {
   console.log(\`\${this.name} - \${age} ساله - \${city}\`);
 }
-
 const user = { name: "علی" };
-
-// call
 introduce.call(user, 25, "تهران");
-
-// apply
 introduce.apply(user, [25, "اصفهان"]);
-
-// bind
 const bound = introduce.bind(user, 30);
 bound("مشهد");`,
   },
-
-  // ============================================================
-  // 🏗️ بخش ۸: OOP
-  // ============================================================
-
   {
     cat: "OOP",
     id: "class-basics",
@@ -1704,21 +1157,16 @@ bound("مشهد");`,
       <h3>🔹 class در JS</h3>
       <p><span class="hl">constructor()</span> با <span class="hl">new</span> اجرا می‌شود.</p>
     </div>`,
-    code: `// ============================================
-// تعریف کلاس
-// ============================================
-class Car {
+    code: `class Car {
   constructor(name, engineStatus = "off") {
     this.name = name;
     this.speed = 0;
     this.isEngineOn = engineStatus === "on";
   }
-
   startEngine() {
     this.isEngineOn = true;
     console.log(\`\${this.name}: موتور روشن شد\`);
   }
-
   accelerate(amount) {
     if (!this.isEngineOn) {
       console.log("❌ اول موتور رو روشن کن!");
@@ -1727,18 +1175,15 @@ class Car {
     this.speed += amount;
     console.log(\`\${this.name}: سرعت → \${this.speed} km/h\`);
   }
-
   getInfo() {
     return \`\${this.name} | سرعت: \${this.speed}\`;
   }
 }
-
 const myCar = new Car("پژو ۴۰۵");
 myCar.startEngine();
 myCar.accelerate(60);
 console.log(myCar.getInfo());`,
   },
-
   {
     cat: "OOP",
     id: "class-advanced",
@@ -1756,56 +1201,41 @@ console.log(myCar.getInfo());`,
       <h3>🔹 Private Fields (#)</h3>
       <p>فقط داخل کلاس قابل دسترس.</p>
     </div>`,
-    code: `// ============================================
-// کلاس پایه
-// ============================================
-class Animal {
+    code: `class Animal {
   #sound;
-
   constructor(name, sound) {
     this.name = name;
     this.#sound = sound;
     this.isAlive = true;
   }
-
   makeSound() {
     console.log(\`\${this.name}: \${this.#sound}\`);
   }
-
   get status() {
     return this.isAlive ? "زنده" : "نه زنده";
   }
-
   set alive(val) {
     if (typeof val !== "boolean") return;
     this.isAlive = val;
   }
-
   static describe() {
     console.log("Animal: موجود زنده");
   }
 }
-
-// ============================================
-// کلاس فرزند
-// ============================================
 class Dog extends Animal {
   constructor(name, breed) {
     super(name, "هاپ هاپ!");
     this.breed = breed;
     this.tricks = [];
   }
-
   learn(trick) {
     this.tricks.push(trick);
     console.log(\`\${this.name} یاد گرفت: \${trick}\`);
   }
-
   get info() {
     return \`\${this.name} (\${this.breed}) - \${this.tricks.length} حقه\`;
   }
 }
-
 Animal.describe();
 const dog = new Dog("رکس", "ژرمن");
 dog.makeSound();
@@ -1813,11 +1243,6 @@ dog.learn("بشین");
 console.log(dog.info);
 console.log(dog.status);`,
   },
-
-  // ============================================================
-  // 🎯 بخش ۹: DOM
-  // ============================================================
-
   {
     cat: "DOM",
     id: "dom",
@@ -1842,43 +1267,7 @@ console.log(dog.status);`,
       <h3>🔹 classList</h3>
       <p>add | remove | toggle | contains | replace</p>
     </div>`,
-    code: `// ============================================
-// انتخاب المان‌ها
-// ============================================
-// const el = document.getElementById("myId");
-// const el = document.querySelector(".myClass");
-// const el = document.querySelector("#myId");
-// const els = document.querySelectorAll("p");
-
-// ============================================
-// خواندن/نوشتن
-// ============================================
-// el.textContent = "متن جدید";
-// el.innerHTML = "<strong>متن</strong>";
-// console.log(el.getAttribute("href"));
-// el.setAttribute("data-id", "42");
-
-// ============================================
-// classList
-// ============================================
-// el.classList.add("active");
-// el.classList.remove("old");
-// el.classList.toggle("dark");
-// el.classList.contains("active");
-// el.classList.replace("old", "new");
-
-// ============================================
-// ساخت المان
-// ============================================
-// const p = document.createElement("p");
-// p.textContent = "پاراگراف جدید";
-// p.classList.add("highlight");
-// document.body.appendChild(p);
-
-// ============================================
-// شبیه‌سازی DOM
-// ============================================
-const fakeDOM = {
+    code: `const fakeDOM = {
   create(tag, content, cls) {
     return { tag, content, className: cls, style: {} };
   }
@@ -1887,11 +1276,6 @@ const div = fakeDOM.create("div", "سلام", "card");
 div.style.color = "red";
 console.log("المان:", div.tag, div.content);`,
   },
-
-  // ============================================================
-  // 🖱️ بخش ۱۰: رویدادها
-  // ============================================================
-
   {
     cat: "رویدادها",
     id: "mouse-events",
@@ -1918,38 +1302,10 @@ console.log("المان:", div.tag, div.content);`,
         <li><span class="hl">e.target</span> — عنصر هدف</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// رویدادهای موس
-// ============================================
-/*
-btn.addEventListener("click", function(e) {
-  console.log("کلیک شد!", e.target);
-});
-
-btn.addEventListener("dblclick", function(e) {
-  console.log("دوبار کلیک شد!");
-});
-
-btn.addEventListener("mouseenter", function(e) {
-  console.log("موس وارد شد");
-});
-
-btn.addEventListener("mouseleave", function(e) {
-  console.log("موس خارج شد");
-});
-*/
-
-// ============================================
-// راست کلیک
-// ============================================
-document.addEventListener("contextmenu", function(e) {
+    code: `document.addEventListener("contextmenu", function(e) {
   e.preventDefault();
   console.log("🚫 راست کلیک جلوگیری شد");
 });
-
-// ============================================
-// شبیه‌سازی
-// ============================================
 class MouseSimulator {
   constructor() {
     this.listeners = {};
@@ -1964,12 +1320,10 @@ class MouseSimulator {
     }
   }
 }
-
 const sim = new MouseSimulator();
 sim.addEventListener("click", () => console.log("کلیک شبیه‌سازی شد!"));
 sim.trigger("click");`,
   },
-
   {
     cat: "رویدادها",
     id: "keyboard-events",
@@ -1991,47 +1345,12 @@ sim.trigger("click");`,
         <li><span class="hl">e.shiftKey</span> — Shift فشار داده شده؟</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// keydown و keyup
-// ============================================
-/*
-document.addEventListener("keydown", function(e) {
-  console.log("🔽 کلید:", e.key);
-  console.log("کد:", e.code);
-});
-
-document.addEventListener("keyup", function(e) {
-  console.log("🔼 رها شد:", e.key);
-});
-*/
-
-// ============================================
-// جلوگیری از Ctrl+S
-// ============================================
-document.addEventListener("keydown", function(e) {
+    code: `document.addEventListener("keydown", function(e) {
   if (e.ctrlKey && e.key === "s") {
     e.preventDefault();
     console.log("⛔ Ctrl+S جلوگیری شد!");
   }
 });
-
-// ============================================
-// کلیدهای جهت‌نما
-// ============================================
-/*
-document.addEventListener("keydown", function(e) {
-  switch(e.key) {
-    case "ArrowUp": console.log("⬆️"); break;
-    case "ArrowDown": console.log("⬇️"); break;
-    case "ArrowLeft": console.log("⬅️"); break;
-    case "ArrowRight": console.log("➡️"); break;
-  }
-});
-*/
-
-// ============================================
-// شبیه‌سازی
-// ============================================
 class KeyboardSimulator {
   constructor() {
     this.listeners = {};
@@ -2046,14 +1365,12 @@ class KeyboardSimulator {
     }
   }
 }
-
 const kbSim = new KeyboardSimulator();
 kbSim.addEventListener("keydown", (e) => {
   console.log("⌨️ کلید:", e.key, "Ctrl:", e.ctrlKey);
 });
 kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
   },
-
   {
     cat: "رویدادها",
     id: "input-events",
@@ -2072,41 +1389,7 @@ kbSim.trigger("keydown", { key: "s", ctrlKey: true });`,
       <h3>🔹 تفاوت input و change</h3>
       <p><span class="hl">input</span> هر بار تایپ اجرا می‌شود، <span class="hl">change</span> فقط بعد از خارج شدن.</p>
     </div>`,
-    code: `// ============================================
-// input
-// ============================================
-/*
-inputElement.addEventListener("input", function(e) {
-  console.log("مقدار:", e.target.value);
-});
-*/
-
-// ============================================
-// فعال/غیرفعال کردن دکمه
-// ============================================
-/*
-inputElement.addEventListener("input", function(e) {
-  button.disabled = e.target.value.length === 0;
-});
-*/
-
-// ============================================
-// focus و blur
-// ============================================
-/*
-inputElement.addEventListener("focus", function(e) {
-  e.target.classList.add("focus-input");
-});
-
-inputElement.addEventListener("blur", function(e) {
-  e.target.classList.remove("focus-input");
-});
-*/
-
-// ============================================
-// شبیه‌سازی
-// ============================================
-class InputSimulator {
+    code: `class InputSimulator {
   constructor() {
     this.value = "";
     this.listeners = {};
@@ -2127,14 +1410,12 @@ class InputSimulator {
     }
   }
 }
-
 const inputSim = new InputSimulator();
 inputSim.addEventListener("input", (e) => console.log("input:", e.target.value));
 inputSim.addEventListener("change", (e) => console.log("change:", e.target.value));
 inputSim.setValue("hello");
 inputSim.blur();`,
   },
-
   {
     cat: "رویدادها",
     id: "form-events",
@@ -2150,41 +1431,7 @@ inputSim.blur();`,
       <h3>🔹 اعتبارسنجی</h3>
       <p>بررسی ورودی‌ها قبل از ارسال.</p>
     </div>`,
-    code: `// ============================================
-// submit
-// ============================================
-/*
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  console.log("فرم ارسال شد");
-
-  if (nameInput.value.trim() === "") {
-    console.log("❌ نام را وارد کنید");
-    return;
-  }
-
-  if (passwordInput.value.length < 5) {
-    console.log("❌ رمز حداقل ۵ کاراکتر");
-    return;
-  }
-
-  console.log("✅ فرم معتبر است");
-});
-*/
-
-// ============================================
-// reset
-// ============================================
-/*
-form.addEventListener("reset", function(e) {
-  console.log("🔄 فرم ریست شد");
-});
-*/
-
-// ============================================
-// شبیه‌سازی
-// ============================================
-class FormSimulator {
+    code: `class FormSimulator {
   constructor() {
     this.listeners = {};
   }
@@ -2198,16 +1445,10 @@ class FormSimulator {
     }
   }
 }
-
 const formSim = new FormSimulator();
 formSim.addEventListener("submit", () => console.log("✅ فرم ارسال شد"));
 formSim.submit();`,
   },
-
-  // ============================================================
-  // ⏱️ بخش ۱۱: Async
-  // ============================================================
-
   {
     cat: "Async JS",
     id: "timers",
@@ -2224,24 +1465,12 @@ formSim.submit();`,
       <pre>setInterval(callback, delay)</pre>
       <div class="warn">⚠️ setInterval را با <span class="hl">clearInterval</span> متوقف کنید تا مموری لیک نشود.</div>
     </div>`,
-    code: `// ============================================
-// setTimeout
-// ============================================
-console.log("شروع");
-
+    code: `console.log("شروع");
 setTimeout(() => {
   console.log("بعد از 500ms اجرا شدم!");
 }, 500);
-
-// ============================================
-// setTimeout با 0
-// ============================================
 setTimeout(() => console.log("آخر"), 0);
 console.log("زودتر");
-
-// ============================================
-// setInterval
-// ============================================
 let count = 0;
 const intervalId = setInterval(() => {
   count++;
@@ -2251,10 +1480,6 @@ const intervalId = setInterval(() => {
     console.log("✅ متوقف شد");
   }
 }, 200);
-
-// ============================================
-// countdown
-// ============================================
 function countdown(from) {
   let current = from;
   const id = setInterval(() => {
@@ -2268,7 +1493,6 @@ function countdown(from) {
 }
 countdown(3);`,
   },
-
   {
     cat: "Async JS",
     id: "promises",
@@ -2293,10 +1517,7 @@ countdown(3);`,
         <li><span class="hl">Promise.race()</span> — اولین</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// ساختن Promise
-// ============================================
-function fetchData(id) {
+    code: `function fetchData(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (id < 0) {
@@ -2307,10 +1528,6 @@ function fetchData(id) {
     }, 100);
   });
 }
-
-// ============================================
-// then/catch/finally
-// ============================================
 fetchData(1)
   .then(result => {
     console.log("✅", result.data);
@@ -2319,21 +1536,12 @@ fetchData(1)
   .then(score => console.log("امتیاز:", score))
   .catch(err => console.error("❌", err.message))
   .finally(() => console.log("تموم شد"));
-
-// ============================================
-// Promise.all
-// ============================================
 Promise.all([fetchData(1), fetchData(2), fetchData(3)])
   .then(results => results.forEach(r => console.log("all ✓", r.data)))
   .catch(err => console.error("all ❌", err));
-
-// ============================================
-// Promise.race
-// ============================================
 Promise.race([fetchData(3), fetchData(1), fetchData(2)])
   .then(first => console.log("اولین:", first.data));`,
   },
-
   {
     cat: "Async JS",
     id: "async-await",
@@ -2350,18 +1558,11 @@ Promise.race([fetchData(3), fetchData(1), fetchData(2)])
         <li>از <span class="hl">try/catch</span> برای خطاها استفاده کنید</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// شبیه‌سازی
-// ============================================
-function wait(ms, value, fail = false) {
+    code: `function wait(ms, value, fail = false) {
   return new Promise((res, rej) =>
     setTimeout(() => fail ? rej(new Error("خطا!")) : res(value), ms)
   );
 }
-
-// ============================================
-// async/await
-// ============================================
 async function loadUser() {
   console.log("شروع لود...");
   const user = await wait(100, { name: "علی", age: 25 });
@@ -2371,10 +1572,6 @@ async function loadUser() {
   return { user, score };
 }
 loadUser().then(result => console.log("نتیجه:", result));
-
-// ============================================
-// Error Handling
-// ============================================
 async function safeLoad() {
   try {
     const data = await wait(50, "داده‌ها");
@@ -2387,10 +1584,6 @@ async function safeLoad() {
   }
 }
 safeLoad();
-
-// ============================================
-// Sequential vs Parallel
-// ============================================
 async function sequential() {
   console.time("seq");
   const a = await wait(100, "A");
@@ -2399,7 +1592,6 @@ async function sequential() {
   console.log(a, b, c);
   console.timeEnd("seq");
 }
-
 async function parallel() {
   console.time("par");
   const [a, b, c] = await Promise.all([
@@ -2413,11 +1605,6 @@ async function parallel() {
 sequential();
 parallel();`,
   },
-
-  // ============================================================
-  // 💾 بخش ۱۲: Storage
-  // ============================================================
-
   {
     cat: "Storage & BOM",
     id: "localstorage",
@@ -2436,29 +1623,17 @@ parallel();`,
       </ul>
       <div class="warn">⚠️ فقط <span class="hl">string</span> ذخیره می‌کند. برای آبجکت از <span class="hl">JSON.stringify</span> استفاده کنید.</div>
     </div>`,
-    code: `// ============================================
-// localStorage
-// ============================================
-const ls = {
+    code: `const ls = {
   setItem: (k, v) => console.log(\`💾 ذخیره: \${k}\`),
   getItem: (k) => "محمد",
   removeItem: (k) => console.log(\`🗑️ حذف: \${k}\`)
 };
-
 ls.setItem("username", "محمد");
 console.log(ls.getItem("username"));
-
-// ============================================
-// ذخیره آبجکت
-// ============================================
 const user = { name: "علی", age: 25 };
 ls.setItem("user", JSON.stringify(user));
 const savedUser = JSON.parse(ls.getItem("user"));
 console.log(savedUser.name);
-
-// ============================================
-// Helper Class
-// ============================================
 class Storage {
   constructor() {
     this.store = {};
@@ -2472,12 +1647,10 @@ class Storage {
   }
   remove(key) { delete this.store[key]; }
 }
-
 const store = new Storage();
 store.set("config", { theme: "dark" });
 console.log(store.get("config"));`,
   },
-
   {
     cat: "Storage & BOM",
     id: "json",
@@ -2498,49 +1671,28 @@ console.log(store.get("config"));`,
         <li><span class="hl">undefined</span> و <span class="hl">function</span> مجاز نیستند</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// JSON.stringify
-// ============================================
-const user = {
+    code: `const user = {
   name: "علی",
   age: 25,
   skills: ["JS", "React"],
   greet: function() {}
 };
-
 const json = JSON.stringify(user);
 console.log(json);
 console.log(typeof json);
-
-// ============================================
-// JSON.parse
-// ============================================
 const parsed = JSON.parse(json);
 console.log(parsed.name);
-
-// ============================================
-// Deep Clone
-// ============================================
 const original = { a: 1, b: { c: 2 } };
 const clone = JSON.parse(JSON.stringify(original));
 clone.b.c = 999;
 console.log("original:", original.b.c);
 console.log("clone:", clone.b.c);
-
-// ============================================
-// Error Handling
-// ============================================
 try {
   JSON.parse("{ invalid }");
 } catch (err) {
   console.error("❌ JSON نامعتبر:", err.message);
 }`,
   },
-
-  // ============================================================
-  // 🔒 بخش ۱۳: مفاهیم پیشرفته
-  // ============================================================
-
   {
     cat: "مفاهیم پیشرفته",
     id: "closure",
@@ -2557,58 +1709,36 @@ try {
         <li>Memoization — کش کردن</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// Closure
-// ============================================
-function outer() {
+    code: `function outer() {
   let count = 0;
-
   return {
     increment() { count++; console.log("count:", count); },
     decrement() { count--; console.log("count:", count); },
     getCount() { return count; }
   };
 }
-
 const counter1 = outer();
-counter1.increment(); // 1
-counter1.increment(); // 2
-
-const counter2 = outer(); // مستقل
-counter2.increment(); // 1
-
-// ============================================
-// Factory Function
-// ============================================
+counter1.increment();
+counter1.increment();
+const counter2 = outer();
+counter2.increment();
 function createMultiplier(factor) {
   return (n) => n * factor;
 }
-
 const double = createMultiplier(2);
-console.log(double(10)); // 20
-
-// ============================================
-// Private Variables
-// ============================================
+console.log(double(10));
 function createPerson(name, age) {
   let _age = age;
-
   return {
     getName: () => name,
     getAge: () => _age,
     birthday() { _age++; console.log(\`\${name} شد \${_age} ساله\`); }
   };
 }
-
 const ali = createPerson("علی", 24);
 ali.birthday();
 console.log(ali.getAge());`,
   },
-
-  // ============================================================
-  // 🚀 بخش ۱۴: API
-  // ============================================================
-
   {
     cat: "API و Async",
     id: "fetch-api",
@@ -2628,20 +1758,13 @@ console.log(ali.getAge());`,
       </ul>
       <div class="tip">💡 همیشه <span class="hl">res.ok</span> را بررسی کنید. fetch خطاهای ۴۰۴ را به catch نمی‌فرستد.</div>
     </div>`,
-    code: `// ============================================
-// GET
-// ============================================
-fetch("https://jsonplaceholder.typicode.com/users")
+    code: `fetch("https://jsonplaceholder.typicode.com/users")
   .then(res => {
     if (!res.ok) throw new Error("خطا");
     return res.json();
   })
   .then(data => console.log("کاربران:", data.slice(0, 2)))
   .catch(err => console.error("❌", err));
-
-// ============================================
-// POST
-// ============================================
 fetch("https://jsonplaceholder.typicode.com/posts", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -2650,17 +1773,12 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
   .then(res => res.json())
   .then(data => console.log("✅ پست ایجاد شد:", data))
   .catch(err => console.error("❌", err));
-
-// ============================================
-// DELETE
-// ============================================
 fetch("https://jsonplaceholder.typicode.com/posts/100", {
   method: "DELETE"
 })
   .then(res => console.log("✅ حذف شد"))
   .catch(err => console.error("❌", err));`,
   },
-
   {
     cat: "API و Async",
     id: "axios",
@@ -2677,46 +1795,7 @@ fetch("https://jsonplaceholder.typicode.com/posts/100", {
         <li>✅ از interceptors پشتیبانی می‌کند</li>
       </ul>
     </div>`,
-    code: `// ============================================
-// نصب: npm install axios
-// ============================================
-// import axios from 'axios';
-
-// ============================================
-// GET با Axios
-// ============================================
-/*
-axios.get("https://jsonplaceholder.typicode.com/users")
-  .then(res => console.log("داده:", res.data))
-  .catch(err => console.error("❌", err));
-*/
-
-// ============================================
-// POST با Axios
-// ============================================
-/*
-axios.post("https://jsonplaceholder.typicode.com/users", {
-  name: "محمد",
-  email: "m@mail.com"
-})
-  .then(res => console.log("✅", res.data))
-  .catch(err => console.error("❌", err));
-*/
-
-// ============================================
-// Interceptors
-// ============================================
-/*
-axios.interceptors.request.use(config => {
-  console.log("📤 درخواست:", config.url);
-  return config;
-});
-*/
-
-// ============================================
-// شبیه‌سازی
-// ============================================
-const axiosSim = {
+    code: `const axiosSim = {
   get: (url) => {
     console.log(\`📤 GET: \${url}\`);
     return Promise.resolve({ data: { id: 1, name: "علی" } });
@@ -2724,11 +1803,6 @@ const axiosSim = {
 };
 axiosSim.get("/users").then(res => console.log("✅", res.data));`,
   },
-
-  // ============================================================
-  // 📦 بخش ۱۵: BOM
-  // ============================================================
-
   {
     cat: "Storage & BOM",
     id: "bom",
@@ -2747,38 +1821,234 @@ axiosSim.get("/users").then(res => console.log("✅", res.data));`,
       <h3>🔹 navigator</h3>
       <p>اطلاعات مرورگر کاربر.</p>
     </div>`,
-    code: `// ============================================
-// window
-// ============================================
-console.log("innerWidth:", window.innerWidth);
+    code: `console.log("innerWidth:", window.innerWidth);
 console.log("innerHeight:", window.innerHeight);
-
-// ============================================
-// location
-// ============================================
 console.log("href:", location.href);
 console.log("hostname:", location.hostname);
 console.log("pathname:", location.pathname);
-
-// ============================================
-// history
-// ============================================
-// history.back();
-// history.forward();
-// history.go(-1);
-
-// ============================================
-// navigator
-// ============================================
 console.log("userAgent:", navigator.userAgent);
 console.log("language:", navigator.language);
 console.log("online:", navigator.onLine);`,
   },
 ];
 
-// ============================================================
-// صادر کردن topics برای استفاده در main.js
-// ============================================================
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = topics;
+let currentTopicId = null;
+
+function renderTopics(filter = "") {
+  const list = document.getElementById("topic-list");
+  list.innerHTML = "";
+  let lastCat = "";
+  const filtered = topics.filter(
+    (t) =>
+      t.title.includes(filter) ||
+      t.cat.includes(filter) ||
+      t.content.includes(filter),
+  );
+  filtered.forEach((t) => {
+    if (t.cat !== lastCat) {
+      const catDiv = document.createElement("div");
+      catDiv.className = "cat-title";
+      catDiv.textContent = t.cat;
+      list.appendChild(catDiv);
+      lastCat = t.cat;
+    }
+    const item = document.createElement("div");
+    item.className = "topic-item" + (t.id === currentTopicId ? " active" : "");
+    item.setAttribute("data-id", t.id);
+    item.innerHTML = `
+      <span>${t.icon}</span>
+      <span>${t.title}</span>
+      <span class="topic-badge" data-level="${t.badge}">${t.badge}</span>
+    `;
+    item.onclick = () => selectTopic(t.id);
+    list.appendChild(item);
+  });
 }
+
+function selectTopic(id) {
+  currentTopicId = id;
+  const topic = topics.find((t) => t.id === id);
+  if (!topic) return;
+  renderTopics();
+  const lesson = document.getElementById("lesson");
+  let codeHtml = "";
+  if (topic.code) {
+    codeHtml = `
+      <div class="code-block">
+        <div class="code-hdr">
+          <div class="dots">
+            <span class="d-r"></span>
+            <span class="d-y"></span>
+            <span class="d-g"></span>
+          </div>
+          <span class="code-run" onclick="runSpecificCode('${encodeURIComponent(topic.code)}')">▶ اجرا</span>
+        </div>
+        <pre>${topic.code}</pre>
+      </div>
+    `;
+  }
+  lesson.innerHTML = `
+    <div class="ls">
+      ${topic.content}
+      ${codeHtml}
+    </div>
+  `;
+  document.getElementById("content-title").textContent =
+    topic.icon + " " + topic.title;
+  document.getElementById("content-sub").textContent = topic.cat;
+
+  closeSidebarMobile();
+}
+
+function filterTopics(val) {
+  renderTopics(val);
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const btn = document.getElementById("sidebar-toggle");
+  sidebar.classList.toggle("closed");
+  btn.classList.toggle("closed");
+  if (sidebar.classList.contains("closed")) {
+    btn.textContent = "▶";
+  } else {
+    btn.textContent = "◀";
+  }
+}
+
+function toggleConsole() {
+  const panel = document.getElementById("console-panel");
+  const btn = document.getElementById("console-toggle-btn");
+  panel.classList.toggle("closed");
+  btn.classList.toggle("closed");
+  if (panel.classList.contains("closed")) {
+    btn.textContent = "◀";
+  } else {
+    btn.textContent = "▶";
+  }
+}
+
+function toggleTheme() {
+  document.documentElement.classList.toggle("light");
+  const btn = document.getElementById("theme-btn");
+  if (document.documentElement.classList.contains("light")) {
+    btn.textContent = "☀️";
+  } else {
+    btn.textContent = "🌙";
+  }
+}
+
+function runCode() {
+  const lesson = document.getElementById("lesson");
+  const codeBlocks = lesson.querySelectorAll(".code-block pre");
+  if (codeBlocks.length > 0) {
+    const code = codeBlocks[codeBlocks.length - 1].textContent;
+    runSpecificCode(code);
+  }
+}
+
+function runSpecificCode(encodedCode) {
+  const code = decodeURIComponent(encodedCode);
+  const out = document.getElementById("con-out");
+  const empty = out.querySelector(".cempty");
+  if (empty) empty.remove();
+  const originalLog = console.log;
+  const originalError = console.error;
+  const originalWarn = console.warn;
+  const originalInfo = console.info;
+  console.log = function (...args) {
+    addLine(
+      "log",
+      args
+        .map((a) =>
+          typeof a === "object" ? JSON.stringify(a, null, 2) : String(a),
+        )
+        .join(" "),
+    );
+    originalLog.apply(console, args);
+  };
+  console.error = function (...args) {
+    addLine("error", args.map((a) => String(a)).join(" "));
+    originalError.apply(console, args);
+  };
+  console.warn = function (...args) {
+    addLine("warn", args.map((a) => String(a)).join(" "));
+    originalWarn.apply(console, args);
+  };
+  console.info = function (...args) {
+    addLine("info", args.map((a) => String(a)).join(" "));
+    originalInfo.apply(console, args);
+  };
+  try {
+    const result = eval(code);
+    if (result !== undefined) {
+      addLine(
+        "log",
+        "← " +
+          (typeof result === "object"
+            ? JSON.stringify(result, null, 2)
+            : String(result)),
+      );
+    }
+  } catch (e) {
+    addLine("error", "❌ " + e.message);
+  }
+  console.log = originalLog;
+  console.error = originalError;
+  console.warn = originalWarn;
+  console.info = originalInfo;
+}
+
+function addLine(type, text) {
+  const out = document.getElementById("con-out");
+  const empty = out.querySelector(".cempty");
+  if (empty) empty.remove();
+  const div = document.createElement("div");
+  div.className = "cline " + type;
+  div.textContent = text;
+  out.appendChild(div);
+  out.scrollTop = out.scrollHeight;
+}
+
+function clearCon() {
+  const out = document.getElementById("con-out");
+  out.innerHTML = `
+    <div class="cempty">
+      <span style="font-size:28px;opacity:0.3">🖥️</span>
+      <span>کنسول خالیه</span>
+    </div>
+  `;
+}
+
+function handleInput(e) {
+  if (e.key === "Enter") {
+    const input = document.getElementById("con-input");
+    const code = input.value.trim();
+    if (code) {
+      runSpecificCode(encodeURIComponent(code));
+      input.value = "";
+    }
+  }
+}
+
+function openSidebarMobile() {
+  document.getElementById("sidebar").classList.add("open");
+  document.getElementById("sidebar-overlay").classList.add("active");
+}
+
+function closeSidebarMobile() {
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sidebar-overlay").classList.remove("active");
+}
+
+function openConsoleMobile() {
+  document.getElementById("console-panel").classList.add("open");
+  document.getElementById("console-overlay").classList.add("active");
+}
+
+function closeConsoleMobile() {
+  document.getElementById("console-panel").classList.remove("open");
+  document.getElementById("console-overlay").classList.remove("active");
+}
+
+renderTopics();
