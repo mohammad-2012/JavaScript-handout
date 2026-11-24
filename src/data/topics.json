@@ -1,0 +1,354 @@
+[
+  {
+    "id": "intro",
+    "cat": "مقدمات",
+    "title": "مقدمه‌ای بر جاوااسکریپت",
+    "badge": "شروع",
+    "content": "<p>جاوااسکریپت یک زبان برنامه‌نویسی سطح بالا، تفسیری و چندالگویی است که برای ساخت صفحات وب پویا استفاده می‌شود.</p>\n      <p>با جاوااسکریپت می‌توانید:</p>\n      <ul>\n        <li>به المان‌های HTML دسترسی داشته باشید و آن‌ها را تغییر دهید</li>\n        <li>به رویدادهای کاربر (کلیک، حرکت موس، فشردن کلید و...) پاسخ دهید</li>\n        <li>داده‌ها را در مرورگر ذخیره کنید (localStorage)</li>\n        <li>با سرور ارتباط برقرار کنید (API, Fetch, AJAX)</li>\n        <li>انیمیشن‌ها و افکت‌های جذاب ایجاد کنید</li>\n        <li>و بسیاری کارهای دیگر...</li>\n      </ul>\n      <div class=\"tip\">جاوااسکریپت یکی از محبوب‌ترین زبان‌های برنامه‌نویسی دنیاست و در همه مرورگرها پشتیبانی می‌شود.</div>\n      <div class=\"tip\">برای شروع، فقط کافی است یک فایل HTML و یک فایل JS داشته باشید. کدهای JS را در تگ &lt;script&gt; قرار دهید یا به فایل جداگانه لینک کنید.</div>",
+    "code": "console.log(\"سلام دنیا!\");\nlet name = \"علی\";\nlet age = 25;\nlet isStudent = true;\nconsole.log(name, age, isStudent);\nfunction sayHello(name) {\n  return \"سلام \" + name + \"!\";\n}\nconsole.log(sayHello(\"رضا\"));"
+  },
+  {
+    "id": "vars",
+    "cat": "مقدمات",
+    "title": "متغیرها (Variables)",
+    "badge": "پایه",
+    "content": "<p>متغیر مثل یک جعبه است که مقدار را در خود نگه می‌دارد. در جاوااسکریپت سه روش برای تعریف متغیر داریم:</p>\n      <h3>var — قدیمی و مشکل‌دار</h3>\n      <p><span class=\"hl\">var</span> در نسخه‌های قدیمی جاوااسکریپت استفاده می‌شد. امروزه دیگر استفاده از آن توصیه نمی‌شود.</p>\n      <ul>\n        <li><span class=\"hl\">Function-scoped</span> است — یعنی فقط داخل تابع محدود می‌شود، نه داخل بلاک‌ها.</li>\n        <li><span class=\"hl\">Hoisting</span> دارد — قبل از تعریف undefined می‌دهد (نه خطا).</li>\n        <li>می‌توان آن را دوباره تعریف کرد (re-declare).</li>\n      </ul>\n      <h3>let — برای مقادیر قابل تغییر ✅</h3>\n      <p><span class=\"hl\">let</span> روش مدرن برای تعریف متغیرهایی است که مقدار آنها تغییر می‌کند.</p>\n      <ul>\n        <li><span class=\"hl\">Block-scoped</span> است — فقط داخل بلاک (محصور در {}) معتبر است.</li>\n        <li>می‌توان مقدار آن را تغییر داد (reassign).</li>\n        <li>نمی‌توان آن را دوباره تعریف کرد.</li>\n      </ul>\n      <h3>const — برای مقادیر ثابت ✅</h3>\n      <p><span class=\"hl\">const</span> برای متغیرهایی که مقدار آنها تغییر نمی‌کند استفاده می‌شود.</p>\n      <ul>\n        <li><span class=\"hl\">Block-scoped</span> است.</li>\n        <li>نمی‌توان مقدار آن را تغییر داد (مقاوم در برابر reassign).</li>\n        <li>برای آرایه و آبجکت، محتوا قابل تغییر است ولی خود متغیر قابل تغییر نیست.</li>\n      </ul>\n      <div class=\"tip\">قانون طلایی: همیشه از const استفاده کنید، مگر اینکه بدانید قرار است مقدار متغیر تغییر کند، در آن صورت از let استفاده کنید. هرگز از var استفاده نکنید!</div>\n      <table class=\"compare-table\">\n        <tr><th>ویژگی</th><th>var</th><th>let</th><th>const</th></tr>\n        <tr><td>Scope (محدوده)</td><td>function</td><td>block</td><td>block</td></tr>\n        <tr><td>Hoisting</td><td>✅ (undefined)</td><td>❌</td><td>❌</td></tr>\n        <tr><td>Reassign (تغییر مقدار)</td><td>✅</td><td>✅</td><td>❌</td></tr>\n        <tr><td>Re-declare (تعریف مجدد)</td><td>✅</td><td>❌</td><td>❌</td></tr>\n      </table>\n      <div class=\"warn\">تفاوت <span class=\"hl\">let</span> و <span class=\"hl\">const</span>: const نمی‌تواند reassign شود، اما اگر const یک آبجکت یا آرایه باشد، محتوای آن قابل تغییر است!</div>",
+    "code": "var x = 10;\nvar x = 20;\nconsole.log(\"var x:\", x);\nconsole.log(\"hoisted:\", hoisted);\nvar hoisted = \"hello\";\nlet age = 20;\nage = 21;\nconsole.log(\"let age:\", age);\n{\n  let blockVar = \"فقط داخل این بلاک\";\n  console.log(\"داخل بلاک:\", blockVar);\n}\nconst PI = 3.14159;\nconst arr = [1, 2, 3];\narr.push(4);\nconsole.log(\"const array:\", arr);\nconst obj = { name: \"علی\" };\nobj.age = 25;\nconsole.log(\"const object:\", obj);\nfunction testScope() {\n  if (true) {\n    var v = \"var\";\n    let l = \"let\";\n    const c = \"const\";\n  }\n  console.log(\"var خارج از بلاک:\", v);\n}\ntestScope();"
+  },
+  {
+    "id": "types",
+    "cat": "مقدمات",
+    "title": "انواع داده (Data Types)",
+    "badge": "پایه",
+    "content": "<p>جاوااسکریپت ۸ نوع داده دارد که به دو دسته کلی <span class=\"hl\">Primitive</span> (مقداری) و <span class=\"hl\">Reference</span> (مرجعی) تقسیم می‌شوند.</p>\n      <h3>Primitive Types (انواع مقداری)</h3>\n      <p>این نوع داده‌ها مقدار را مستقیماً در حافظه ذخیره می‌کنند و تغییر در آنها تأثیری روی متغیرهای دیگر ندارد.</p>\n      <ul>\n        <li><span class=\"hl\">String</span> — رشته: \"hello\", 'world', `template`</li>\n        <li><span class=\"hl\">Number</span> — عدد: 42, 3.14, -5, Infinity, NaN</li>\n        <li><span class=\"hl\">Boolean</span> — true یا false</li>\n        <li><span class=\"hl\">undefined</span> — متغیر تعریف شده ولی مقدار ندارد</li>\n        <li><span class=\"hl\">null</span> — عمداً خالی گذاشته شده (نوعش object ← باگ JS)</li>\n        <li><span class=\"hl\">BigInt</span> — اعداد بسیار بزرگ: 9007199254740991n</li>\n        <li><span class=\"hl\">Symbol</span> — مقدار یکتا و منحصربه‌فرد</li>\n      </ul>\n      <h3>Reference Types (انواع مرجعی)</h3>\n      <p>این نوع داده‌ها آدرس حافظه را ذخیره می‌کنند و تغییر در آنها بر روی همه متغیرهایی که به آن اشاره دارند تأثیر می‌گذارد.</p>\n      <ul>\n        <li><span class=\"hl\">Object</span> — آبجکت‌ها، آرایه‌ها، توابع، Map، Set و...</li>\n      </ul>\n      <h3>Falsy Values</h3>\n      <p>مقادیری که در شرط‌ها به false تبدیل می‌شوند:</p>\n      <p><span class=\"hl\">0</span>, <span class=\"hl\">\"\"</span> (رشته خالی), <span class=\"hl\">null</span>, <span class=\"hl\">undefined</span>, <span class=\"hl\">NaN</span>, <span class=\"hl\">false</span></p>\n      <div class=\"warn\"><span class=\"hl\">typeof null</span> → \"object\" — این یک باگ تاریخی در جاوااسکریپت است که به خاطر سازگاری باقی مانده است.</div>\n      <div class=\"tip\">برای بررسی null، از <span class=\"hl\">=== null</span> استفاده کنید نه typeof.</div>",
+    "code": "let name = \"محمد\";\nlet singleQ = 'علی';\nlet template = `سلام ${name}!`;\nconsole.log(\"String:\", template);\nconsole.log(\"عدد:\", 42);\nconsole.log(\"اعشاری:\", 3.14);\nconsole.log(\"بی‌نهایت:\", Infinity);\nconsole.log(\"Not a Number:\", NaN);\nconsole.log(\"isNaN('hello'):\", isNaN(\"hello\"));\nconsole.log(\"isNaN(42):\", isNaN(42));\nlet isLoggedIn = true;\nconsole.log(\"typeof isLoggedIn:\", typeof isLoggedIn);\nlet notDefined;\nlet emptyOnPurpose = null;\nconsole.log(\"typeof notDefined:\", typeof notDefined);\nconsole.log(\"typeof emptyOnPurpose:\", typeof emptyOnPurpose);\nconsole.log(\"null === null:\", emptyOnPurpose === null);\nconsole.log(\"Number('42'):\", Number(\"42\"));\nconsole.log(\"Number(true):\", Number(true));\nconsole.log(\"Number(false):\", Number(false));\nconsole.log(\"Number(null):\", Number(null));\nconsole.log(\"Number('hello'):\", Number(\"hello\"));\nconsole.log(\"String(42):\", String(42));\nconsole.log(\"String(true):\", String(true));\nconsole.log(\"Boolean(0):\", Boolean(0));\nconsole.log('Boolean(\"\"):', Boolean(\"\"));\nconsole.log(\"Boolean(null):\", Boolean(null));\nconsole.log(\"Boolean(1):\", Boolean(1));\nconsole.log('Boolean(\"hi\"):', Boolean(\"hi\"));\nconsole.log(\"!!0:\", !!0);\nconsole.log('!!\"\":', !!\"\");\nconsole.log(\"!!null:\", !!null);\nconsole.log(\"!!undefined:\", !!undefined);\nconsole.log(\"!!NaN:\", !!NaN);\nconsole.log(\"!!'hello':\", !!'hello');"
+  },
+  {
+    "id": "operators",
+    "cat": "مقدمات",
+    "title": "عملگرها (Operators)",
+    "badge": "پایه",
+    "content": "<p>عملگرها برای انجام عملیات روی داده‌ها استفاده می‌شوند. در جاوااسکریپت انواع مختلفی از عملگرها وجود دارد.</p>\n      <h3>عملگرهای ریاضی</h3>\n      <ul>\n        <li><span class=\"hl\">+</span> جمع | <span class=\"hl\">-</span> تفریق | <span class=\"hl\">*</span> ضرب | <span class=\"hl\">/</span> تقسیم</li>\n        <li><span class=\"hl\">%</span> باقیمانده تقسیم | <span class=\"hl\">**</span> توان</li>\n        <li><span class=\"hl\">++</span> یک واحد افزایش | <span class=\"hl\">--</span> یک واحد کاهش</li>\n      </ul>\n      <h3>عملگرهای انتساب</h3>\n      <p><span class=\"hl\">=</span> انتساب ساده | <span class=\"hl\">+=</span> جمع و انتساب | <span class=\"hl\">-=</span> تفریق و انتساب</p>\n      <p><span class=\"hl\">*=</span> ضرب و انتساب | <span class=\"hl\">/=</span> تقسیم و انتساب | <span class=\"hl\">%=</span> باقیمانده و انتساب</p>\n      <p><span class=\"hl\">**=</span> توان و انتساب</p>\n      <h3>عملگرهای مقایسه‌ای</h3>\n      <ul>\n        <li><span class=\"hl\">==</span> برابری (نوع را چک نمی‌کند) — <span class=\"hl\">اجتناب کنید!</span></li>\n        <li><span class=\"hl\">===</span> برابری دقیق (نوع و مقدار را چک می‌کند) — <span class=\"hl\">✅ توصیه می‌شود</span></li>\n        <li><span class=\"hl\">!=</span> نابرابری | <span class=\"hl\">!==</span> نابرابری دقیق</li>\n        <li><span class=\"hl\">&lt;</span> کوچک‌تر | <span class=\"hl\">&gt;</span> بزرگ‌تر | <span class=\"hl\">&lt;=</span> کوچک‌تر یا مساوی | <span class=\"hl\">&gt;=</span> بزرگ‌تر یا مساوی</li>\n      </ul>\n      <h3>عملگرهای منطقی</h3>\n      <ul>\n        <li><span class=\"hl\">&&</span> AND — هر دو شرط باید true باشند</li>\n        <li><span class=\"hl\">||</span> OR — حداقل یکی از شرایط باید true باشد</li>\n        <li><span class=\"hl\">!</span> NOT — برعکس کردن مقدار</li>\n        <li><span class=\"hl\">??</span> Nullish Coalescing — اگر null یا undefined بود، مقدار جایگزین را برمی‌گرداند</li>\n        <li><span class=\"hl\">?.</span> Optional Chaining — اگر وجود نداشت undefined برمی‌گرداند (نه خطا)</li>\n      </ul>\n      <div class=\"warn\">همیشه از <span class=\"hl\">===</span> استفاده کنید نه <span class=\"hl\">==</span>. مثلاً <span class=\"hl\">0 == false</span> → true ولی <span class=\"hl\">0 === false</span> → false</div>\n      <div class=\"tip\">عملگر <span class=\"hl\">??</span> با <span class=\"hl\">||</span> تفاوت دارد: <span class=\"hl\">||</span> همه falsy values را در نظر می‌گیرد، اما <span class=\"hl\">??</span> فقط null و undefined را.</div>",
+    "code": "console.log(\"10 + 3 =\", 10 + 3);\nconsole.log(\"10 - 3 =\", 10 - 3);\nconsole.log(\"10 * 3 =\", 10 * 3);\nconsole.log(\"10 / 3 =\", 10 / 3);\nconsole.log(\"10 % 3 =\", 10 % 3);\nconsole.log(\"2 ** 10 =\", 2 ** 10);\nlet x = 5;\nconsole.log(\"x++:\", x++);\nconsole.log(\"x بعد از ++:\", x);\nconsole.log(\"++x:\", ++x);\nlet n = 10;\nn += 5; console.log(\"n += 5 →\", n);\nn -= 2; console.log(\"n -= 2 →\", n);\nn *= 2; console.log(\"n *= 2 →\", n);\nn **= 2; console.log(\"n **= 2 →\", n);\nconsole.log('5 == \"5\":', 5 == \"5\");\nconsole.log('5 === \"5\":', 5 === \"5\");\nconsole.log('null == undefined:', null == undefined);\nconsole.log('null === undefined:', null === undefined);\nconsole.log(\"true && false:\", true && false);\nconsole.log(\"true || false:\", true || false);\nconsole.log(\"!true:\", !true);\nlet user = null;\nconsole.log(\"user ?? 'مهمان':\", user ?? \"مهمان\");\nlet zero = 0;\nconsole.log('zero || \"پیش‌فرض\":', zero || \"پیش‌فرض\");\nconsole.log('zero ?? \"پیش‌فرض\":', zero ?? \"پیش‌فرض\");\nlet profile = { user: { name: \"علی\" } };\nconsole.log(\"profile?.user?.name:\", profile?.user?.name);\nconsole.log(\"profile?.address?.city:\", profile?.address?.city);\nlet age = 20;\nlet status = age >= 18 ? \"بزرگسال\" : \"نوجوان\";\nconsole.log(\"status:\", status);"
+  },
+  {
+    "id": "isnan",
+    "cat": "مقدمات",
+    "title": "isNaN — بررسی عدد بودن",
+    "badge": "پایه",
+    "content": "<p><span class=\"hl\">isNaN</span> مخفف \"is Not a Number\" است و بررسی می‌کند که آیا مقدار مورد نظر عدد نیست یا خیر.</p>\n      <h3>نحوه استفاده</h3>\n      <pre>isNaN(value)</pre>\n      <h3>نکات مهم</h3>\n      <ul>\n        <li>اگر مقدار <span class=\"hl\">عدد</span> باشد → <span class=\"hl\">false</span> برمی‌گرداند</li>\n        <li>اگر مقدار <span class=\"hl\">عدد نباشد</span> → <span class=\"hl\">true</span> برمی‌گرداند</li>\n        <li>قبل از بررسی، سعی می‌کند مقدار را به عدد تبدیل کند</li>\n        <li>برای رشته‌های عددی (مثل \"123\")، false برمی‌گرداند چون می‌توانند به عدد تبدیل شوند</li>\n      </ul>\n      <h3>کاربردها</h3>\n      <ul>\n        <li>اعتبارسنجی ورودی‌های عددی در فرم‌ها</li>\n        <li>بررسی اینکه یک مقدار از API عدد است یا نه</li>\n        <li>جلوگیری از خطاهای محاسباتی</li>\n      </ul>\n      <div class=\"tip\">برای بررسی دقیق‌تر از <span class=\"hl\">Number.isNaN()</span> استفاده کنید که تبدیل نوع انجام نمی‌دهد.</div>",
+    "code": "console.log('isNaN(\"mohammad\"):', isNaN(\"mohammad\"));\nconsole.log('isNaN(\"123\"):', isNaN(\"123\"));\nconsole.log(\"isNaN(42):\", isNaN(42));\nconsole.log(\"isNaN(true):\", isNaN(true));\nconsole.log(\"isNaN(null):\", isNaN(null));\nconsole.log(\"isNaN(undefined):\", isNaN(undefined));\nlet userInput = \"89765432543647\";\nif (isNaN(userInput)) {\n  console.log(\"❌ ورودی عدد نیست!\");\n} else {\n  console.log(\"✅ ورودی عدد است!\");\n}\nconsole.log(\"Number.isNaN('hello'):\", Number.isNaN(\"hello\"));\nconsole.log(\"Number.isNaN(NaN):\", Number.isNaN(NaN));\nconsole.log(\"isNaN('hello'):\", isNaN(\"hello\"));\nfunction validateNumber(input) {\n  if (isNaN(input) || input === \"\") {\n    return \"❌ لطفاً یک عدد معتبر وارد کنید\";\n  }\n  return \"✅ عدد معتبر است\";\n}\nconsole.log(validateNumber(\"25\"));\nconsole.log(validateNumber(\"abc\"));\nconsole.log(validateNumber(\"\"));"
+  },
+  {
+    "id": "concat",
+    "cat": "مقدمات",
+    "title": "concat — چسباندن رشته‌ها",
+    "badge": "پایه",
+    "content": "<p><span class=\"hl\">concat()</span> یک متد برای چسباندن (اتصال) دو یا چند رشته به یکدیگر است.</p>\n      <h3>نحوه استفاده</h3>\n      <pre>str1.concat(str2, str3, ...)</pre>\n      <h3>نکات مهم</h3>\n      <ul>\n        <li>رشته اصلی را تغییر نمی‌دهد (immutable)</li>\n        <li>یک رشته جدید برمی‌گرداند</li>\n        <li>می‌تواند چندین رشته را همزمان بچسباند</li>\n        <li>اگر آرگومان داده نشود، یک کپی از رشته اصلی برمی‌گرداند</li>\n      </ul>\n      <h3>روش‌های دیگر چسباندن رشته</h3>\n      <ul>\n        <li><span class=\"hl\">+</span> عملگر جمع — ساده‌ترین روش</li>\n        <li><span class=\"hl\">template literals</span> (با backtick) — روش مدرن و پیشنهادی</li>\n        <li><span class=\"hl\">concat()</span> — روش قدیمی‌تر</li>\n      </ul>\n      <div class=\"tip\">در جاوااسکریپت مدرن، از <span class=\"hl\">template literals</span> (`...`) استفاده کنید که خوانایی بهتری دارد.</div>",
+    "code": "let firstName = \"محمد \";\nlet lastName = \"اکبری\";\nconsole.log(\"روش (+) :\", firstName + lastName);\nlet result = firstName.concat(\"\", lastName);\nconsole.log(\"روش concat() :\", result);\nlet fullName = `${firstName} ${lastName}`;\nconsole.log(\"روش template literal:\", fullName);\nlet str1 = \"سلام \";\nlet str2 = \"دنیا \";\nlet str3 = \"!\";\nconsole.log(str1.concat(str2, str3));\nlet original = \"hello\";\nlet copy = original.concat();\nconsole.log(\"کپی:\", copy);\nconsole.log(\"آیا برابر هستند؟\", original === copy);\nlet name = \"علی\";\nlet age = 25;\nconsole.log(\"سلام \" + name + \" شما \" + age + \" ساله هستید\");\nconsole.log(`سلام ${name} شما ${age} ساله هستید`);"
+  },
+  {
+    "id": "math-basics",
+    "cat": "مقدمات",
+    "title": "عملگرهای ریاضی و Math",
+    "badge": "پایه",
+    "content": "<p>جاوااسکریپت عملگرهای ریاضی پایه و همچنین یک شیء <span class=\"hl\">Math</span> با متدهای پیشرفته‌تر ارائه می‌دهد.</p>\n      <h3>عملگرهای ریاضی پایه</h3>\n      <ul>\n        <li><span class=\"hl\">+</span> جمع</li>\n        <li><span class=\"hl\">-</span> تفریق</li>\n        <li><span class=\"hl\">*</span> ضرب</li>\n        <li><span class=\"hl\">/</span> تقسیم</li>\n        <li><span class=\"hl\">%</span> باقیمانده تقسیم</li>\n        <li><span class=\"hl\">**</span> توان (ES6)</li>\n      </ul>\n      <h3>متدهای مهم Math</h3>\n      <ul>\n        <li><span class=\"hl\">Math.pow(base, exp)</span> — توان (مشابه **)</li>\n        <li><span class=\"hl\">Math.sqrt(x)</span> — جذر (ریشه دوم)</li>\n        <li><span class=\"hl\">Math.abs(x)</span> — قدر مطلق</li>\n        <li><span class=\"hl\">Math.round(x)</span> — گرد کردن به نزدیک‌ترین عدد صحیح</li>\n        <li><span class=\"hl\">Math.ceil(x)</span> — گرد کردن به بالا (سقف)</li>\n        <li><span class=\"hl\">Math.floor(x)</span> — گرد کردن به پایین (کف)</li>\n        <li><span class=\"hl\">Math.trunc(x)</span> — حذف اعشار (فقط عدد صحیح)</li>\n        <li><span class=\"hl\">Math.min(...)</span> — کوچک‌ترین عدد</li>\n        <li><span class=\"hl\">Math.max(...)</span> — بزرگ‌ترین عدد</li>\n        <li><span class=\"hl\">Math.random()</span> — عدد تصادفی بین 0 و 1</li>\n        <li><span class=\"hl\">Math.sign(x)</span> — علامت عدد (1, -1, 0)</li>\n      </ul>\n      <div class=\"tip\">عملگر <span class=\"hl\">**</span> (توان) از ES6 به جاوااسکریپت اضافه شده و جایگزین بهتری برای <span class=\"hl\">Math.pow()</span> است.</div>",
+    "code": "console.log(\"10 + 3 =\", 10 + 3);\nconsole.log(\"10 - 3 =\", 10 - 3);\nconsole.log(\"10 * 3 =\", 10 * 3);\nconsole.log(\"10 / 3 =\", 10 / 3);\nconsole.log(\"10 % 3 =\", 10 % 3);\nconsole.log(\"2 ** 10 =\", 2 ** 10);\nconsole.log(\"Math.pow(3, 3):\", Math.pow(3, 3));\nconsole.log(\"3 ** 3:\", 3 ** 3);\nconsole.log(\"Math.sqrt(144):\", Math.sqrt(144));\nconsole.log(\"round(3.14):\", Math.round(3.14));\nconsole.log(\"round(3.88):\", Math.round(3.88));\nconsole.log(\"ceil(3.14):\", Math.ceil(3.14));\nconsole.log(\"floor(3.88):\", Math.floor(3.88));\nconsole.log(\"trunc(3.88):\", Math.trunc(3.88));\nconsole.log(\"trunc(-3.88):\", Math.trunc(-3.88));\nconsole.log(\"abs(-42):\", Math.abs(-42));\nconsole.log(\"sign(-5):\", Math.sign(-5));\nconsole.log(\"sign(0):\", Math.sign(0));\nconsole.log(\"sign(5):\", Math.sign(5));\nconst nums = [5, 76, 90, 110, 19, 3];\nconsole.log(\"min:\", Math.min(...nums));\nconsole.log(\"max:\", Math.max(...nums));\nconsole.log(\"random:\", Math.random());\nconst dice = Math.floor(Math.random() * 6) + 1;\nconsole.log(\"تاس:\", dice);\nfunction randInt(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nconsole.log(\"randInt(10, 20):\", randInt(10, 20));"
+  },
+  {
+    "id": "conditions",
+    "cat": "کنترل جریان",
+    "title": "شرط‌ها (if, else if, else)",
+    "badge": "پایه",
+    "content": "<p>شرط‌ها به برنامه اجازه می‌دهند بر اساس شرایط مختلف تصمیم‌گیری کند.</p>\n      <h3>if / else if / else</h3>\n      <p>ساده‌ترین و پرکاربردترین روش شرط‌گذاری. شرایط را به‌ترتیب بررسی می‌کند.</p>\n      <h3>Ternary Operator</h3>\n      <p>نسخه فشرده if/else: <span class=\"hl\">شرط ? مقدارTrue : مقدارFalse</span></p>\n      <h3>switch / case</h3>\n      <p>برای مقایسه یک مقدار با چند حالت مختلف.</p>",
+    "code": "let score = 78;\nif (score >= 90) {\n  console.log(\"A - عالی!\");\n} else if (score >= 80) {\n  console.log(\"B - خوب\");\n} else if (score >= 70) {\n  console.log(\"C - قابل قبول\");\n} else {\n  console.log(\"D - مردود\");\n}\nlet age = 20;\nlet msg = age >= 18 ? \"بزرگسال\" : \"نوجوان\";\nconsole.log(msg);\nlet day = \"monday\";\nswitch (day) {\n  case \"saturday\":\n  case \"friday\":\n    console.log(\"تعطیل!\");\n    break;\n  case \"monday\":\n    console.log(\"اول هفته...\");\n    break;\n  default:\n    console.log(\"روز عادی\");\n}\nlet isLoggedIn = false;\nisLoggedIn && console.log(\"به داشبورد خوش آمدی\");\nlet username = \"\";\nlet display = username || \"مهمان\";\nconsole.log(display);\nlet theme = null;\ntheme ??= \"dark\";\nconsole.log(theme);"
+  },
+  {
+    "id": "loops",
+    "cat": "کنترل جریان",
+    "title": "حلقه‌ها (for, while, do-while)",
+    "badge": "پایه",
+    "content": "<h3>for</h3>\n      <p>وقتی تعداد تکرار مشخص است.</p>\n      <pre>for (let i = 0; i < 10; i++) { ... }</pre>\n      <h3>while</h3>\n      <p>تا زمانی که شرط برقرار است.</p>\n      <pre>while (شرط) { ... }</pre>\n      <h3>do...while</h3>\n      <p>حداقل یک بار اجرا می‌شود.</p>\n      <pre>do { ... } while (شرط);</pre>\n      <h3>for...of</h3>\n      <p>پیمایش روی مقادیر آرایه و رشته.</p>\n      <h3>for...in</h3>\n      <p>پیمایش روی کلیدهای آبجکت.</p>\n      <h3>break و continue</h3>\n      <ul>\n        <li><span class=\"hl\">break</span> — از حلقه خارج می‌شود</li>\n        <li><span class=\"hl\">continue</span> — این تکرار را رد می‌کند</li>\n      </ul>",
+    "code": "for (let i = 1; i <= 5; i++) {\n  console.log(\"i =\", i);\n}\nlet count = 3;\nwhile (count > 0) {\n  console.log(\"شمارش:\", count);\n  count--;\n}\nlet num = 100;\ndo {\n  console.log(\"حداقل یک بار اجرا شد:\", num);\n  num--;\n} while (num > 100);\nlet fruits = [\"سیب\", \"موز\", \"انگور\"];\nfor (let fruit of fruits) {\n  console.log(\"میوه:\", fruit);\n}\nlet person = { name: \"علی\", age: 25, city: \"تهران\" };\nfor (let key in person) {\n  console.log(key + \":\", person[key]);\n}\nfor (let i = 0; i < 10; i++) {\n  if (i === 3) continue;\n  if (i === 7) break;\n  console.log(i);\n}"
+  },
+  {
+    "id": "do-while",
+    "cat": "کنترل جریان",
+    "title": "حلقه do-while",
+    "badge": "پایه",
+    "content": "<p>حلقه <span class=\"hl\">do-while</span> مانند <span class=\"hl\">while</span> است، با این تفاوت که <span class=\"hl\">حداقل یک بار</span> اجرا می‌شود، حتی اگر شرط از ابتدا false باشد.</p>\n      <h3>ساختار</h3>\n      <pre>do {\n  // کد (حداقل یک بار اجرا می‌شود)\n} while (شرط);</pre>\n      <h3>تفاوت با while</h3>\n      <ul>\n        <li><span class=\"hl\">while</span> — اول شرط را بررسی می‌کند، اگر false باشد اجرا نمی‌شود</li>\n        <li><span class=\"hl\">do-while</span> — اول اجرا می‌کند، بعد شرط را بررسی می‌کند</li>\n      </ul>\n      <div class=\"tip\">از do-while زمانی استفاده کنید که می‌خواهید کد حداقل یک بار اجرا شود، مثل منوهای تعاملی.</div>",
+    "code": "let counter = 5;\ndo {\n  console.log(\"شمارنده:\", counter);\n  counter--;\n} while (counter > 0);\nlet num = 100;\ndo {\n  console.log(\"حتی با شرط false هم اجرا شد:\", num);\n  num--;\n} while (num > 100);\nconsole.log(\"--- while ---\");\nlet x = 10;\nwhile (x < 10) {\n  console.log(\"while اجرا نشد\");\n  x++;\n}\nconsole.log(\"--- do-while ---\");\nlet y = 10;\ndo {\n  console.log(\"do-while یک بار اجرا شد\");\n  y++;\n} while (y < 10);"
+  },
+  {
+    "id": "array-basics",
+    "cat": "آرایه‌ها",
+    "title": "آرایه‌ها — مقدمات",
+    "badge": "مهم",
+    "content": "<p>آرایه یک لیست مرتب از مقادیر است. ایندکس‌ها از <span class=\"hl\">0</span> شروع می‌شوند.</p>\n      <h3>ایجاد آرایه</h3>\n      <p><span class=\"hl\">[]</span> — روش پیشنهادی</p>\n      <p><span class=\"hl\">new Array()</span> — روش قدیمی</p>\n      <h3>اضافه و حذف</h3>\n      <ul>\n        <li><span class=\"hl\">push()</span> — به انتها اضافه</li>\n        <li><span class=\"hl\">pop()</span> — از انتها حذف</li>\n        <li><span class=\"hl\">unshift()</span> — به ابتدا اضافه</li>\n        <li><span class=\"hl\">shift()</span> — از ابتدا حذف</li>\n      </ul>\n      <h3>جستجو</h3>\n      <ul>\n        <li><span class=\"hl\">indexOf()</span> — ایندکس اولین تطابق</li>\n        <li><span class=\"hl\">lastIndexOf()</span> — ایندکس آخرین تطابق</li>\n        <li><span class=\"hl\">includes()</span> — وجود یا عدم وجود</li>\n        <li><span class=\"hl\">find()</span> — پیدا کردن با شرط</li>\n        <li><span class=\"hl\">findIndex()</span> — ایندکس با شرط</li>\n      </ul>",
+    "code": "const arr = [3, 1, 4, 1, 5, 9, 2, 6];\nconsole.log(\"آرایه:\", arr);\nconsole.log(\"arr[0]:\", arr[0]);\nconsole.log(\"arr.at(-1):\", arr.at(-1));\narr.push(100);\nconsole.log(\"بعد push:\", arr);\nlet removed = arr.pop();\nconsole.log(\"حذف شد:\", removed);\narr.unshift(0);\nconsole.log(\"بعد unshift:\", arr);\narr.shift();\nconsole.log(\"بعد shift:\", arr);\nlet nums = [10, 20, 30, 20, 40];\nconsole.log(\"indexOf(20):\", nums.indexOf(20));\nconsole.log(\"lastIndexOf(20):\", nums.lastIndexOf(20));\nconsole.log(\"includes(30):\", nums.includes(30));\nconsole.log(\"find(n => n > 25):\", nums.find(n => n > 25));\nconsole.log(\"findIndex(n => n > 25):\", nums.findIndex(n => n > 25));"
+  },
+  {
+    "id": "array-methods",
+    "cat": "آرایه‌ها",
+    "title": "متدهای پیشرفته آرایه",
+    "badge": "مهم",
+    "content": "<p>این متدها <span class=\"hl\">آرایه اصلی را تغییر نمی‌دهند</span>.</p>\n      <h3>map()</h3>\n      <p>تبدیل هر عنصر به مقدار جدید.</p>\n      <h3>filter()</h3>\n      <p>فیلتر بر اساس شرط.</p>\n      <h3>reduce()</h3>\n      <p>جمع‌بندی به یک مقدار.</p>\n      <h3>forEach()</h3>\n      <p>اجرا روی هر عنصر (بدون برگشت).</p>\n      <h3>some() و every()</h3>\n      <p>بررسی وجود یا همه بودن شرط.</p>\n      <h3>flat()</h3>\n      <p>صاف کردن آرایه تودرتو.</p>\n      <h3>sort() / toSorted()</h3>\n      <p>مرتب‌سازی.</p>",
+    "code": "const numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map(n => n * 2);\nconsole.log(\"map:\", doubled);\nconst bigNums = numbers.filter(n => n > 2);\nconsole.log(\"filter:\", bigNums);\nconst sum = numbers.reduce((acc, n) => acc + n, 0);\nconsole.log(\"reduce (جمع):\", sum);\nnumbers.forEach(n => console.log(\"عدد:\", n));\nconsole.log(\"some (>3):\", numbers.some(n => n > 3));\nconsole.log(\"every (>0):\", numbers.every(n => n > 0));\nconst nested = [1, [2, 3], [4, [5, 6]]];\nconsole.log(\"flat(2):\", nested.flat(2));\nconst nums = [30, 2, 80, 20, 14];\nconsole.log(\"sorted:\", [...nums].sort((a, b) => a - b));\nconsole.log(\"toSorted:\", nums.toSorted((a, b) => a - b));\nconsole.log(\"original:\", nums);"
+  },
+  {
+    "id": "splice",
+    "cat": "آرایه‌ها",
+    "title": "splice و toSpliced",
+    "badge": "پیشرفته",
+    "content": "<h3>splice()</h3>\n      <p>آرایه اصلی را تغییر می‌دهد. برای حذف، اضافه و جایگزینی استفاده می‌شود.</p>\n      <pre>arr.splice(start, deleteCount, ...items)</pre>\n      <h3>toSpliced()</h3>\n      <p>مثل splice ولی آرایه اصلی را تغییر نمی‌دهد (ES2023).</p>\n      <h3>کاربردها</h3>\n      <ul>\n        <li>حذف عناصر از آرایه</li>\n        <li>اضافه کردن عناصر در موقعیت مشخص</li>\n        <li>جایگزینی عناصر</li>\n      </ul>",
+    "code": "let fruits = [\"apple\", \"banana\", \"mango\", \"grape\"];\nfruits.splice(1, 2, \"cherry\", \"kiwi\");\nconsole.log(\"splice:\", fruits);\nlet original = [\"a\", \"b\", \"c\", \"d\"];\nlet newArr = original.toSpliced(1, 1, \"x\");\nconsole.log(\"original (تغییر نکرد):\", original);\nconsole.log(\"newArr:\", newArr);\nlet colors = [\"red\", \"green\", \"blue\", \"yellow\"];\nlet removed = colors.splice(1, 2);\nconsole.log(\"حذف شد:\", removed);\nconsole.log(\"آرایه بعد از حذف:\", colors);\nlet letters = [\"a\", \"b\", \"c\"];\nletters.splice(1, 0, \"x\", \"y\");\nconsole.log(\"بعد از اضافه:\", letters);"
+  },
+  {
+    "id": "slice-concat",
+    "cat": "آرایه‌ها",
+    "title": "slice و concat",
+    "badge": "پایه",
+    "content": "<h3>slice()</h3>\n      <p>بخشی از آرایه را برش می‌دهد و یک آرایه جدید برمی‌گرداند. آرایه اصلی را تغییر نمی‌دهد.</p>\n      <pre>arr.slice(start, end)</pre>\n      <h3>concat()</h3>\n      <p>آرایه‌ها را به هم متصل می‌کند و یک آرایه جدید برمی‌گرداند.</p>\n      <pre>arr1.concat(arr2, arr3, ...)</pre>",
+    "code": "let fruits = [\"apple\", \"banana\", \"mango\", \"grape\", \"orange\"];\nlet sliced = fruits.slice(1, 3);\nconsole.log(\"slice(1, 3):\", sliced);\nconsole.log(\"آرایه اصلی:\", fruits);\nconsole.log(\"slice(-2):\", fruits.slice(-2));\nlet arr1 = [\"a\", \"b\", \"c\"];\nlet arr2 = [1, 2, 3];\nlet arr3 = [\"x\", \"y\", \"z\"];\nlet merged = arr1.concat(arr2, arr3);\nconsole.log(\"concat:\", merged);"
+  },
+  {
+    "id": "join-split",
+    "cat": "آرایه‌ها",
+    "title": "join و split",
+    "badge": "پایه",
+    "content": "<h3>join()</h3>\n      <p>آرایه را به رشته تبدیل می‌کند و عناصر را با جداکننده مشخص به هم متصل می‌کند.</p>\n      <pre>arr.join(separator)</pre>\n      <h3>split()</h3>\n      <p>رشته را بر اساس جداکننده به آرایه تبدیل می‌کند.</p>\n      <pre>str.split(separator)</pre>",
+    "code": "let fruits = [\"سیب\", \"موز\", \"انگور\", \"هلو\"];\nconsole.log(\"join(', '):\", fruits.join(\", \"));\nconsole.log(\"join(' | '):\", fruits.join(\" | \"));\nconsole.log(\"join(''):\", fruits.join(\"\"));\nlet text = \"سیب,موز,انگور,هلو\";\nlet arr = text.split(\",\");\nconsole.log(\"split(', '):\", arr);\nlet sentence = \"javascript is awesome\";\nlet words = sentence.split(\" \");\nconsole.log(\"کلمات:\", words);\nconsole.log(\"برعکس:\", words.reverse().join(\" \"));\nconsole.log(\"حروف اول:\", words.map(w => w[0].toUpperCase()).join(\"\"));"
+  },
+  {
+    "id": "objects",
+    "cat": "آبجکت‌ها",
+    "title": "آبجکت‌ها (Objects)",
+    "badge": "مهم",
+    "content": "<p>آبجکت مجموعه‌ای از جفت‌های <span class=\"hl\">کلید: مقدار</span> است.</p>\n      <h3>دسترسی به ویژگی‌ها</h3>\n      <ul>\n        <li><span class=\"hl\">obj.key</span> — Dot notation</li>\n        <li><span class=\"hl\">obj[\"key\"]</span> — Bracket notation</li>\n      </ul>\n      <h3>متدهای Object</h3>\n      <ul>\n        <li><span class=\"hl\">Object.keys()</span> — کلیدها</li>\n        <li><span class=\"hl\">Object.values()</span> — مقادیر</li>\n        <li><span class=\"hl\">Object.entries()</span> — [key, value]ها</li>\n        <li><span class=\"hl\">Object.freeze()</span> — قفل کامل</li>\n        <li><span class=\"hl\">Object.seal()</span> — قفل جزئی</li>\n      </ul>",
+    "code": "const person = {\n  name: \"محمد\",\n  age: 25,\n  \"full name\": \"محمد اکبری\",\n  address: { city: \"تهران\", zip: \"11111\" },\n  greet() {\n    return \"سلام، \" + this.name;\n  }\n};\nconsole.log(\"person.name:\", person.name);\nconsole.log('person[\"full name\"]:', person[\"full name\"]);\nconsole.log(\"person.address.city:\", person.address.city);\nconsole.log(\"person.greet():\", person.greet());\nconsole.log(\"keys:\", Object.keys(person));\nconsole.log(\"values:\", Object.values(person));\nObject.entries(person).forEach(([key, val]) => {\n  console.log(key + \":\", val);\n});\nconst config = Object.freeze({ debug: false, ver: \"1.0\" });\nconfig.debug = true;\nconsole.log(\"freeze:\", config.debug);\nconst settings = Object.seal({ theme: \"dark\", lang: \"fa\" });\nsettings.theme = \"light\";\nconsole.log(\"seal:\", settings);"
+  },
+  {
+    "id": "destruct",
+    "cat": "Destructuring & Spread",
+    "title": "Destructuring",
+    "badge": "مدرن",
+    "content": "<p>استخراج مقادیر از آرایه یا آبجکت به صورت خوانا.</p>\n      <h3>Array Destructuring</h3>\n      <pre>const [a, b, ...rest] = arr;</pre>\n      <h3>Object Destructuring</h3>\n      <pre>const { name, age } = obj;</pre>\n      <h3>Default Values</h3>\n      <p>اگر مقدار undefined بود، مقدار پیش‌فرض استفاده می‌شود.</p>",
+    "code": "const colors = [\"red\", \"green\", \"blue\", \"yellow\"];\nconst [first, second, ...rest] = colors;\nconsole.log(\"first:\", first);\nconsole.log(\"second:\", second);\nconsole.log(\"rest:\", rest);\nconst product = {\n  name: \"لپ‌تاپ\",\n  price: 30000000,\n  brand: \"dell\",\n  specs: { ram: 16, storage: 512 }\n};\nconst { name, price, brand } = product;\nconsole.log(\"name, price, brand:\", name, price, brand);\nconst { name: productName, brand: maker } = product;\nconsole.log(\"productName, maker:\", productName, maker);\nconst { color = \"مشکی\" } = product;\nconsole.log(\"color:\", color);\nconst { specs: { ram, storage } } = product;\nconsole.log(\"ram, storage:\", ram, storage);\nfunction show({ name, price, color = \"نامشخص\" }) {\n  console.log(`${name} - ${price} - ${color}`);\n}\nshow(product);"
+  },
+  {
+    "id": "spread-rest",
+    "cat": "Destructuring & Spread",
+    "title": "Spread & Rest",
+    "badge": "مدرن",
+    "content": "<h3>Spread</h3>\n      <p>آرایه یا آبجکت را باز می‌کند.</p>\n      <h3>Rest</h3>\n      <p>بقیه را در یک آرایه جمع می‌کند.</p>",
+    "code": "const original = [1, 2, 3];\nconst copy = [...original];\ncopy.push(99);\nconsole.log(\"original:\", original);\nconsole.log(\"copy:\", copy);\nconst arr1 = [\"a\", \"b\"];\nconst arr2 = [1, 2];\nconst merged = [...arr1, ...arr2];\nconsole.log(\"merged:\", merged);\nconst user = { name: \"علی\", age: 25 };\nconst updated = { ...user, age: 26, city: \"تهران\" };\nconsole.log(\"updated:\", updated);\nfunction sum(first, ...rest) {\n  console.log(\"اول:\", first);\n  console.log(\"بقیه:\", rest);\n  return [first, ...rest].reduce((a, b) => a + b, 0);\n}\nconsole.log(\"جمع:\", sum(1, 2, 3, 4, 5));\nconst [a, b, ...others] = [10, 20, 30, 40, 50];\nconsole.log(\"a, b, others:\", a, b, others);\nconst { name: n, ...otherProps } = { name: \"رضا\", age: 25, city: \"شیراز\" };\nconsole.log(\"name:\", n);\nconsole.log(\"otherProps:\", otherProps);"
+  },
+  {
+    "id": "char-at",
+    "cat": "متدهای String",
+    "title": "charAt و at",
+    "badge": "پایه",
+    "content": "<h3>charAt()</h3>\n      <p>کاراکتر در ایندکس مشخص را برمی‌گرداند. اگر ایندکس نامعتبر باشد، رشته خالی برمی‌گرداند.</p>\n      <pre>str.charAt(index)</pre>\n      <h3>at()</h3>\n      <p>مثل charAt ولی از ایندکس منفی پشتیبانی می‌کند (ES2022).</p>\n      <pre>str.at(index)</pre>",
+    "code": "let text = \"javascript\";\nconsole.log(\"charAt(0):\", text.charAt(0));\nconsole.log(\"charAt(10):\", text.charAt(10));\nconsole.log(\"at(-1):\", text.at(-1));\nconsole.log(\"at(-2):\", text.at(-2));\nconsole.log('text[-1]:', text[-1]);\nconsole.log('text.at(-1):', text.at(-1));\nconsole.log('text.charAt(-1):', text.charAt(-1));"
+  },
+  {
+    "id": "index-of",
+    "cat": "متدهای String",
+    "title": "indexOf و lastIndexOf",
+    "badge": "پایه",
+    "content": "<h3>indexOf()</h3>\n      <p>اولین ایندکس یک زیررشته را برمی‌گرداند. اگر نباشد، -1 برمی‌گرداند.</p>\n      <h3>lastIndexOf()</h3>\n      <p>آخرین ایندکس یک زیررشته را برمی‌گرداند.</p>",
+    "code": "let text = \"javascript is awesome javascript\";\nconsole.log('indexOf(\"java\"):', text.indexOf(\"java\"));\nconsole.log('indexOf(\"script\"):', text.indexOf(\"script\"));\nconsole.log('indexOf(\"python\"):', text.indexOf(\"python\"));\nconsole.log('lastIndexOf(\"java\"):', text.lastIndexOf(\"java\"));\nconsole.log('includes(\"java\"):', text.includes(\"java\"));\nconsole.log('includes(\"python\"):', text.includes(\"python\"));\nconsole.log('startsWith(\"java\"):', text.startsWith(\"java\"));\nconsole.log('endsWith(\"script\"):', text.endsWith(\"script\"));"
+  },
+  {
+    "id": "trim",
+    "cat": "متدهای String",
+    "title": "trim, trimStart, trimEnd",
+    "badge": "پایه",
+    "content": "<h3>trim()</h3>\n      <p>فاصله‌های اضافی از ابتدا و انتهای رشته را حذف می‌کند.</p>\n      <h3>trimStart()</h3>\n      <p>فقط فاصله‌های ابتدای رشته را حذف می‌کند.</p>\n      <h3>trimEnd()</h3>\n      <p>فقط فاصله‌های انتهای رشته را حذف می‌کند.</p>",
+    "code": "let text = \"   hello world   \";\nconsole.log('trim():', text.trim());\nconsole.log('trimStart():', text.trimStart());\nconsole.log('trimEnd():', text.trimEnd());\nlet email = \"   user@example.com   \";\nlet cleanEmail = email.trim().toLowerCase();\nconsole.log(\"ایمیل تمیز:\", cleanEmail);\nlet multiSpace = \"  hello   world  \";\nconsole.log(\"trim():\", multiSpace.trim());"
+  },
+  {
+    "id": "case",
+    "cat": "متدهای String",
+    "title": "toUpperCase و toLowerCase",
+    "badge": "پایه",
+    "content": "<h3>toUpperCase()</h3>\n      <p>همه حروف رشته را به بزرگ تبدیل می‌کند.</p>\n      <h3>toLowerCase()</h3>\n      <p>همه حروف رشته را به کوچک تبدیل می‌کند.</p>",
+    "code": "let text = \"JavaScript is AWESOME\";\nconsole.log(\"toUpperCase:\", text.toUpperCase());\nconsole.log(\"toLowerCase:\", text.toLowerCase());\nlet userInput = \"   User@GMAIL.com   \";\nlet normalized = userInput.trim().toLowerCase();\nconsole.log(\"نرمال شده:\", normalized);\nfunction compareIgnoreCase(str1, str2) {\n  return str1.toLowerCase() === str2.toLowerCase();\n}\nconsole.log(compareIgnoreCase(\"Hello\", \"hello\"));\nconsole.log(compareIgnoreCase(\"Hello\", \"world\"));"
+  },
+  {
+    "id": "slice-substring",
+    "cat": "متدهای String",
+    "title": "slice و substring",
+    "badge": "پایه",
+    "content": "<h3>slice(start, end)</h3>\n      <p>بخشی از رشته را برش می‌دهد. از ایندکس منفی پشتیبانی می‌کند.</p>\n      <h3>substring(start, end)</h3>\n      <p>مثل slice ولی از ایندکس منفی پشتیبانی نمی‌کند.</p>",
+    "code": "let text = \"javascript is awesome\";\nconsole.log(\"slice(0, 10):\", text.slice(0, 10));\nconsole.log(\"slice(11):\", text.slice(11));\nconsole.log(\"slice(-7):\", text.slice(-7));\nconsole.log(\"substring(0, 10):\", text.substring(0, 10));\nconsole.log(\"substring(-7):\", text.substring(-7));\nlet card = \"6219861953066601\";\nlet masked = card.slice(-4).padStart(card.length, \"*\");\nconsole.log(\"مخفی:\", masked);"
+  },
+  {
+    "id": "replace",
+    "cat": "متدهای String",
+    "title": "replace و replaceAll",
+    "badge": "پایه",
+    "content": "<h3>replace()</h3>\n      <p>اولین مورد از یک زیررشته را جایگزین می‌کند.</p>\n      <h3>replaceAll()</h3>\n      <p>همه موارد یک زیررشته را جایگزین می‌کند.</p>",
+    "code": "let text = \"hello world hello\";\nconsole.log('replace(\"hello\", \"hi\"):', text.replace(\"hello\", \"hi\"));\nconsole.log('replaceAll(\"hello\", \"hi\"):', text.replaceAll(\"hello\", \"hi\"));\nlet msg = \"سلام دنیا! دنیا زیباست.\";\nconsole.log('replace(/دنیا/g, \"جهان\"):', msg.replace(/دنیا/g, \"جهان\"));\nlet multiSpace = \"hello   world    javascript\";\nconsole.log(multiSpace.replace(/\\s+/g, \" \"));"
+  },
+  {
+    "id": "pad",
+    "cat": "متدهای String",
+    "title": "padStart و padEnd",
+    "badge": "پایه",
+    "content": "<h3>padStart()</h3>\n      <p>رشته را از ابتدا تا طول مشخص با کاراکتر مشخص پر می‌کند.</p>\n      <h3>padEnd()</h3>\n      <p>رشته را از انتها تا طول مشخص با کاراکتر مشخص پر می‌کند.</p>",
+    "code": "let hour = \"9\";\nlet minute = \"5\";\nconsole.log(hour.padStart(2, \"0\") + \":\" + minute.padStart(2, \"0\"));\nlet text = \"hello\";\nconsole.log(text.padEnd(10, \"-\"));\nlet card = \"6219861953066601\";\nlet masked = card.slice(-4).padStart(card.length, \"*\");\nconsole.log(masked);\nlet orderNumber = 42;\nconsole.log(orderNumber.toString().padStart(6, \"0\"));"
+  },
+  {
+    "id": "locale-string",
+    "cat": "متدهای String",
+    "title": "toLocaleString — فرمت اعداد",
+    "badge": "پایه",
+    "content": "<p><span class=\"hl\">toLocaleString()</span> اعداد را به صورت محلی (مطابق با زبان و کشور) فرمت می‌کند.</p>\n      <h3>نحوه استفاده</h3>\n      <pre>number.toLocaleString(locale, options)</pre>\n      <h3>کاربردها</h3>\n      <ul>\n        <li>جدا کردن اعداد با کاما (مثل ۱,۰۰۰,۰۰۰)</li>\n        <li>فرمت قیمت‌ها و مبالغ</li>\n        <li>نمایش اعداد به صورت محلی</li>\n      </ul>\n      <div class=\"tip\">برای نمایش قیمت در فروشگاه‌های ایرانی، از <span class=\"hl\">toLocaleString(\"fa-IR\")</span> استفاده کنید.</div>",
+    "code": "let price = 25000000;\nconsole.log(\"fa-IR:\", price.toLocaleString(\"fa-IR\"));\nconsole.log(\"en-US:\", price.toLocaleString(\"en-US\"));\nconsole.log(\"de-DE:\", price.toLocaleString(\"de-DE\"));\nlet productPrice = 32000000;\nlet formatted = productPrice.toLocaleString(\"fa-IR\") + \" تومان\";\nconsole.log(\"قیمت:\", formatted);\nlet number = 123456.789;\nconsole.log(number.toLocaleString(\"fa-IR\", {\n  style: \"currency\",\n  currency: \"IRR\",\n  minimumFractionDigits: 0\n}));\nlet ratio = 0.75;\nconsole.log(ratio.toLocaleString(\"fa-IR\", {\n  style: \"percent\",\n  minimumFractionDigits: 0\n}));"
+  },
+  {
+    "id": "functions",
+    "cat": "توابع",
+    "title": "توابع (Functions)",
+    "badge": "مهم",
+    "content": "<p>تابع یک بلوک کد است که یک کار مشخص را انجام می‌دهد و می‌توان آن را چندین بار فراخوانی کرد.</p>\n      <h3>۱. Function Declaration</h3>\n      <p>با <span class=\"hl\">function</span> تعریف می‌شود. <span class=\"hl\">Hoisting</span> دارد.</p>\n      <h3>۲. Function Expression</h3>\n      <p>تابع در متغیر قرار می‌گیرد. Hoisting ندارد.</p>\n      <h3>۳. Arrow Function ✅</h3>\n      <p>نسخه کوتاه‌تر و مدرن‌تر.</p>\n      <h3>۴. IIFE</h3>\n      <p>تابع خودصداکننده — فوری اجرا می‌شود.</p>\n      <h3>پارامترهای پیشرفته</h3>\n      <ul>\n        <li><span class=\"hl\">Default Parameter</span> — مقدار پیش‌فرض</li>\n        <li><span class=\"hl\">Rest Operator (...)</span> — جمع‌آوری آرگومان‌ها</li>\n      </ul>\n      <div class=\"tip\"><span class=\"hl\">return</span> مقدار را برمی‌گرداند و تابع را متوقف می‌کند.</div>",
+    "code": "sayHi();\nfunction sayHi() {\n  console.log(\"سلام!\");\n}\nconst add = function(a, b) {\n  return a + b;\n};\nconsole.log(add(3, 4));\nconst multiply = (a, b) => a * b;\nconsole.log(multiply(5, 6));\nconst greet = name => \"سلام \" + name;\nconsole.log(greet(\"علی\"));\nconst getInfo = (name, age) => ({ name, age });\nconsole.log(getInfo(\"رضا\", 25));\n(function() {\n  console.log(\"خودکار اجرا شدم!\");\n})();\n(() => console.log(\"من هم!\"))();\nfunction power(base, exp = 2) {\n  return base ** exp;\n}\nconsole.log(power(3));\nconsole.log(power(2, 8));\nfunction sum(...numbers) {\n  return numbers.reduce((total, n) => total + n, 0);\n}\nconsole.log(sum(1, 2, 3, 4, 5));"
+  },
+  {
+    "id": "this",
+    "cat": "توابع",
+    "title": "this و call/apply/bind",
+    "badge": "پیشرفته",
+    "content": "<p><span class=\"hl\">this</span> به آبجکت فعلی اشاره می‌کند. مقدار آن بستگی به نحوه فراخوانی دارد.</p>\n      <h3>call()</h3>\n      <p>فراخوانی با this مشخص + آرگومان جداگانه.</p>\n      <h3>apply()</h3>\n      <p>مثل call ولی آرگومان‌ها آرایه‌ای.</p>\n      <h3>bind()</h3>\n      <p>تابع جدید با this مشخص می‌سازد (اجرا نمی‌کند).</p>",
+    "code": "const person = {\n  name: \"محمد\",\n  greet: function() {\n    console.log(\"سلام، \" + this.name);\n  },\n  greetArrow: () => {\n    console.log(\"سلام،\", typeof this);\n  }\n};\nperson.greet();\nperson.greetArrow();\nfunction introduce(age, city) {\n  console.log(`${this.name} - ${age} ساله - ${city}`);\n}\nconst user = { name: \"علی\" };\nintroduce.call(user, 25, \"تهران\");\nintroduce.apply(user, [25, \"اصفهان\"]);\nconst bound = introduce.bind(user, 30);\nbound(\"مشهد\");"
+  },
+  {
+    "id": "class-basics",
+    "cat": "OOP",
+    "title": "کلاس‌ها — مقدمات",
+    "badge": "OOP",
+    "content": "<p>OOP روشی برای سازماندهی کدهاست. داده و رفتار را در <span class=\"hl\">آبجکت</span> گروه‌بندی می‌کند.</p>\n      <h3>مفاهیم اصلی</h3>\n      <ul>\n        <li><span class=\"hl\">Encapsulation</span> — داده و رفتار در یک واحد</li>\n        <li><span class=\"hl\">Inheritance</span> — ارث‌بری</li>\n        <li><span class=\"hl\">Polymorphism</span> — رفتار متفاوت</li>\n        <li><span class=\"hl\">Abstraction</span> — مخفی کردن پیچیدگی</li>\n      </ul>\n      <h3>class در JS</h3>\n      <p><span class=\"hl\">constructor()</span> با <span class=\"hl\">new</span> اجرا می‌شود.</p>",
+    "code": "class Car {\n  constructor(name, engineStatus = \"off\") {\n    this.name = name;\n    this.speed = 0;\n    this.isEngineOn = engineStatus === \"on\";\n  }\n  startEngine() {\n    this.isEngineOn = true;\n    console.log(`${this.name}: موتور روشن شد`);\n  }\n  accelerate(amount) {\n    if (!this.isEngineOn) {\n      console.log(\"❌ اول موتور رو روشن کن!\");\n      return;\n    }\n    this.speed += amount;\n    console.log(`${this.name}: سرعت → ${this.speed} km/h`);\n  }\n  getInfo() {\n    return `${this.name} | سرعت: ${this.speed}`;\n  }\n}\nconst myCar = new Car(\"پژو ۴۰۵\");\nmyCar.startEngine();\nmyCar.accelerate(60);\nconsole.log(myCar.getInfo());"
+  },
+  {
+    "id": "class-advanced",
+    "cat": "OOP",
+    "title": "Inheritance و Static",
+    "badge": "OOP",
+    "content": "<h3>extends</h3>\n      <p>کلاس فرزند از پدر ارث می‌برد. <span class=\"hl\">super()</span> برای صدا زدن constructor پدر.</p>\n      <h3>static</h3>\n      <p>مربوط به کلاس، نه instance.</p>\n      <h3>Getter/Setter</h3>\n      <p>دسترسی به ویژگی‌ها با منطق پشت‌صحنه.</p>\n      <h3>Private Fields (#)</h3>\n      <p>فقط داخل کلاس قابل دسترس.</p>",
+    "code": "class Animal {\n  #sound;\n  constructor(name, sound) {\n    this.name = name;\n    this.#sound = sound;\n    this.isAlive = true;\n  }\n  makeSound() {\n    console.log(`${this.name}: ${this.#sound}`);\n  }\n  get status() {\n    return this.isAlive ? \"زنده\" : \"نه زنده\";\n  }\n  set alive(val) {\n    if (typeof val !== \"boolean\") return;\n    this.isAlive = val;\n  }\n  static describe() {\n    console.log(\"Animal: موجود زنده\");\n  }\n}\nclass Dog extends Animal {\n  constructor(name, breed) {\n    super(name, \"هاپ هاپ!\");\n    this.breed = breed;\n    this.tricks = [];\n  }\n  learn(trick) {\n    this.tricks.push(trick);\n    console.log(`${this.name} یاد گرفت: ${trick}`);\n  }\n  get info() {\n    return `${this.name} (${this.breed}) - ${this.tricks.length} حقه`;\n  }\n}\nAnimal.describe();\nconst dog = new Dog(\"رکس\", \"ژرمن\");\ndog.makeSound();\ndog.learn(\"بشین\");\nconsole.log(dog.info);\nconsole.log(dog.status);"
+  },
+  {
+    "id": "dom",
+    "cat": "DOM",
+    "title": "DOM — کامل",
+    "badge": "DOM",
+    "content": "<p>DOM یک رابط بین جاوااسکریپت و HTML است.</p>\n      <h3>انتخاب المان‌ها</h3>\n      <table class=\"compare-table\">\n        <tr><th>روش</th><th>خروجی</th><th>توصیه</th></tr>\n        <tr><td>getElementById</td><td>Element</td><td>✅</td></tr>\n        <tr><td>querySelector</td><td>Element (اولی)</td><td>✅✅</td></tr>\n        <tr><td>querySelectorAll</td><td>NodeList</td><td>✅✅</td></tr>\n      </table>\n      <h3>تغییر محتوا</h3>\n      <ul>\n        <li><span class=\"hl\">textContent</span> — متن خالص</li>\n        <li><span class=\"hl\">innerHTML</span> — HTML</li>\n      </ul>\n      <h3>classList</h3>\n      <p>add | remove | toggle | contains | replace</p>",
+    "code": "const fakeDOM = {\n  create(tag, content, cls) {\n    return { tag, content, className: cls, style: {} };\n  }\n};\nconst div = fakeDOM.create(\"div\", \"سلام\", \"card\");\ndiv.style.color = \"red\";\nconsole.log(\"المان:\", div.tag, div.content);"
+  },
+  {
+    "id": "mouse-events",
+    "cat": "رویدادها",
+    "title": "رویدادهای موس",
+    "badge": "DOM",
+    "content": "<h3>انواع رویدادها</h3>\n      <ul>\n        <li><span class=\"hl\">click</span> — کلیک</li>\n        <li><span class=\"hl\">dblclick</span> — دوبار کلیک</li>\n        <li><span class=\"hl\">mousedown</span> — فشار دادن</li>\n        <li><span class=\"hl\">mouseup</span> — رها کردن</li>\n        <li><span class=\"hl\">mouseenter</span> — ورود موس</li>\n        <li><span class=\"hl\">mouseleave</span> — خروج موس</li>\n        <li><span class=\"hl\">mousemove</span> — حرکت موس</li>\n        <li><span class=\"hl\">contextmenu</span> — راست کلیک</li>\n      </ul>\n      <h3>Event Object</h3>\n      <ul>\n        <li><span class=\"hl\">e.clientX / e.clientY</span> — موقعیت موس</li>\n        <li><span class=\"hl\">e.button</span> — دکمه موس</li>\n        <li><span class=\"hl\">e.target</span> — عنصر هدف</li>\n      </ul>",
+    "code": "document.addEventListener(\"contextmenu\", function(e) {\n  e.preventDefault();\n  console.log(\"🚫 راست کلیک جلوگیری شد\");\n});\nclass MouseSimulator {\n  constructor() {\n    this.listeners = {};\n  }\n  addEventListener(event, cb) {\n    if (!this.listeners[event]) this.listeners[event] = [];\n    this.listeners[event].push(cb);\n  }\n  trigger(event, data = {}) {\n    if (this.listeners[event]) {\n      this.listeners[event].forEach(cb => cb({ target: data }));\n    }\n  }\n}\nconst sim = new MouseSimulator();\nsim.addEventListener(\"click\", () => console.log(\"کلیک شبیه‌سازی شد!\"));\nsim.trigger(\"click\");"
+  },
+  {
+    "id": "keyboard-events",
+    "cat": "رویدادها",
+    "title": "رویدادهای کیبورد",
+    "badge": "DOM",
+    "content": "<h3>انواع رویدادها</h3>\n      <ul>\n        <li><span class=\"hl\">keydown</span> — فشار دادن کلید</li>\n        <li><span class=\"hl\">keyup</span> — رها کردن کلید</li>\n      </ul>\n      <h3>Event Object</h3>\n      <ul>\n        <li><span class=\"hl\">e.key</span> — مقدار کلید</li>\n        <li><span class=\"hl\">e.code</span> — کد فیزیکی کلید</li>\n        <li><span class=\"hl\">e.ctrlKey</span> — Ctrl فشار داده شده؟</li>\n        <li><span class=\"hl\">e.shiftKey</span> — Shift فشار داده شده؟</li>\n      </ul>",
+    "code": "document.addEventListener(\"keydown\", function(e) {\n  if (e.ctrlKey && e.key === \"s\") {\n    e.preventDefault();\n    console.log(\"⛔ Ctrl+S جلوگیری شد!\");\n  }\n});\nclass KeyboardSimulator {\n  constructor() {\n    this.listeners = {};\n  }\n  addEventListener(event, cb) {\n    if (!this.listeners[event]) this.listeners[event] = [];\n    this.listeners[event].push(cb);\n  }\n  trigger(event, data = {}) {\n    if (this.listeners[event]) {\n      this.listeners[event].forEach(cb => cb({ key: data.key || \"a\", ctrlKey: data.ctrlKey || false }));\n    }\n  }\n}\nconst kbSim = new KeyboardSimulator();\nkbSim.addEventListener(\"keydown\", (e) => {\n  console.log(\"⌨️ کلید:\", e.key, \"Ctrl:\", e.ctrlKey);\n});\nkbSim.trigger(\"keydown\", { key: \"s\", ctrlKey: true });"
+  },
+  {
+    "id": "input-events",
+    "cat": "رویدادها",
+    "title": "رویدادهای ورودی",
+    "badge": "DOM",
+    "content": "<h3>انواع رویدادها</h3>\n      <ul>\n        <li><span class=\"hl\">input</span> — هر تغییر (لحظه‌ای)</li>\n        <li><span class=\"hl\">change</span> — بعد از فوکس رفت</li>\n        <li><span class=\"hl\">focus</span> — کلیک روی المان</li>\n        <li><span class=\"hl\">blur</span> — خروج از المان</li>\n      </ul>\n      <h3>تفاوت input و change</h3>\n      <p><span class=\"hl\">input</span> هر بار تایپ اجرا می‌شود، <span class=\"hl\">change</span> فقط بعد از خارج شدن.</p>",
+    "code": "class InputSimulator {\n  constructor() {\n    this.value = \"\";\n    this.listeners = {};\n  }\n  addEventListener(event, cb) {\n    if (!this.listeners[event]) this.listeners[event] = [];\n    this.listeners[event].push(cb);\n  }\n  setValue(val) {\n    this.value = val;\n    if (this.listeners.input) {\n      this.listeners.input.forEach(cb => cb({ target: { value: this.value } }));\n    }\n  }\n  blur() {\n    if (this.listeners.change) {\n      this.listeners.change.forEach(cb => cb({ target: { value: this.value } }));\n    }\n  }\n}\nconst inputSim = new InputSimulator();\ninputSim.addEventListener(\"input\", (e) => console.log(\"input:\", e.target.value));\ninputSim.addEventListener(\"change\", (e) => console.log(\"change:\", e.target.value));\ninputSim.setValue(\"hello\");\ninputSim.blur();"
+  },
+  {
+    "id": "form-events",
+    "cat": "رویدادها",
+    "title": "رویدادهای فرم",
+    "badge": "DOM",
+    "content": "<h3>submit</h3>\n      <p>وقتی فرم ارسال می‌شود. با <span class=\"hl\">e.preventDefault()</span> جلوگیری می‌کنیم.</p>\n      <h3>reset</h3>\n      <p>وقتی فرم ریست می‌شود.</p>\n      <h3>اعتبارسنجی</h3>\n      <p>بررسی ورودی‌ها قبل از ارسال.</p>",
+    "code": "class FormSimulator {\n  constructor() {\n    this.listeners = {};\n  }\n  addEventListener(event, cb) {\n    if (!this.listeners[event]) this.listeners[event] = [];\n    this.listeners[event].push(cb);\n  }\n  submit() {\n    if (this.listeners.submit) {\n      this.listeners.submit.forEach(cb => cb({ preventDefault: () => {} }));\n    }\n  }\n}\nconst formSim = new FormSimulator();\nformSim.addEventListener(\"submit\", () => console.log(\"✅ فرم ارسال شد\"));\nformSim.submit();"
+  },
+  {
+    "id": "timers",
+    "cat": "Async JS",
+    "title": "setTimeout و setInterval",
+    "badge": "Async",
+    "content": "<h3>setTimeout</h3>\n      <p>یک بار بعد از تأخیر اجرا می‌شود.</p>\n      <pre>setTimeout(callback, delay)</pre>\n      <h3>setInterval</h3>\n      <p>هر delay یک بار اجرا می‌شود.</p>\n      <pre>setInterval(callback, delay)</pre>\n      <div class=\"warn\">setInterval را با <span class=\"hl\">clearInterval</span> متوقف کنید تا مموری لیک نشود.</div>",
+    "code": "console.log(\"شروع\");\nsetTimeout(() => {\n  console.log(\"بعد از 500ms اجرا شدم!\");\n}, 500);\nsetTimeout(() => console.log(\"آخر\"), 0);\nconsole.log(\"زودتر\");\nlet count = 0;\nconst intervalId = setInterval(() => {\n  count++;\n  console.log(\"تیک:\", count);\n  if (count >= 3) {\n    clearInterval(intervalId);\n    console.log(\"✅ متوقف شد\");\n  }\n}, 200);\nfunction countdown(from) {\n  let current = from;\n  const id = setInterval(() => {\n    console.log(\"⏰\", current);\n    current--;\n    if (current < 0) {\n      clearInterval(id);\n      console.log(\"🚀 شروع!\");\n    }\n  }, 300);\n}\ncountdown(3);"
+  },
+  {
+    "id": "promises",
+    "cat": "Async JS",
+    "title": "Promise",
+    "badge": "پیشرفته",
+    "content": "<p>Promise نمایانگر یک عملیات ناهمزمان است.</p>\n      <h3>سه حالت</h3>\n      <ul>\n        <li><span class=\"hl\">pending</span> — در انتظار</li>\n        <li><span class=\"hl\">fulfilled</span> — موفق</li>\n        <li><span class=\"hl\">rejected</span> — شکست</li>\n      </ul>\n      <h3>متدها</h3>\n      <ul>\n        <li><span class=\"hl\">.then()</span> — موفق</li>\n        <li><span class=\"hl\">.catch()</span> — خطا</li>\n        <li><span class=\"hl\">.finally()</span> — همیشه</li>\n        <li><span class=\"hl\">Promise.all()</span> — همه با هم</li>\n        <li><span class=\"hl\">Promise.race()</span> — اولین</li>\n      </ul>",
+    "code": "function fetchData(id) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      if (id < 0) {\n        reject(new Error(\"id نامعتبر\"));\n      } else {\n        resolve({ id, data: \"داده \" + id });\n      }\n    }, 100);\n  });\n}\nfetchData(1)\n  .then(result => {\n    console.log(\"✅\", result.data);\n    return result.id * 100;\n  })\n  .then(score => console.log(\"امتیاز:\", score))\n  .catch(err => console.error(\"❌\", err.message))\n  .finally(() => console.log(\"تموم شد\"));\nPromise.all([fetchData(1), fetchData(2), fetchData(3)])\n  .then(results => results.forEach(r => console.log(\"all ✓\", r.data)))\n  .catch(err => console.error(\"all ❌\", err));\nPromise.race([fetchData(3), fetchData(1), fetchData(2)])\n  .then(first => console.log(\"اولین:\", first.data));"
+  },
+  {
+    "id": "async-await",
+    "cat": "Async JS",
+    "title": "Async/Await",
+    "badge": "پیشرفته",
+    "content": "<p>روش مدرن برای کار با Promise. کد را sync می‌نویسیم.</p>\n      <h3>قوانین</h3>\n      <ul>\n        <li>تابع باید <span class=\"hl\">async</span> باشد</li>\n        <li><span class=\"hl\">await</span> فقط داخل async کار می‌کند</li>\n        <li>از <span class=\"hl\">try/catch</span> برای خطاها استفاده کنید</li>\n      </ul>",
+    "code": "function wait(ms, value, fail = false) {\n  return new Promise((res, rej) =>\n    setTimeout(() => fail ? rej(new Error(\"خطا!\")) : res(value), ms)\n  );\n}\nasync function loadUser() {\n  console.log(\"شروع لود...\");\n  const user = await wait(100, { name: \"علی\", age: 25 });\n  console.log(\"کاربر:\", user.name);\n  const score = await wait(50, 95);\n  console.log(\"امتیاز:\", score);\n  return { user, score };\n}\nloadUser().then(result => console.log(\"نتیجه:\", result));\nasync function safeLoad() {\n  try {\n    const data = await wait(50, \"داده‌ها\");\n    console.log(\"✅\", data);\n    await wait(30, null, true);\n  } catch (err) {\n    console.error(\"❌\", err.message);\n  } finally {\n    console.log(\"finally\");\n  }\n}\nsafeLoad();\nasync function sequential() {\n  console.time(\"seq\");\n  const a = await wait(100, \"A\");\n  const b = await wait(100, \"B\");\n  const c = await wait(100, \"C\");\n  console.log(a, b, c);\n  console.timeEnd(\"seq\");\n}\nasync function parallel() {\n  console.time(\"par\");\n  const [a, b, c] = await Promise.all([\n    wait(100, \"A\"),\n    wait(100, \"B\"),\n    wait(100, \"C\")\n  ]);\n  console.log(a, b, c);\n  console.timeEnd(\"par\");\n}\nsequential();\nparallel();"
+  },
+  {
+    "id": "localstorage",
+    "cat": "Storage & BOM",
+    "title": "localStorage",
+    "badge": "مرورگر",
+    "content": "<p>ذخیره‌سازی داده در مرورگر کاربر.</p>\n      <h3>متدها</h3>\n      <ul>\n        <li><span class=\"hl\">setItem(key, value)</span> — ذخیره</li>\n        <li><span class=\"hl\">getItem(key)</span> — خواندن</li>\n        <li><span class=\"hl\">removeItem(key)</span> — حذف</li>\n        <li><span class=\"hl\">clear()</span> — پاک کردن همه</li>\n      </ul>\n      <div class=\"warn\">فقط <span class=\"hl\">string</span> ذخیره می‌کند. برای آبجکت از <span class=\"hl\">JSON.stringify</span> استفاده کنید.</div>",
+    "code": "const ls = {\n  setItem: (k, v) => console.log(`💾 ذخیره: ${k}`),\n  getItem: (k) => \"محمد\",\n  removeItem: (k) => console.log(`🗑️ حذف: ${k}`)\n};\nls.setItem(\"username\", \"محمد\");\nconsole.log(ls.getItem(\"username\"));\nconst user = { name: \"علی\", age: 25 };\nls.setItem(\"user\", JSON.stringify(user));\nconst savedUser = JSON.parse(ls.getItem(\"user\"));\nconsole.log(savedUser.name);\nclass Storage {\n  constructor() {\n    this.store = {};\n  }\n  set(key, val) {\n    this.store[key] = JSON.stringify(val);\n  }\n  get(key) {\n    try { return JSON.parse(this.store[key] ?? null); }\n    catch { return null; }\n  }\n  remove(key) { delete this.store[key]; }\n}\nconst store = new Storage();\nstore.set(\"config\", { theme: \"dark\" });\nconsole.log(store.get(\"config\"));"
+  },
+  {
+    "id": "json",
+    "cat": "Storage & BOM",
+    "title": "JSON",
+    "badge": "مهم",
+    "content": "<p>فرمت متنی برای تبادل داده.</p>\n      <h3>متدها</h3>\n      <ul>\n        <li><span class=\"hl\">JSON.stringify()</span> — آبجکت → string</li>\n        <li><span class=\"hl\">JSON.parse()</span> — string → آبجکت</li>\n      </ul>\n      <h3>قوانین</h3>\n      <ul>\n        <li>کلیدها با <span class=\"hl\">double quote</span></li>\n        <li><span class=\"hl\">undefined</span> و <span class=\"hl\">function</span> مجاز نیستند</li>\n      </ul>",
+    "code": "const user = {\n  name: \"علی\",\n  age: 25,\n  skills: [\"JS\", \"React\"],\n  greet: function() {}\n};\nconst json = JSON.stringify(user);\nconsole.log(json);\nconsole.log(typeof json);\nconst parsed = JSON.parse(json);\nconsole.log(parsed.name);\nconst original = { a: 1, b: { c: 2 } };\nconst clone = JSON.parse(JSON.stringify(original));\nclone.b.c = 999;\nconsole.log(\"original:\", original.b.c);\nconsole.log(\"clone:\", clone.b.c);\ntry {\n  JSON.parse(\"{ invalid }\");\n} catch (err) {\n  console.error(\"❌ JSON نامعتبر:\", err.message);\n}"
+  },
+  {
+    "id": "closure",
+    "cat": "مفاهیم پیشرفته",
+    "title": "Closure",
+    "badge": "پیشرفته",
+    "content": "<p>Closure یعنی تابع داخلی به متغیرهای تابع بیرونی دسترسی دارد، <span class=\"hl\">حتی بعد از اینکه تابع بیرونی تمام شده.</span></p>\n      <h3>کاربردها</h3>\n      <ul>\n        <li>Private Variables — متغیرهای خصوصی</li>\n        <li>Factory Functions — توابع اختصاصی</li>\n        <li>Memoization — کش کردن</li>\n      </ul>",
+    "code": "function outer() {\n  let count = 0;\n  return {\n    increment() { count++; console.log(\"count:\", count); },\n    decrement() { count--; console.log(\"count:\", count); },\n    getCount() { return count; }\n  };\n}\nconst counter1 = outer();\ncounter1.increment();\ncounter1.increment();\nconst counter2 = outer();\ncounter2.increment();\nfunction createMultiplier(factor) {\n  return (n) => n * factor;\n}\nconst double = createMultiplier(2);\nconsole.log(double(10));\nfunction createPerson(name, age) {\n  let _age = age;\n  return {\n    getName: () => name,\n    getAge: () => _age,\n    birthday() { _age++; console.log(`${name} شد ${_age} ساله`); }\n  };\n}\nconst ali = createPerson(\"علی\", 24);\nali.birthday();\nconsole.log(ali.getAge());"
+  },
+  {
+    "id": "fetch-api",
+    "cat": "API و Async",
+    "title": "fetch API",
+    "badge": "پیشرفته",
+    "content": "<p>روش مدرن برای درخواست‌های HTTP.</p>\n      <h3>متدها</h3>\n      <ul>\n        <li><span class=\"hl\">GET</span> — دریافت داده</li>\n        <li><span class=\"hl\">POST</span> — ارسال داده</li>\n        <li><span class=\"hl\">PUT</span> — به‌روزرسانی کامل</li>\n        <li><span class=\"hl\">PATCH</span> — به‌روزرسانی جزئی</li>\n        <li><span class=\"hl\">DELETE</span> — حذف داده</li>\n      </ul>\n      <div class=\"tip\">همیشه <span class=\"hl\">res.ok</span> را بررسی کنید. fetch خطاهای ۴۰۴ را به catch نمی‌فرستد.</div>",
+    "code": "fetch(\"https://jsonplaceholder.typicode.com/users\")\n  .then(res => {\n    if (!res.ok) throw new Error(\"خطا\");\n    return res.json();\n  })\n  .then(data => console.log(\"کاربران:\", data.slice(0, 2)))\n  .catch(err => console.error(\"❌\", err));\nfetch(\"https://jsonplaceholder.typicode.com/posts\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify({ userId: 1, title: \"عنوان\", body: \"متن\" })\n})\n  .then(res => res.json())\n  .then(data => console.log(\"✅ پست ایجاد شد:\", data))\n  .catch(err => console.error(\"❌\", err));\nfetch(\"https://jsonplaceholder.typicode.com/posts/100\", {\n  method: \"DELETE\"\n})\n  .then(res => console.log(\"✅ حذف شد\"))\n  .catch(err => console.error(\"❌\", err));"
+  },
+  {
+    "id": "axios",
+    "cat": "API و Async",
+    "title": "Axios",
+    "badge": "پیشرفته",
+    "content": "<p>کتابخانه محبوب برای درخواست‌های HTTP.</p>\n      <h3>مزایا</h3>\n      <ul>\n        <li>✅ JSON را خودکار parse می‌کند</li>\n        <li>✅ خطاهای HTTP را به catch می‌فرستد</li>\n        <li>✅ از interceptors پشتیبانی می‌کند</li>\n      </ul>",
+    "code": "const axiosSim = {\n  get: (url) => {\n    console.log(`📤 GET: ${url}`);\n    return Promise.resolve({ data: { id: 1, name: \"علی\" } });\n  }\n};\naxiosSim.get(\"/users\").then(res => console.log(\"✅\", res.data));"
+  },
+  {
+    "id": "bom",
+    "cat": "Storage & BOM",
+    "title": "BOM — مرورگر",
+    "badge": "مرورگر",
+    "content": "<p>BOM به شما امکان تعامل با مرورگر را می‌دهد.</p>\n      <h3>window</h3>\n      <p>ابجکت اصلی مرورگر.</p>\n      <h3>location</h3>\n      <p>اطلاعات آدرس صفحه.</p>\n      <h3>history</h3>\n      <p>تاریخچه مرورگر.</p>\n      <h3>navigator</h3>\n      <p>اطلاعات مرورگر کاربر.</p>",
+    "code": "console.log(\"innerWidth:\", window.innerWidth);\nconsole.log(\"innerHeight:\", window.innerHeight);\nconsole.log(\"href:\", location.href);\nconsole.log(\"hostname:\", location.hostname);\nconsole.log(\"pathname:\", location.pathname);\nconsole.log(\"userAgent:\", navigator.userAgent);\nconsole.log(\"language:\", navigator.language);\nconsole.log(\"online:\", navigator.onLine);"
+  }
+]
