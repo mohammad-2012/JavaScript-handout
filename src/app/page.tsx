@@ -25,7 +25,7 @@ export default function Home() {
         <div className="mt-7 flex flex-wrap items-center gap-4">
           <Link
             href={`/docs/${topics[0].id}`}
-            className="inline-flex items-center gap-2 rounded-lg bg-zinc-900 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-zinc-700 dark:bg-amber-400 dark:text-zinc-950 dark:hover:bg-amber-300"
+            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-blue-700 dark:bg-blue-600 dark:text-white dark:hover:bg-blue-500"
           >
             شروع یادگیری
             <LuArrowLeft className="size-4" />
