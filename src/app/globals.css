@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global Styles ── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-zinc-700 antialiased dark:bg-zinc-950 dark:text-zinc-300;
+}
+
+::selection {
+  @apply bg-sky-200/60 text-sky-950 dark:bg-sky-500/30 dark:text-sky-100;
+}
+
+/* ── Educational Document ── */
+
+.doc {
+  @apply text-[15.5px] leading-[2.15] text-zinc-600 dark:text-zinc-400;
+  overflow-wrap: break-word;
+}
+
+.doc > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Headings */
+
+.doc h2 {
+  @apply mt-12 mb-4 text-xl font-extrabold text-zinc-900 dark:text-zinc-100;
+  line-height: 1.8;
+}
+
+.doc h3 {
+  @apply mt-11 mb-3 text-lg font-bold text-zinc-900 dark:text-zinc-100;
+  line-height: 1.9;
+}
+
+.doc h4 {
+  @apply mt-8 mb-2 text-base font-bold text-zinc-800 dark:text-zinc-200;
+  line-height: 1.9;
+}
+
+/* Paragraphs */
+
+.doc p {
+  @apply my-0 text-zinc-600 dark:text-zinc-400;
+  line-height: 2.15;
+}
+
+.doc strong {
+  @apply font-bold text-zinc-900 dark:text-zinc-100;
+}
+
+/* Lists */
+
+.doc ul,
+.doc ol {
+  @apply my-0 space-y-2.5 ps-7;
+  line-height: 2;
+}
+
+.doc ul {
+  @apply list-disc marker:text-sky-500;
+}
+
+.doc ol {
+  @apply list-decimal marker:text-sky-500;
+}
+
+.doc li {
+  @apply ps-1 text-zinc-600 dark:text-zinc-400;
+}
+
+.doc li::marker {
+  @apply font-semibold;
+}
+
+.doc li > ul,
+.doc li > ol {
+  @apply mt-2;
+}
+
+/* Inline Code */
+
+.doc .hl,
+.doc code {
+  @apply rounded-md bg-sky-50 px-1.5 py-0.5 font-mono text-[13px] text-sky-700 dark:bg-sky-950/50 dark:text-sky-300;
+  direction: ltr;
+  unicode-bidi: isolate;
+  overflow-wrap: anywhere;
+}
+
+/* Code Blocks */
+
+.doc pre {
+  @apply overflow-x-auto rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm dark:border-zinc-800 dark:bg-zinc-900;
+  direction: ltr;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.doc pre code {
+  @apply rounded-none bg-transparent p-0 text-inherit dark:bg-transparent;
+  overflow-wrap: normal;
+}
+
+/* Tips and Warnings */
+
+.doc .tip,
+.doc .warn {
+  @apply relative my-7 rounded-xl border px-5 py-4 text-[14px] leading-[2.1];
+}
+
+.doc .tip {
+  @apply border-sky-200/80 bg-sky-50/70 text-sky-900 dark:border-sky-400/15 dark:bg-sky-400/[0.06] dark:text-sky-200;
+  border-inline-start-width: 3px;
+  border-inline-start-color: #38bdf8;
+}
+
+.doc .warn {
+  @apply border-amber-200/80 bg-amber-50/70 text-amber-950 dark:border-amber-400/15 dark:bg-amber-400/[0.06] dark:text-amber-200;
+  border-inline-start-width: 3px;
+  border-inline-start-color: #f59e0b;
+}
+
+.doc .tip::before,
+.doc .warn::before {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.doc .tip::before {
+  content: "نکته";
+  @apply text-sky-700 dark:text-sky-400;
+}
+
+.doc .warn::before {
+  content: "هشدار";
+  @apply text-amber-700 dark:text-amber-400;
+}
+
+/* Tables */
+
+.doc .compare-table,
+.doc table {
+  @apply my-7 block w-full overflow-x-auto rounded-xl border border-zinc-200 text-sm dark:border-zinc-800;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.doc th {
+  @apply whitespace-nowrap bg-zinc-100 px-4 py-3 text-start font-bold text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
+}
+
+.doc td {
+  @apply whitespace-nowrap border-t border-zinc-200 px-4 py-3 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400;
+}
+
+.doc tbody tr,
+.doc table tr {
+  @apply transition-colors;
+}
+
+.doc tbody tr:hover td,
+.doc table tr:hover td {
+  @apply bg-zinc-50 dark:bg-zinc-900/60;
+}
+
+/* Links */
+
+.doc a {
+  @apply font-medium text-sky-600 underline decoration-sky-300/60 underline-offset-4 transition-colors hover:text-sky-700 dark:text-sky-400 dark:decoration-sky-500/30 dark:hover:text-sky-300;
+}
+
+/* Blockquotes */
+
+.doc blockquote {
+  @apply border-s-2 border-zinc-300 ps-4 text-zinc-500 dark:border-zinc-700 dark:text-zinc-400;
+}
+
+/* Horizontal Divider */
+
+.doc hr {
+  @apply my-10 border-zinc-200 dark:border-zinc-800;
+}
+
+/* ── CodeMirror Playground ── */
+
+.cm-editor {
+  font-family: "JetBrains Mono Variable", monospace;
+}
+
+.cm-editor .cm-gutters {
+  user-select: none;
+}
+
+.cm-editor .cm-activeLine {
+  transition: background-color 150ms ease;
+}
+
+.cm-editor .cm-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: #52525b transparent;
+}
+
+.cm-editor .cm-scroller::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cm-editor .cm-scroller::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-zinc-600/60;
+}
+
+.cm-editor .cm-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ── Thin Scrollbar ── */
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #bae6fd transparent;
+}
+
+.dark .thin-scroll {
+  scrollbar-color: #334155 transparent;
+}
+
+/* ── Telegram Flight Animation ── */
+
+@keyframes telegram-fly {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(2px, -3px) rotate(8deg);
+  }
+
+  50% {
+    transform: translate(0, -5px) rotate(0deg);
+  }
+
+  75% {
+    transform: translate(-2px, -2px) rotate(-8deg);
+  }
+}
+
+.animate-telegram-fly {
+  animation: telegram-fly 2s ease-in-out infinite;
+}
+
+/* ── Responsive Document ── */
+
+@media (max-width: 640px) {
+  .doc {
+    @apply text-[14.5px];
+    line-height: 2.1;
+  }
+
+  .doc > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .doc h2 {
+    @apply mt-9 text-lg;
+  }
+
+  .doc h3 {
+    @apply mt-9 text-base;
+  }
+
+  .doc .tip,
+  .doc .warn {
+    @apply my-6 px-4 py-3 text-[13px];
+  }
+
+  .doc th,
+  .doc td {
+    @apply px-3 py-2.5 text-xs;
+  }
+}
